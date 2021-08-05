@@ -15,6 +15,7 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    @State private var addHabitsViewIsPresented = false
 
     var body: some View {
         NavigationView {
@@ -27,7 +28,10 @@ struct ContentView: View {
             .navigationTitle(Text("Items"))
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: addItem) {
+                   
+                    Button(action: {
+                        self.addHabitsViewIsPresented = true
+                    }) {
                         Label("Add Item", systemImage: "plus")
                     }
                     
@@ -36,6 +40,10 @@ struct ContentView: View {
                     #endif
                     
                 }
+            }.sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
+                print("Add habits view is present: \(self.addHabitsViewIsPresented)")
+            }) {
+                AddHabitView(message: "Add habit view")
             }
         }
     }
