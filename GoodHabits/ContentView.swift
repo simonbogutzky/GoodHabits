@@ -21,11 +21,11 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                    Text("\(item.name!)")
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle(Text("Items"))
+            .navigationTitle(Text("Habits"))
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                    
@@ -43,7 +43,7 @@ struct ContentView: View {
             }.sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
                 print("Add habits view is present: \(self.addHabitsViewIsPresented)")
             }) {
-                AddHabitView(message: "Add habit view")
+                AddHabitView()
             }
         }
     }
