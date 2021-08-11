@@ -21,7 +21,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    Text("\(item.name!)")
+                    HabitRowView(item: item)
                 }
                 .onDelete(perform: deleteItems)
             }
