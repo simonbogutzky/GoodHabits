@@ -17,7 +17,9 @@ struct HabitRowView: View {
     var body: some View {
         HStack {
             Text(item.name!)
-            Toggle("", isOn: $item.isChecked)
+            ForEach(Array(item.days as? Set<Day> ?? []), id: \.self) { day in
+                DayCheckBoxView(day: day)
+            }
         }
     }
 }
@@ -29,11 +31,22 @@ struct HabitRowView_Previews: PreviewProvider {
         let item = Item(context: viewContext)
         item.name = "Do something"
         item.timestamp = Date()
-        item.isChecked = true
+        
+        let monday = Date.today().previous(.monday, considerToday: true)
+        
+        for i in 0...6 {
+            let day = Day(context: viewContext)
+            day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
+            day.isDone = false
+            item.addToDays(day)
+        }
+        
         return item
     }
     
     static var previews: some View {
-        HabitRowView(item: item)
+        Group {
+            HabitRowView(item: item)
+        }
     }
 }

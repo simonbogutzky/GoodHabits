@@ -17,6 +17,15 @@ struct PersistenceController {
             let newItem = Item(context: viewContext)
             newItem.name = "Habits \(i)"
             newItem.timestamp = Date()
+            
+            let monday = Date.today().previous(.monday, considerToday: true)
+            
+            for i in 0...6 {
+                let day = Day(context: viewContext)
+                day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
+                day.isDone = false
+                newItem.addToDays(day)
+            }
         }
         do {
             try viewContext.save()
