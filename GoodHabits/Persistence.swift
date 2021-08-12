@@ -7,6 +7,17 @@
 
 import CoreData
 
+public func initializeFirstWeekOfDays(_ viewContext: NSManagedObjectContext, _ item: Item) {
+    let monday = Date.today().previous(.monday, considerToday: true)
+    
+    for i in 0...6 {
+        let day = Day(context: viewContext)
+        day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
+        day.isDone = false
+        item.addToDays(day)
+    }
+}
+
 struct PersistenceController {
     static let shared = PersistenceController()
 
@@ -14,18 +25,11 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for i in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.name = "Habits \(i)"
-            newItem.timestamp = Date()
+            let item = Item(context: viewContext)
+            item.name = "Habits \(i)"
+            item.timestamp = Date()
             
-            let monday = Date.today().previous(.monday, considerToday: true)
-            
-            for i in 0...6 {
-                let day = Day(context: viewContext)
-                day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
-                day.isDone = false
-                newItem.addToDays(day)
-            }
+            initializeFirstWeekOfDays(viewContext, item)
         }
         do {
             try viewContext.save()

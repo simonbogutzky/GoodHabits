@@ -41,17 +41,10 @@ struct AddHabitView: View {
     }
     
     private func addHabit() {
-        let newItem = Item(context: viewContext)
-        newItem.name = name
+        let item = Item(context: viewContext)
+        item.name = name
         
-        let monday = Date.today().previous(.monday, considerToday: true)
-        
-        for i in 0...6 {
-            let day = Day(context: viewContext)
-            day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
-            day.isDone = false
-            newItem.addToDays(day)
-        }
+        initializeFirstWeekOfDays(viewContext, item)
         
         do {
             try viewContext.save()
