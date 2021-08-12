@@ -15,10 +15,12 @@ struct HabitRowView: View {
     }
     
     var body: some View {
-        HStack {
-            Text(item.name!)
-            ForEach(Array(item.days as? Set<Day> ?? []), id: \.self) { day in
-                DayCheckBoxView(day: day)
+        VStack(alignment: .leading, spacing: 8) {
+            Text(item.name ?? "").bold().foregroundColor(Color(.systemGray))
+            HStack {
+                ForEach(Array(item.days as? Set<Day> ?? []), id: \.self) { day in
+                    DayCheckBoxView(day: day)
+                }
             }
         }
     }

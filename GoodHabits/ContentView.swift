@@ -16,15 +16,22 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     @State private var addHabitsViewIsPresented = false
+    
+    init() {
+        UITableView.appearance().sectionFooterHeight = 0
+    }
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    HabitRowView(item: item)
+                    Section {
+                        HabitRowView(item: item)
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle(Text("Habits"))
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

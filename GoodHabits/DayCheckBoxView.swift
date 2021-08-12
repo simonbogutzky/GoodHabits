@@ -32,12 +32,13 @@ struct CheckboxStyle: ToggleStyle {
  
             Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
                 .resizable()
-                .frame(width: 24, height: 24)
-                .foregroundColor(configuration.isOn ? .blue : .gray)
+                .frame(width: 22, height: 22)
+                .foregroundColor(configuration.isOn ? .blue : Color(.systemGray4))
                 .font(.system(size: 20, weight: .regular, design: .default))
                 .onTapGesture {
                     configuration.isOn.toggle()
                 }
+            Spacer()
         }
  
     }
@@ -49,7 +50,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
         let viewContext = PersistenceController.preview.container.viewContext
         let day = Day(context: viewContext)
         day.date = Date()
-        day.isDone = true
+        day.isDone = false
         return day
     }
     
