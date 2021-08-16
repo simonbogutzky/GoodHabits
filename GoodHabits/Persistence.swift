@@ -10,7 +10,7 @@ import CoreData
 public func initializeFirstWeekOfDays(_ viewContext: NSManagedObjectContext, _ item: Item) {
     let monday = Date.today().previous(.monday, considerToday: true)
     
-    for i in 0...6 {
+    for i in 0...66 {
         let day = Day(context: viewContext)
         day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
         day.isDone = false

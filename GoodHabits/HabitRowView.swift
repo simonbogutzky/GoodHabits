@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HabitRowView: View {
     @ObservedObject var item: Item
+    var sunday = Date.today().previous(.sunday)
     
     init(item: Item) {
         self.item = item
@@ -18,7 +19,11 @@ struct HabitRowView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(item.name ?? "").bold().foregroundColor(Color(.systemGray))
             HStack {
-                ForEach(Array(item.days as? Set<Day> ?? []), id: \.self) { day in
+                ForEach(Array(item.days as? Set<Day> ?? [])
+                            .filter({ day in day.date! > self.sunday})
+                            .sorted(by: { first, second in
+                                first.date! < second.date!
+                            }), id: \.self) { day in
                     DayCheckBoxView(day: day)
                 }
             }
