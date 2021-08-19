@@ -16,6 +16,7 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     @State private var addHabitsViewIsPresented = false
+    @State private var date = Date()
     
     init() {
         UITableView.appearance().sectionFooterHeight = 0
@@ -26,7 +27,7 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     Section {
-                        HabitRowView(item: item)
+                        HabitRowView(item: item, current: $date)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -40,6 +41,18 @@ struct ContentView: View {
                         self.addHabitsViewIsPresented = true
                     }) {
                         Label("Add Item", systemImage: "plus")
+                    }
+                    
+                    Button(action: {
+                        date = date.addingTimeInterval(-7 * 60 * 60 * 24)
+                    }) {
+                        Label("Previous Week", systemImage: "chevron.left")
+                    }
+                    
+                    Button(action: {
+                        date = date.addingTimeInterval(7 * 60 * 60 * 24)
+                    }) {
+                        Label("Previous Week", systemImage: "chevron.right")
                     }
                     
                     #if os(iOS)
