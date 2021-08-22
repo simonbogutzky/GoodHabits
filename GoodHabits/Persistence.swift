@@ -7,13 +7,30 @@
 
 import CoreData
 
-public func initializeFirstWeekOfDays(_ viewContext: NSManagedObjectContext, _ item: Item) {
-    let monday = Date.today().previous(.monday, considerToday: true)
+public func initializeFirstWeekOfDays(_ viewContext: NSManagedObjectContext, _ item: Item) {    
+   
+    let previousMonday = item.timestamp!.previous(.monday, considerToday: true)
+    let today = item.timestamp
+    let lastDay = item.timestamp?.addingTimeInterval(66 * 24 * 60 * 60)
+    let lastSunday = lastDay?.next(.sunday)
     
-    for i in 0...66 {
+    let days = Int(round(previousMonday.distance(to: lastSunday!) / (24 * 60 * 60)))
+    
+    for i in 0...days {
+        
         let day = Day(context: viewContext)
-        day.date = monday.addingTimeInterval(TimeInterval(60 * 60 * 24 * i))
+        day.date = previousMonday.addingTimeInterval(TimeInterval(i * 24 * 60 * 60))
         day.isDone = false
+        day.isVisible = true
+        
+        if previousMonday <= day.date! && day.date! < today! {
+            day.isVisible = false
+        }
+        
+        if lastDay! < day.date! && day.date! <= lastSunday! {
+            day.isVisible = false
+        }
+        
         item.addToDays(day)
     }
 }

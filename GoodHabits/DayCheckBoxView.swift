@@ -15,8 +15,13 @@ struct DayCheckBoxView: View {
     }
     
     var body: some View {
-        Toggle("", isOn: $day.isDone)
-            .toggleStyle(CheckboxStyle())
+        if day.isVisible {
+            Toggle("", isOn: $day.isDone)
+                .toggleStyle(CheckboxStyle())
+        } else {
+            Toggle("", isOn: $day.isDone)
+                .toggleStyle(CheckboxStyle()).hidden()
+        }
     }
 }
 
@@ -29,7 +34,7 @@ struct CheckboxStyle: ToggleStyle {
             configuration.label
  
             Spacer()
- 
+            
             Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width: 22, height: 22)
@@ -51,6 +56,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
         let day = Day(context: viewContext)
         day.date = Date()
         day.isDone = false
+        day.isVisible = true
         return day
     }
     
