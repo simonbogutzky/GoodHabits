@@ -19,9 +19,8 @@ struct HabitRowView: View {
                     ForEach(Array(item.days as? Set<Day> ?? [])
                                 .filter({ day in day.date! > current.previous(.monday, considerToday: true)  && day.date! < current.next(.monday) })
                                 .sorted(by: { first, second in
-                                    first.date! < second.date!
-                                }), id: \.self) { day in
-                        
+                        first.date! < second.date!
+                    }), id: \.self) { day in
                         DayCheckBoxView(day: day)
                     }
                 }
