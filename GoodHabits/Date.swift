@@ -13,6 +13,15 @@ extension Date {
         return Date()
     }
     
+    func midnight() -> Date {
+        let calendar = Calendar(identifier: .gregorian)
+        var dateComponents = calendar.dateComponents([.year, .month, .day], from: self)
+        dateComponents.timeZone = TimeZone(abbreviation: "GMT")
+        
+        let midnightComponents = DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "GMT"), year: dateComponents.year, month: dateComponents.month, day: dateComponents.day)
+        return midnightComponents.date!
+    }
+    
     func next(_ weekday: Weekday, considerToday: Bool = false) -> Date {
         return get(.next,
                    weekday,
