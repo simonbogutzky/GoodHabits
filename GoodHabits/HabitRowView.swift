@@ -17,7 +17,13 @@ struct HabitRowView: View {
             ZStack {
                 HStack {
                     ForEach(Array(item.days as? Set<Day> ?? [])
-                                .filter({ day in day.date! > current.previous(.monday, considerToday: true)  && day.date! < current.next(.monday) })
+                                .filter({ day in
+                        
+                        let calendar = Calendar.current
+                        let dayDateComponents = calendar.dateComponents([.weekOfYear], from: day.date!)
+                        let currentDateComponents = calendar.dateComponents([.weekOfYear], from: current)
+                        return currentDateComponents == dayDateComponents
+                    })
                                 .sorted(by: { first, second in
                         first.date! < second.date!
                     }), id: \.self) { day in

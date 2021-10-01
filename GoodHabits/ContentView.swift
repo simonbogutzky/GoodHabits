@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  GoodHabits
 //
-//  Created by Simon Bogutzky on 04.08.21.
+//  Created by Dr. Simon Bogutzky on 04.08.21.
 //
 
 import SwiftUI
@@ -16,7 +16,7 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     @State private var addHabitsViewIsPresented = false
-    @State private var date = Date()
+    @State private var date = Date().midnight()
     
     init() {
         UITableView.appearance().sectionFooterHeight = 0
