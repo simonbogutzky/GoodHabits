@@ -2,51 +2,19 @@
 //  Persistence.swift
 //  GoodHabits
 //
-//  Created by Simon Bogutzky on 04.08.21.
+//  Created by Dr. Simon Bogutzky on 04.08.21.
 //
 
 import CoreData
 
-public func initializeFirstWeekOfDays(_ viewContext: NSManagedObjectContext, _ item: Item) {    
-   
-    let previousMonday = item.timestamp!.previous(.monday, considerToday: true)
-    let today = item.timestamp
-    let lastDay = item.timestamp?.addingTimeInterval(66 * 24 * 60 * 60)
-    let lastSunday = lastDay?.next(.sunday)
-    
-    let days = Int(round(previousMonday.distance(to: lastSunday!) / (24 * 60 * 60)))
-    
-    for i in 0...days {
-        
-        let day = Day(context: viewContext)
-        day.date = previousMonday.addingTimeInterval(TimeInterval(i * 24 * 60 * 60))
-        day.isDone = false
-        day.isVisible = true
-        
-        if previousMonday <= day.date! && day.date! < today! {
-            day.isVisible = false
-        }
-        
-        if lastDay! < day.date! && day.date! <= lastSunday! {
-            day.isVisible = false
-        }
-        
-        item.addToDays(day)
-    }
-}
-
-struct PersistenceController {
+class PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for i in 0..<10 {
-            let item = Item(context: viewContext)
-            item.name = "Habits \(i)"
-            item.timestamp = Date()
-            
-            initializeFirstWeekOfDays(viewContext, item)
+            _ = Item(context: viewContext, name: "Habits \(i)")
         }
         do {
             try viewContext.save()
@@ -58,11 +26,26 @@ struct PersistenceController {
         }
         return result
     }()
+    
+    static var managedObjectModel: NSManagedObjectModel = {
+        let bundle = Bundle(for: PersistenceController.self)
+        
+        guard let url = bundle.url(forResource: "GoodHabits", withExtension: "momd") else {
+            fatalError("Failed to locate momd file for GoodHabits")
+        }
+        
+        guard let model = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load momd file for GoodHabits")
+        }
+        
+        return model
+    }()
 
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "GoodHabits")
+        container = NSPersistentContainer(name: "GoodHabits",
+                                          managedObjectModel: Self.managedObjectModel)
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

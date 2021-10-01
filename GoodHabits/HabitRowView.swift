@@ -35,17 +35,13 @@ struct HabitRowView: View {
 struct HabitRowView_Previews: PreviewProvider {
     static var item: Item {
         let viewContext = PersistenceController.preview.container.viewContext
-        let item = Item(context: viewContext)
-        item.name = "Do something"
-        item.timestamp = Date().addingTimeInterval(-1 * 24 * 60 * 60)
-        
-        // TODO: Move to init method
-        initializeFirstWeekOfDays(viewContext, item)
-        
+        let calendar = Calendar.current
+        let components = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 30, hour: 16, minute: 15)
+        let item = Item(context: viewContext, name: "Do something", timestamp: components.date!)
         return item
     }
     
-    @State static var current = Date()
+    @State static var current = Date().midnight()
     
     static var previews: some View {
         Group {

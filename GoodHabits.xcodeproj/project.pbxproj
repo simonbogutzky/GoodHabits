@@ -11,6 +11,8 @@
 		6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */; };
 		6E59E6EA26C51C5F00224EC5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date.swift */; };
 		6EDB22C326BBEDF800B48CAB /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */; };
+		D30561192704510600F46114 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Item+CoreDataClass.swift */; };
+		D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3344CC82703564000BD8F2E /* HabitTests.swift */; };
 		D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */; };
 		D39BD9FE26BAE9DD00CAFA0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */; };
 		D39BDA0026BAE9E000CAFA0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39BD9FF26BAE9E000CAFA0B /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCheckBoxView.swift; sourceTree = "<group>"; };
 		6E59E6E926C51C5F00224EC5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		D30561172704510600F46114 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
 		D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsApp.swift; sourceTree = "<group>"; };
 		D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */ = {
 			isa = PBXGroup;
 			children = (
+				D30561172704510600F46114 /* Item+CoreDataClass.swift */,
 				D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */,
 				D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */,
 				D39BD9FF26BAE9E000CAFA0B /* Assets.xcassets */,
@@ -141,6 +146,7 @@
 				D39BDA1226BAE9E000CAFA0B /* GoodHabitsTests.swift */,
 				D3E219502701C9EC0030E9D7 /* DateTests.swift */,
 				D39BDA1426BAE9E000CAFA0B /* Info.plist */,
+				D3344CC82703564000BD8F2E /* HabitTests.swift */,
 			);
 			path = GoodHabitsTests;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30561192704510600F46114 /* Item+CoreDataClass.swift in Sources */,
 				D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */,
 				D3E2194F2701C6780030E9D7 /* View+Debug.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* ContentView.swift in Sources */,
@@ -301,6 +308,7 @@
 			files = (
 				D39BDA1326BAE9E000CAFA0B /* GoodHabitsTests.swift in Sources */,
 				D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */,
+				D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

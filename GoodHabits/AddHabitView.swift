@@ -41,12 +41,7 @@ struct AddHabitView: View {
     }
     
     private func addHabit() {
-        let item = Item(context: viewContext)
-        item.name = name
-        item.timestamp = Date()
-        
-        initializeFirstWeekOfDays(viewContext, item)
-        
+        _ = Item(context: viewContext, name: name)
         do {
             try viewContext.save()
         } catch {
