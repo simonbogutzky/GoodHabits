@@ -28,7 +28,6 @@ struct HabitRowView: View {
                         first.date! < second.date!
                     }), id: \.self) { day in
                         DayCheckBoxView(day: day)
-                            .debugPrint("Day date: \(day.date!); isDone: \(day.isDone); isVisible: \(day.isVisible); prevMonday: \(current.previous(.monday, considerToday: true)); nextMonday: \(current.next(.monday))")
                     }
                 }
                 Spacer()
