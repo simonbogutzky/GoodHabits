@@ -20,20 +20,12 @@
 		D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D39BDA1326BAE9E000CAFA0B /* GoodHabitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA1226BAE9E000CAFA0B /* GoodHabitsTests.swift */; };
-		D39BDA1E26BAE9E000CAFA0B /* GoodHabitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA1D26BAE9E000CAFA0B /* GoodHabitsUITests.swift */; };
 		D3E2194F2701C6780030E9D7 /* View+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Debug.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		D39BDA0F26BAE9E000CAFA0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D39BD9F026BAE9DC00CAFA0B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D39BD9F726BAE9DD00CAFA0B;
-			remoteInfo = GoodHabits;
-		};
-		D39BDA1A26BAE9E000CAFA0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D39BD9F026BAE9DC00CAFA0B /* Project object */;
 			proxyType = 1;
@@ -60,9 +52,6 @@
 		D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodHabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BDA1226BAE9E000CAFA0B /* GoodHabitsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsTests.swift; sourceTree = "<group>"; };
 		D39BDA1426BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D39BDA1926BAE9E000CAFA0B /* GoodHabitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodHabitsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D39BDA1D26BAE9E000CAFA0B /* GoodHabitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsUITests.swift; sourceTree = "<group>"; };
-		D39BDA1F26BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Debug.swift"; sourceTree = "<group>"; };
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/DateTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -82,13 +71,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D39BDA1626BAE9E000CAFA0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,7 +79,6 @@
 			children = (
 				D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */,
 				D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */,
-				D39BDA1C26BAE9E000CAFA0B /* GoodHabitsUITests */,
 				D39BD9F926BAE9DD00CAFA0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,7 +88,6 @@
 			children = (
 				D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */,
 				D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */,
-				D39BDA1926BAE9E000CAFA0B /* GoodHabitsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,15 +131,6 @@
 			path = GoodHabitsTests;
 			sourceTree = "<group>";
 		};
-		D39BDA1C26BAE9E000CAFA0B /* GoodHabitsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D39BDA1D26BAE9E000CAFA0B /* GoodHabitsUITests.swift */,
-				D39BDA1F26BAE9E000CAFA0B /* Info.plist */,
-			);
-			path = GoodHabitsUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,24 +169,6 @@
 			productReference = D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D39BDA1826BAE9E000CAFA0B /* GoodHabitsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D39BDA2826BAE9E000CAFA0B /* Build configuration list for PBXNativeTarget "GoodHabitsUITests" */;
-			buildPhases = (
-				D39BDA1526BAE9E000CAFA0B /* Sources */,
-				D39BDA1626BAE9E000CAFA0B /* Frameworks */,
-				D39BDA1726BAE9E000CAFA0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D39BDA1B26BAE9E000CAFA0B /* PBXTargetDependency */,
-			);
-			name = GoodHabitsUITests;
-			productName = GoodHabitsUITests;
-			productReference = D39BDA1926BAE9E000CAFA0B /* GoodHabitsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -229,10 +182,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					D39BDA0D26BAE9E000CAFA0B = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = D39BD9F726BAE9DD00CAFA0B;
-					};
-					D39BDA1826BAE9E000CAFA0B = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = D39BD9F726BAE9DD00CAFA0B;
 					};
@@ -253,7 +202,6 @@
 			targets = (
 				D39BD9F726BAE9DD00CAFA0B /* GoodHabits */,
 				D39BDA0D26BAE9E000CAFA0B /* GoodHabitsTests */,
-				D39BDA1826BAE9E000CAFA0B /* GoodHabitsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,13 +217,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D39BDA0C26BAE9E000CAFA0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D39BDA1726BAE9E000CAFA0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -312,14 +253,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D39BDA1526BAE9E000CAFA0B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D39BDA1E26BAE9E000CAFA0B /* GoodHabitsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -327,11 +260,6 @@
 			isa = PBXTargetDependency;
 			target = D39BD9F726BAE9DD00CAFA0B /* GoodHabits */;
 			targetProxy = D39BDA0F26BAE9E000CAFA0B /* PBXContainerItemProxy */;
-		};
-		D39BDA1B26BAE9E000CAFA0B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D39BD9F726BAE9DD00CAFA0B /* GoodHabits */;
-			targetProxy = D39BDA1A26BAE9E000CAFA0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -540,46 +468,6 @@
 			};
 			name = Release;
 		};
-		D39BDA2926BAE9E000CAFA0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2X8834C2C;
-				INFOPLIST_FILE = GoodHabitsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.local-solutions.GoodHabitsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GoodHabits;
-			};
-			name = Debug;
-		};
-		D39BDA2A26BAE9E000CAFA0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2X8834C2C;
-				INFOPLIST_FILE = GoodHabitsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.local-solutions.GoodHabitsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GoodHabits;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -606,15 +494,6 @@
 			buildConfigurations = (
 				D39BDA2626BAE9E000CAFA0B /* Debug */,
 				D39BDA2726BAE9E000CAFA0B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D39BDA2826BAE9E000CAFA0B /* Build configuration list for PBXNativeTarget "GoodHabitsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D39BDA2926BAE9E000CAFA0B /* Debug */,
-				D39BDA2A26BAE9E000CAFA0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
