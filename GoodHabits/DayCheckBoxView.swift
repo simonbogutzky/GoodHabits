@@ -9,11 +9,11 @@ import SwiftUI
 
 struct DayCheckBoxView: View {
     @ObservedObject var day: Day
-    
+
     init(day: Day) {
         self.day = day
     }
-    
+
     var body: some View {
         if day.isVisible {
             Toggle("", isOn: $day.isDone)
@@ -26,15 +26,15 @@ struct DayCheckBoxView: View {
 }
 
 struct CheckboxStyle: ToggleStyle {
- 
+
     func makeBody(configuration: Self.Configuration) -> some View {
- 
+
         return HStack {
- 
+
             configuration.label
- 
+
             Spacer()
-            
+
             Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width: 22, height: 22)
@@ -45,12 +45,12 @@ struct CheckboxStyle: ToggleStyle {
                 }
             Spacer()
         }
- 
+
     }
 }
 
 struct DayCheckBoxView_Previews: PreviewProvider {
-    
+
     static var day: Day {
         let viewContext = PersistenceController.preview.container.viewContext
         let day = Day(context: viewContext)
@@ -59,7 +59,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
         day.isVisible = true
         return day
     }
-    
+
     static var previews: some View {
         DayCheckBoxView(day: day)
     }

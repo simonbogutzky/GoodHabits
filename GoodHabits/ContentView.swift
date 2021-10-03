@@ -17,7 +17,7 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     @State private var addHabitsViewIsPresented = false
     @State private var date = Date().midnight()
-    
+
     init() {
         UITableView.appearance().sectionFooterHeight = 0
     }
@@ -36,41 +36,45 @@ struct ContentView: View {
             .navigationTitle(Text("Habits"))
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                   
+
                     Button(action: {
                         self.addHabitsViewIsPresented = true
-                    }) {
+                    }, label: {
                         Label("Add Item", systemImage: "plus")
-                    }
-                    
+                    })
+
                     Button(action: {
                         date = date.addingTimeInterval(-7 * 60 * 60 * 24)
-                    }) {
+                    }, label: {
                         Label("Previous Week", systemImage: "chevron.left")
-                    }
-                    
+                    })
+
                     Button(action: {
                         date = date.addingTimeInterval(7 * 60 * 60 * 24)
-                    }) {
+                    }, label: {
                         Label("Previous Week", systemImage: "chevron.right")
-                    }
-                    
+                    })
+
                     #if os(iOS)
                     EditButton()
                     #endif
-                    
+
                 }
-            }.sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
-                print("Add habits view is present: \(self.addHabitsViewIsPresented)")
-            }) {
-                AddHabitView()
             }
-        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification), perform: { output in
+            .sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
+                print("Add habits view is present: \(self.addHabitsViewIsPresented)")
+            }, content: {
+                AddHabitView()
+            })
+        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification),
+                    perform: { _ in
                 do {
                     try viewContext.save()
                 } catch {
                     // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    // fatalError() causes the application to generate a crash log and terminate.
+                    // You should not use this function in a shipping application,
+                    // although it may be useful during development.
                     let nsError = error as NSError
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -86,7 +90,9 @@ struct ContentView: View {
                 try viewContext.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // fatalError() causes the application to generate a crash log and terminate.
+                // You should not use this function in a shipping application,
+                // although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -101,7 +107,9 @@ struct ContentView: View {
                 try viewContext.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // fatalError() causes the application to generate a crash log and terminate.
+                // You should not use this function in a shipping application,
+                // although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
