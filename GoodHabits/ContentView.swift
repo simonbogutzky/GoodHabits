@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.preferredColorPalette) private var palette
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -20,54 +21,61 @@ struct ContentView: View {
 
     init() {
         UITableView.appearance().sectionFooterHeight = 0
+        UITableView.appearance().backgroundColor = .clear
     }
 
     var body: some View {
+
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    Section {
-                        HabitRowView(item: item, current: $date)
+            ZStack {
+                BackgroundView()
+                List {
+
+                    ForEach(items) { item in
+                        Section {
+                            HabitRowView(item: item, current: $date)
+                        }
+                    }.onDelete(perform: deleteItems)
+                }
+                .listStyle(InsetGroupedListStyle())
+                .navigationTitle(Text("Habits"))
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Group {
+                        Button(action: {
+                            self.addHabitsViewIsPresented = true
+                        }, label: {
+                            Label("Add Item", systemImage: "plus")
+                        })
+
+                        Button(action: {
+                            date = date.addingTimeInterval(-7 * 60 * 60 * 24)
+                        }, label: {
+                            Label("Previous Week", systemImage: "chevron.left")
+                        })
+
+                        Button(action: {
+                            date = date.addingTimeInterval(7 * 60 * 60 * 24)
+                        }, label: {
+                            Label("Previous Week", systemImage: "chevron.right")
+                        })
+
+#if os(iOS)
+                        EditButton()
+#endif
+
+                        }.foregroundColor(palette.primary700)
+
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
+                    print("Add habits view is present: \(self.addHabitsViewIsPresented)")
+                }, content: {
+                    AddHabitView()
+                })
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle(Text("Habits"))
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-
-                    Button(action: {
-                        self.addHabitsViewIsPresented = true
-                    }, label: {
-                        Label("Add Item", systemImage: "plus")
-                    })
-
-                    Button(action: {
-                        date = date.addingTimeInterval(-7 * 60 * 60 * 24)
-                    }, label: {
-                        Label("Previous Week", systemImage: "chevron.left")
-                    })
-
-                    Button(action: {
-                        date = date.addingTimeInterval(7 * 60 * 60 * 24)
-                    }, label: {
-                        Label("Previous Week", systemImage: "chevron.right")
-                    })
-
-                    #if os(iOS)
-                    EditButton()
-                    #endif
-
-                }
-            }
-            .sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
-                print("Add habits view is present: \(self.addHabitsViewIsPresented)")
-            }, content: {
-                AddHabitView()
-            })
-        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification),
-                    perform: { _ in
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification),
+                       perform: { _ in
                 do {
                     try viewContext.save()
                 } catch {
@@ -77,8 +85,9 @@ struct ContentView: View {
                     // although it may be useful during development.
                     let nsError = error as NSError
                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        })
+                }
+            })
+        }
     }
 
     private func addItem() {
@@ -114,6 +123,18 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+}
+
+struct BackgroundView: View {
+    @Environment(\.preferredColorPalette) private var palette
+
+    var body: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [palette.primary400, palette.primary100]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+            .ignoresSafeArea()
     }
 }
 

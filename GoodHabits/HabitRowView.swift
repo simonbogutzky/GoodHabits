@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HabitRowView: View {
+    @Environment(\.preferredColorPalette) private var palette
     @ObservedObject var item: Item
     @Binding var current: Date
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(item.name ?? "").bold().foregroundColor(Color(.systemGray))
+            Text(item.name ?? "").bold().foregroundColor(palette.neutral700)
             ZStack {
                 HStack {
                     ForEach(Array(item.days as? Set<Day> ?? [])
