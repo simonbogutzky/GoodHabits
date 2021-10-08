@@ -9,21 +9,23 @@ import SwiftUI
 
 struct HabitRowView: View {
     @Environment(\.preferredColorPalette) private var palette
-    @ObservedObject var item: Item
-    var current: Date
+    @ObservedObject var habit: Habit
+    var date: Date
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(item.name ?? "").bold().foregroundColor(palette.neutral700)
+            Text(habit.statement ?? "")
+                .bold()
+                .foregroundColor(palette.neutral700)
             ZStack {
                 HStack {
-                    ForEach(Array(item.days as? Set<Day> ?? [])
+                    ForEach(Array(habit.days as? Set<Day> ?? [])
                                 .filter({ day in
 
                         let calendar = Calendar.current
                         let dayDateComponents = calendar.dateComponents([.weekOfYear], from: day.date!)
-                        let currentDateComponents = calendar.dateComponents([.weekOfYear], from: current)
-                        return currentDateComponents == dayDateComponents
+                        let dateDateComponents = calendar.dateComponents([.weekOfYear], from: date)
+                        return dateDateComponents == dayDateComponents
                     })
                                 .sorted(by: { first, second in
                         first.date! < second.date!
@@ -39,7 +41,7 @@ struct HabitRowView: View {
 }
 
 struct HabitRowView_Previews: PreviewProvider {
-    static var item: Item {
+    static var habit: Habit {
         let viewContext = PersistenceController.preview.container.viewContext
         let calendar = Calendar.current
         let components = DateComponents(
@@ -51,15 +53,15 @@ struct HabitRowView_Previews: PreviewProvider {
             hour: 16,
             minute: 15
         )
-        let item = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let item = Habit(context: viewContext, statement: "Do something", created: components.date!)
         return item
     }
 
-    @State static var current = Date().midnight()
+    @State static var date = Date().midnight()
 
     static var previews: some View {
         Group {
-            HabitRowView(item: item, current: current)
+            HabitRowView(habit: habit, date: date)
         }
     }
 }

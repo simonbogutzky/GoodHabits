@@ -4,15 +4,15 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isVisible" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Item" inverseName="days" inverseEntity="Item"/>
+        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Habit" inverseName="days" inverseEntity="Habit"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="category">
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="category">
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="statement" optional="YES" attributeType="String"/>
         <relationship name="days" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Day" inverseName="habit" inverseEntity="Day"/>
     </entity>
     <elements>
         <element name="Day" positionX="-22221.45721435547" positionY="-6524.824737548828" width="128" height="89"/>
-        <element name="Item" positionX="-22521.36108398438" positionY="-6597.080230712891" width="159.3242797851562" height="74"/>
+        <element name="Habit" positionX="-22521.36108398438" positionY="-6597.080230712891" width="159.3242797851562" height="74"/>
     </elements>
 </model>

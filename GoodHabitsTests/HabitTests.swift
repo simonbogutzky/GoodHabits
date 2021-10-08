@@ -23,12 +23,12 @@ class HabitTests: XCTestCase {
 
         // Arrange
         let viewContext = persistenceController.container.viewContext
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        let request: NSFetchRequest<Habit> = Habit.fetchRequest()
         let initialCount = try viewContext.count(for: request)
             XCTAssertEqual(initialCount, 0)
 
         // Act
-        _ = Item(context: viewContext)
+        _ = Habit(context: viewContext)
 
         // Assert
         let finalCount = try viewContext.count(for: request)
@@ -41,11 +41,11 @@ class HabitTests: XCTestCase {
         let viewContext = persistenceController.container.viewContext
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something")
+        let sut = Habit(context: viewContext, statement: "Do something")
 
         // Assert
-        let habitName = sut.name
-        XCTAssertEqual("Do something", habitName)
+        let habitStatement = sut.statement
+        XCTAssertEqual("Do something", habitStatement)
     }
 
     func testAddHabitHabitTimestampIs20210927T161500() throws {
@@ -63,11 +63,11 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
-        let habitTimestamp = sut.timestamp
-        XCTAssertEqual(components.date, habitTimestamp)
+        let habitCreated = sut.created
+        XCTAssertEqual(components.date, habitCreated)
     }
 
     func testAddHabitVisibleDaysCountIs66() throws {
@@ -85,7 +85,7 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
         let dayCount = Array(sut.days as? Set<Day> ?? []).filter({day in day.isVisible}).sorted(by: { first, second in
@@ -109,7 +109,7 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
         let expectedComponents = DateComponents(
@@ -145,7 +145,7 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
         let expectedComponents = DateComponents(
@@ -181,7 +181,7 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
         let expectedComponents = DateComponents(
@@ -212,7 +212,7 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
         let expectedComponents = DateComponents(
@@ -243,7 +243,7 @@ class HabitTests: XCTestCase {
         )
 
         // Act
-        let sut = Item(context: viewContext, name: "Do something", timestamp: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
         let dayCount = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in

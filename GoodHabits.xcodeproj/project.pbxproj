@@ -11,7 +11,7 @@
 		6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */; };
 		6E59E6EA26C51C5F00224EC5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date.swift */; };
 		6EDB22C326BBEDF800B48CAB /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */; };
-		D30561192704510600F46114 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Item+CoreDataClass.swift */; };
+		D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
 		D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3344CC82703564000BD8F2E /* HabitTests.swift */; };
 		D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */; };
 		D39BD9FE26BAE9DD00CAFA0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */; };
@@ -53,7 +53,7 @@
 		6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCheckBoxView.swift; sourceTree = "<group>"; };
 		6E59E6E926C51C5F00224EC5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
-		D30561172704510600F46114 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D30561172704510600F46114 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
 		D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsApp.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			children = (
 				D39BDA0926BAE9E000CAFA0B /* Info.plist */,
 				D3FECC84270EEB3E00C3C589 /* Resources */,
-				D30561172704510600F46114 /* Item+CoreDataClass.swift */,
+				D30561172704510600F46114 /* Habit+CoreDataClass.swift */,
 				D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */,
 				D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */,
 				D39BDA0426BAE9E000CAFA0B /* Persistence.swift */,
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30561192704510600F46114 /* Item+CoreDataClass.swift in Sources */,
+				D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */,
 				D3FECC86270EEFF700C3C589 /* Color+Palette.swift in Sources */,
 				D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */,
 				D3FECC88270EF22600C3C589 /* ColorPaletteEnvironment.swift in Sources */,

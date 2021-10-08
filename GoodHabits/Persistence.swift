@@ -14,7 +14,7 @@ class PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for index in 0..<10 {
-            _ = Item(context: viewContext, name: "Habits \(index)")
+            _ = Habit(context: viewContext, statement: "Habits \(index)")
         }
         do {
             try viewContext.save()

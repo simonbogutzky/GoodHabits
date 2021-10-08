@@ -1,5 +1,5 @@
 //
-//  Item+CoreDataClass.swift
+//  Habit+CoreDataClass.swift
 //  GoodHabits
 //
 //  Created by Dr. Simon Bogutzky on 29.09.21.
@@ -9,14 +9,14 @@
 import Foundation
 import CoreData
 
-@objc(Item)
-public class Item: NSManagedObject {
-    public required convenience init(context: NSManagedObjectContext, name: String, timestamp: Date = Date()) {
+@objc(Habit)
+public class Habit: NSManagedObject {
+    public required convenience init(context: NSManagedObjectContext, statement: String, created: Date = Date()) {
         self.init(context: context)
-        self.name = name
-        self.timestamp = timestamp
+        self.statement = statement
+        self.created = created
 
-        let midnight = timestamp.midnight()
+        let midnight = created.midnight()
         let dayCount = 66
 
         for index in 0..<dayCount {

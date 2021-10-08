@@ -13,9 +13,9 @@ struct ContentView: View {
     @Environment(\.preferredColorPalette) private var palette
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Habit.created, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var habits: FetchedResults<Habit>
     @State private var addHabitsViewIsPresented = false
     @State private var date = Date().midnight()
 
@@ -30,9 +30,9 @@ struct ContentView: View {
             ZStack {
                 BackgroundView()
                 List {
-                    ForEach(items) { item in
+                    ForEach(habits) { habit in
                         Section {
-                            HabitRowView(item: item, current: date)
+                            HabitRowView(habit: habit, date: date)
                         }
                     }.onDelete(perform: deleteItems)
                 }
@@ -91,8 +91,8 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newHabit = Habit(context: viewContext)
+            newHabit.created = Date()
 
             do {
                 try viewContext.save()
@@ -109,7 +109,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { habits[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()

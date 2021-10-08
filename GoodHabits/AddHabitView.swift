@@ -10,14 +10,14 @@ import SwiftUI
 struct AddHabitView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
-    @State var name: String = ""
+    @State var statement: String = ""
 
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section(header: Text("Informations")) {
-                        TextField("Name", text: $name)
+                        TextField("Statement", text: $statement)
                     }
                 }
 
@@ -41,7 +41,7 @@ struct AddHabitView: View {
     }
 
     private func addHabit() {
-        _ = Item(context: viewContext, name: name)
+        _ = Habit(context: viewContext, statement: statement)
         do {
             try viewContext.save()
         } catch {
