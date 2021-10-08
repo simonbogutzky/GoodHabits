@@ -30,7 +30,6 @@ struct ContentView: View {
             ZStack {
                 BackgroundView()
                 List {
-
                     ForEach(items) { item in
                         Section {
                             HabitRowView(item: item, current: $date)
@@ -42,30 +41,30 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Group {
-                        Button(action: {
-                            self.addHabitsViewIsPresented = true
-                        }, label: {
-                            Label("Add Item", systemImage: "plus")
-                        })
+                            Button(action: {
+                                self.addHabitsViewIsPresented = true
+                            }, label: {
+                                Label("Add Item", systemImage: "plus")
+                            })
 
-                        Button(action: {
+                            Button(action: {
                             date = date.addingTimeInterval(-7 * 60 * 60 * 24)
-                        }, label: {
-                            Label("Previous Week", systemImage: "chevron.left")
-                        })
+                            }, label: {
+                                Label("Previous Week", systemImage: "chevron.left")
+                            })
 
-                        Button(action: {
-                            date = date.addingTimeInterval(7 * 60 * 60 * 24)
-                        }, label: {
-                            Label("Previous Week", systemImage: "chevron.right")
-                        })
+                            Button(action: {
+                                date = date.addingTimeInterval(7 * 60 * 60 * 24)
+                            }, label: {
+                                Label("Previous Week", systemImage: "chevron.right")
+                            })
 
 #if os(iOS)
-                        EditButton()
+                            EditButton()
 #endif
 
-                        }.foregroundColor(palette.primary700)
-
+                        }
+                        .foregroundColor(palette.primary700)
                     }
                 }
                 .sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
