@@ -32,7 +32,7 @@ struct ContentView: View {
                 List {
                     ForEach(items) { item in
                         Section {
-                            HabitRowView(item: item, current: $date)
+                            HabitRowView(item: item, current: date)
                         }
                     }.onDelete(perform: deleteItems)
                 }

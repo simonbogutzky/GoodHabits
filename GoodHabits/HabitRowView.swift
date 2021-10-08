@@ -10,7 +10,7 @@ import SwiftUI
 struct HabitRowView: View {
     @Environment(\.preferredColorPalette) private var palette
     @ObservedObject var item: Item
-    @Binding var current: Date
+    var current: Date
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -59,7 +59,7 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitRowView(item: item, current: $current)
+            HabitRowView(item: item, current: current)
         }
     }
 }
