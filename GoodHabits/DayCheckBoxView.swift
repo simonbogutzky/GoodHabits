@@ -37,23 +37,20 @@ struct CheckboxStyle: ToggleStyle {
 
             Spacer()
 
-            if #available(iOS 15.0, *) {
-                Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
-                    .symbolRenderingMode(.palette)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 22, height: 22)
-                    .foregroundStyle(
-                        configuration.isOn ? .white : palette.primary200, palette.primary500,
-                        palette.primary500
-                    )
-                    .font(.system(size: 20, weight: .regular, design: .default))
-                    .onTapGesture {
-                        configuration.isOn.toggle()
-                    }
-            } else {
-                // Fallback on earlier versions
-            }
+            Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
+                .symbolRenderingMode(.palette)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 22, height: 22)
+                .foregroundStyle(
+                    configuration.isOn ? .white : palette.primary200, palette.primary500,
+                    palette.primary500
+                )
+                .font(.system(size: 20, weight: .regular, design: .default))
+                .onTapGesture {
+                    configuration.isOn.toggle()
+                }
+
             Spacer()
         }
 
