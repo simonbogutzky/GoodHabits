@@ -166,7 +166,7 @@ class HabitTests: XCTestCase {
         XCTAssertEqual(expectedComponents.date, lastDayDate)
     }
 
-    func testAddHabitFirstDayIs20210927T000000() throws {
+    func testAddHabitFirstDayIs20210920T000000() throws {
 
         // Arrange
         let viewContext = persistenceController.container.viewContext
@@ -189,7 +189,7 @@ class HabitTests: XCTestCase {
             timeZone: TimeZone(abbreviation: "GMT"),
             year: 2021,
             month: 09,
-            day: 27
+            day: 20
         )
         let firstDayDate = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in
             first.date! < second.date!
@@ -197,7 +197,7 @@ class HabitTests: XCTestCase {
         XCTAssertEqual(expectedComponents.date, firstDayDate)
     }
 
-    func testAddHabitLastDayIs20211205T000000() throws {
+    func testAddHabitLastDayIs20211212T000000() throws {
 
         // Arrange
         let viewContext = persistenceController.container.viewContext
@@ -220,7 +220,7 @@ class HabitTests: XCTestCase {
             timeZone: TimeZone(abbreviation: "GMT"),
             year: 2021,
             month: 12,
-            day: 05
+            day: 12
         )
         let lastDayDate = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in
             first.date! < second.date!
@@ -228,7 +228,7 @@ class HabitTests: XCTestCase {
         XCTAssertEqual(expectedComponents.date, lastDayDate)
     }
 
-    func testAddHabitAllDayCountIs70() throws {
+    func testAddHabitAllDayCountIs84() throws {
 
         // Arrange
         let viewContext = persistenceController.container.viewContext
@@ -249,6 +249,6 @@ class HabitTests: XCTestCase {
         let dayCount = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in
             first.date! < second.date!
         }).count
-        XCTAssertEqual(70, dayCount)
+        XCTAssertEqual(84, dayCount)
     }
 }

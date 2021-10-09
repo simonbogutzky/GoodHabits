@@ -26,7 +26,9 @@ public class Habit: NSManagedObject {
             self.addToDays(day)
         }
 
-        let previousMondayMidnight = midnight.previous(.monday, considerToday: true)
+        let previousMondayMidnight = midnight
+            .previous(.monday, considerToday: true)
+            .previous(.monday, considerToday: false)
         let leadingDays = Int(previousMondayMidnight.distance(to: midnight) / 60.0 / 60.0 / 24.0)
 
         for index in 0..<leadingDays {
@@ -36,7 +38,9 @@ public class Habit: NSManagedObject {
         }
 
         let lastDayMidnight = midnight.addingTimeInterval(Double(dayCount) * 60.0 * 60.0 * 24.0)
-        let lastMondayMidnight = lastDayMidnight.next(.monday, considerToday: true)
+        let lastMondayMidnight = lastDayMidnight
+            .next(.monday, considerToday: true)
+            .next(.monday, considerToday: false)
         let trailingDays = Int(lastDayMidnight.distance(to: lastMondayMidnight) / 60.0 / 60.0 / 24.0)
 
         for index in 0..<trailingDays {
