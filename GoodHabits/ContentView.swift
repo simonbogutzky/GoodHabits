@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.preferredColorPalette) private var palette
+    @State private var palette = Color.Palette.blue
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Habit.created, ascending: true)],
@@ -28,11 +28,11 @@ struct ContentView: View {
 
         NavigationView {
             ZStack {
-                BackgroundView()
+                BackgroundView(palette: palette)
                 List {
                     ForEach(habits) { habit in
                         Section {
-                            HabitRowView(habit: habit, date: date)
+                            HabitRowView(palette: palette, habit: habit, date: date)
                         }
                     }.onDelete(perform: deleteItems)
                 }
@@ -57,6 +57,18 @@ struct ContentView: View {
                                 date = date.addingTimeInterval(7 * 60 * 60 * 24)
                             }, label: {
                                 Label("Previous Week", systemImage: "chevron.right")
+                            })
+
+                            Button(action: {
+                                let colorPalettes = [Color.Palette.blue,
+                                                     Color.Palette.green,
+                                                     Color.Palette.red,
+                                                     Color.Palette.yellow
+                                                     ]
+                                let index = Int.random(in: 0 ..< 4)
+                                palette = colorPalettes[index]
+                            }, label: {
+                                Label("Change Colors", systemImage: "paintbrush.fill")
                             })
 
 #if os(iOS)
@@ -126,7 +138,7 @@ struct ContentView: View {
 }
 
 struct BackgroundView: View {
-    @Environment(\.preferredColorPalette) private var palette
+    var palette: Color.Palette
 
     var body: some View {
         LinearGradient(

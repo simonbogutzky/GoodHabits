@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HabitRowView: View {
-    @Environment(\.preferredColorPalette) private var palette
+    var palette: Color.Palette
     @ObservedObject var habit: Habit
     var date: Date
 
@@ -30,7 +30,7 @@ struct HabitRowView: View {
                                 .sorted(by: { first, second in
                         first.date! < second.date!
                     }), id: \.self) { day in
-                        DayCheckBoxView(day: day)
+                        DayCheckBoxView(palette: palette, day: day)
                     }
                 }
                 Spacer()
@@ -61,7 +61,7 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitRowView(habit: habit, date: date)
+            HabitRowView(palette: Color.Palette.blue, habit: habit, date: date)
         }
     }
 }
