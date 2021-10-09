@@ -14,7 +14,7 @@ extension Date {
     }
 
     func midnight() -> Date {
-        let calendar = Calendar(identifier: .gregorian)
+        let calendar = Calendar.current
         var dateComponents = calendar.dateComponents([.year, .month, .day], from: self)
         dateComponents.timeZone = TimeZone(abbreviation: "GMT")
 
