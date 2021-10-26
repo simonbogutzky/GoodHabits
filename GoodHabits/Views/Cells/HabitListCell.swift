@@ -1,5 +1,5 @@
 //
-//  HabitRowView.swift
+//  HabitListCell.swift
 //  GoodHabits
 //
 //  Created by Dr. Simon Bogutzky on 11.08.21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HabitRowView: View {
+struct HabitListCell: View {
     var palette: Color.Palette
     @ObservedObject var habit: Habit
     var date: Date
@@ -61,7 +61,7 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitRowView(palette: Color.Palette.blue, habit: habit, date: date)
+            HabitListCell(palette: Color.Palette.blue, habit: habit, date: date)
         }
     }
 }

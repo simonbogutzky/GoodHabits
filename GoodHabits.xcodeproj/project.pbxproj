@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E30A6BA26C42B440022E8EA /* HabitRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30A6B926C42B440022E8EA /* HabitRowView.swift */; };
+		6E30A6BA26C42B440022E8EA /* HabitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30A6B926C42B440022E8EA /* HabitListCell.swift */; };
 		6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */; };
-		6E59E6EA26C51C5F00224EC5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date.swift */; };
+		6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */; };
 		6EDB22C326BBEDF800B48CAB /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */; };
 		D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
 		D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3344CC82703564000BD8F2E /* HabitTests.swift */; };
 		D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */; };
-		D39BD9FE26BAE9DD00CAFA0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */; };
+		D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */; };
 		D39BDA0026BAE9E000CAFA0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39BD9FF26BAE9E000CAFA0B /* Assets.xcassets */; };
 		D39BDA0326BAE9E000CAFA0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39BDA0226BAE9E000CAFA0B /* Preview Assets.xcassets */; };
 		D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
-		D3E2194F2701C6780030E9D7 /* View+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Debug.swift */; };
+		D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Ext.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
-		D3FECC86270EEFF700C3C589 /* Color+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC85270EEFF700C3C589 /* Color+Palette.swift */; };
+		D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC85270EEFF700C3C589 /* Color+Ext.swift */; };
 		D3FECC88270EF22600C3C589 /* ColorPaletteEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC87270EF22600C3C589 /* ColorPaletteEnvironment.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,15 +49,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6E30A6B926C42B440022E8EA /* HabitRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRowView.swift; sourceTree = "<group>"; };
+		6E30A6B926C42B440022E8EA /* HabitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCell.swift; sourceTree = "<group>"; };
 		6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCheckBoxView.swift; sourceTree = "<group>"; };
-		6E59E6E926C51C5F00224EC5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		D30561172704510600F46114 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
 		D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsApp.swift; sourceTree = "<group>"; };
-		D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
 		D39BD9FF26BAE9E000CAFA0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D39BDA0226BAE9E000CAFA0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D39BDA0426BAE9E000CAFA0B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -65,10 +65,10 @@
 		D39BDA0926BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodHabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BDA1426BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3E2194E2701C6780030E9D7 /* View+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Debug.swift"; sourceTree = "<group>"; };
-		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/DateTests.swift; sourceTree = SOURCE_ROOT; };
+		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
-		D3FECC85270EEFF700C3C589 /* Color+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Palette.swift"; sourceTree = "<group>"; };
+		D3FECC85270EEFF700C3C589 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		D3FECC87270EF22600C3C589 /* ColorPaletteEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +90,108 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3657E10272829D500270A7B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E11272829F300270A7B /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D3657E11272829F300270A7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3FECC85270EEFF700C3C589 /* Color+Ext.swift */,
+				6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */,
+				D3E2194E2701C6780030E9D7 /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D3657E1227282AA700270A7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E1427282B5400270A7B /* Toggles */,
+				D3657E1327282AD000270A7B /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D3657E1327282AD000270A7B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6E30A6B926C42B440022E8EA /* HabitListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D3657E1427282B5400270A7B /* Toggles */ = {
+			isa = PBXGroup;
+			children = (
+				6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */,
+			);
+			path = Toggles;
+			sourceTree = "<group>";
+		};
+		D3657E1527282B8200270A7B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E1727282C0100270A7B /* AddHabitView */,
+				D3657E1627282B8D00270A7B /* HabitListView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D3657E1627282B8D00270A7B /* HabitListView */ = {
+			isa = PBXGroup;
+			children = (
+				D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */,
+			);
+			path = HabitListView;
+			sourceTree = "<group>";
+		};
+		D3657E1727282C0100270A7B /* AddHabitView */ = {
+			isa = PBXGroup;
+			children = (
+				6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */,
+			);
+			path = AddHabitView;
+			sourceTree = "<group>";
+		};
+		D3657E1827282C3200270A7B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */,
+				D39BDA0426BAE9E000CAFA0B /* Persistence.swift */,
+				D30561172704510600F46114 /* Habit+CoreDataClass.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D3657E1927282C5800270A7B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D3344CC82703564000BD8F2E /* HabitTests.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D3657E1A27282C6700270A7B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E1B27282C7800270A7B /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D3657E1B27282C7800270A7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3E219502701C9EC0030E9D7 /* DateTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D39BD9EF26BAE9DC00CAFA0B = {
 			isa = PBXGroup;
 			children = (
@@ -111,21 +213,15 @@
 		D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */ = {
 			isa = PBXGroup;
 			children = (
-				D39BDA0926BAE9E000CAFA0B /* Info.plist */,
+				D3657E1827282C3200270A7B /* Persistence */,
 				D3FECC84270EEB3E00C3C589 /* Resources */,
-				D30561172704510600F46114 /* Habit+CoreDataClass.swift */,
+				D3657E1527282B8200270A7B /* Screens */,
+				D3657E1227282AA700270A7B /* Views */,
+				D3657E10272829D500270A7B /* Utilities */,
+				D39BDA0926BAE9E000CAFA0B /* Info.plist */,
 				D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */,
-				D39BD9FD26BAE9DD00CAFA0B /* ContentView.swift */,
-				D39BDA0426BAE9E000CAFA0B /* Persistence.swift */,
-				D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */,
-				D39BDA0126BAE9E000CAFA0B /* Preview Content */,
-				6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */,
-				6E30A6B926C42B440022E8EA /* HabitRowView.swift */,
-				6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */,
-				6E59E6E926C51C5F00224EC5 /* Date.swift */,
-				D3E2194E2701C6780030E9D7 /* View+Debug.swift */,
-				D3FECC85270EEFF700C3C589 /* Color+Palette.swift */,
 				D3FECC87270EF22600C3C589 /* ColorPaletteEnvironment.swift */,
+				D39BDA0126BAE9E000CAFA0B /* Preview Content */,
 			);
 			path = GoodHabits;
 			sourceTree = "<group>";
@@ -141,9 +237,9 @@
 		D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D3E219502701C9EC0030E9D7 /* DateTests.swift */,
+				D3657E1927282C5800270A7B /* Persistence */,
+				D3657E1A27282C6700270A7B /* Utilities */,
 				D39BDA1426BAE9E000CAFA0B /* Info.plist */,
-				D3344CC82703564000BD8F2E /* HabitTests.swift */,
 			);
 			path = GoodHabitsTests;
 			sourceTree = "<group>";
@@ -298,13 +394,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */,
-				D3FECC86270EEFF700C3C589 /* Color+Palette.swift in Sources */,
+				D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */,
 				D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */,
 				D3FECC88270EF22600C3C589 /* ColorPaletteEnvironment.swift in Sources */,
-				D3E2194F2701C6780030E9D7 /* View+Debug.swift in Sources */,
-				D39BD9FE26BAE9DD00CAFA0B /* ContentView.swift in Sources */,
-				6E30A6BA26C42B440022E8EA /* HabitRowView.swift in Sources */,
-				6E59E6EA26C51C5F00224EC5 /* Date.swift in Sources */,
+				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
+				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
+				6E30A6BA26C42B440022E8EA /* HabitListCell.swift in Sources */,
+				6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */,
 				6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */,
 				D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */,
 				D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */,

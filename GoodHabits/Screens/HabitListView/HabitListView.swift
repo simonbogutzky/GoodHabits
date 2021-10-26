@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HabitListView.swift
 //  GoodHabits
 //
 //  Created by Dr. Simon Bogutzky on 04.08.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct HabitListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var palette = Color.Palette.blue
 
@@ -32,7 +32,7 @@ struct ContentView: View {
                 List {
                     ForEach(habits) { habit in
                         Section {
-                            HabitRowView(palette: palette, habit: habit, date: date)
+                            HabitListCell(palette: palette, habit: habit, date: date)
                         }
                     }.onDelete(perform: deleteItems)
                 }
@@ -149,8 +149,8 @@ struct BackgroundView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HabitListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        HabitListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
