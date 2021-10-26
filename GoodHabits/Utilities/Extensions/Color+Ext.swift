@@ -9,63 +9,74 @@ import SwiftUI
 
 extension Color {
 
-    struct Palette {
-        let name: String
+    enum PaletteColor: String {
+        case red = "Red"
+        case green = "Green"
+        case blue = "Blue"
+        case yellow = "Yellow"
+    }
+
+    class Palette: ObservableObject {
+        @Published var paletteColor: PaletteColor
 
         var neutral100: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-100")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-100")
         }
 
         var neutral200: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-200")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-200")
         }
 
         var neutral300: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-300")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-300")
         }
 
         var neutral400: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-400")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-400")
         }
 
         var neutral500: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-500")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-500")
         }
 
         var neutral600: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-600")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-600")
         }
 
         var neutral700: Color {
-            Color(fromPalette: self.name, semanticName: "neutral-700")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "neutral-700")
         }
 
         var primary100: Color {
-            Color(fromPalette: self.name, semanticName: "primary-100")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-100")
         }
 
         var primary200: Color {
-            Color(fromPalette: self.name, semanticName: "primary-200")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-200")
         }
 
         var primary300: Color {
-            Color(fromPalette: self.name, semanticName: "primary-300")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-300")
         }
 
         var primary400: Color {
-            Color(fromPalette: self.name, semanticName: "primary-400")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-400")
         }
 
         var primary500: Color {
-            Color(fromPalette: self.name, semanticName: "primary-500")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-500")
         }
 
         var primary600: Color {
-            Color(fromPalette: self.name, semanticName: "primary-600")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-600")
         }
 
         var primary700: Color {
-            Color(fromPalette: self.name, semanticName: "primary-700")
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-700")
+        }
+
+        init(color: PaletteColor) {
+            self.paletteColor = color
         }
     }
 }
@@ -79,11 +90,4 @@ private extension Color {
         self.init(UIColor(named: "\(palette)/\(semanticName)")!)
 #endif
     }
-}
-
-extension Color.Palette {
-    static let blue = Color.Palette(name: "Blue")
-    static let green = Color.Palette(name: "Green")
-    static let red = Color.Palette(name: "Red")
-    static let yellow = Color.Palette(name: "Yellow")
 }

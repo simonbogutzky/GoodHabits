@@ -23,7 +23,6 @@
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
 		D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC85270EEFF700C3C589 /* Color+Ext.swift */; };
-		D3FECC88270EF22600C3C589 /* ColorPaletteEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC87270EF22600C3C589 /* ColorPaletteEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +68,6 @@
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
 		D3FECC85270EEFF700C3C589 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
-		D3FECC87270EF22600C3C589 /* ColorPaletteEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +218,6 @@
 				D3657E10272829D500270A7B /* Utilities */,
 				D39BDA0926BAE9E000CAFA0B /* Info.plist */,
 				D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */,
-				D3FECC87270EF22600C3C589 /* ColorPaletteEnvironment.swift */,
 				D39BDA0126BAE9E000CAFA0B /* Preview Content */,
 			);
 			path = GoodHabits;
@@ -396,7 +393,6 @@
 				D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */,
 				D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */,
 				D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */,
-				D3FECC88270EF22600C3C589 /* ColorPaletteEnvironment.swift in Sources */,
 				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
 				6E30A6BA26C42B440022E8EA /* HabitListCell.swift in Sources */,

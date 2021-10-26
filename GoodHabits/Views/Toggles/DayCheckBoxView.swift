@@ -8,28 +8,27 @@
 import SwiftUI
 
 struct DayCheckBoxView: View {
-    var palette: Color.Palette
+
     @ObservedObject var day: Day
 
-    init(palette: Color.Palette, day: Day) {
-        self.palette = palette
+    init(day: Day) {
         self.day = day
     }
 
     var body: some View {
         if day.isVisible {
             Toggle("", isOn: $day.isDone)
-                .toggleStyle(CheckboxStyle(palette: palette))
+                .toggleStyle(CheckboxStyle())
         } else {
             Toggle("", isOn: $day.isDone)
-                .toggleStyle(CheckboxStyle(palette: palette)).hidden()
+                .toggleStyle(CheckboxStyle()).hidden()
         }
     }
 }
 
 struct CheckboxStyle: ToggleStyle {
 
-    var palette: Color.Palette
+    @EnvironmentObject private var colorPalette: Color.Palette
 
     func makeBody(configuration: Self.Configuration) -> some View {
 
@@ -45,8 +44,8 @@ struct CheckboxStyle: ToggleStyle {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 22, height: 22)
                 .foregroundStyle(
-                    configuration.isOn ? .white : palette.primary200, palette.primary500,
-                    palette.primary500
+                    configuration.isOn ? .white : colorPalette.primary200, colorPalette.primary500,
+                    colorPalette.primary500
                 )
                 .font(.system(size: 20, weight: .regular, design: .default))
                 .onTapGesture {
@@ -71,6 +70,6 @@ struct DayCheckBoxView_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        DayCheckBoxView(palette: Color.Palette.blue, day: day)
+        DayCheckBoxView(day: day)
     }
 }

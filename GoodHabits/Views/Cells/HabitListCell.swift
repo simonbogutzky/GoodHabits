@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HabitListCell: View {
-    var palette: Color.Palette
+    @EnvironmentObject private var colorPalette: Color.Palette
     @ObservedObject var habit: Habit
     var date: Date
 
@@ -16,7 +16,7 @@ struct HabitListCell: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(habit.statement ?? "")
                 .bold()
-                .foregroundColor(palette.neutral700)
+                .foregroundColor(colorPalette.neutral700)
             ZStack {
                 HStack {
                     ForEach(Array(habit.days as? Set<Day> ?? [])
@@ -30,7 +30,7 @@ struct HabitListCell: View {
                                 .sorted(by: { first, second in
                         first.date! < second.date!
                     }), id: \.self) { day in
-                        DayCheckBoxView(palette: palette, day: day)
+                        DayCheckBoxView(day: day)
                     }
                 }
                 Spacer()
@@ -61,7 +61,7 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitListCell(palette: Color.Palette.blue, habit: habit, date: date)
+            HabitListCell(habit: habit, date: date)
         }
     }
 }

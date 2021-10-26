@@ -10,7 +10,7 @@ import CoreData
 
 struct HabitListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State private var palette = Color.Palette.blue
+    @EnvironmentObject private var colorPalette: Color.Palette
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Habit.created, ascending: true)],
@@ -28,11 +28,11 @@ struct HabitListView: View {
 
         NavigationView {
             ZStack {
-                BackgroundView(palette: palette)
+                BackgroundView()
                 List {
                     ForEach(habits) { habit in
                         Section {
-                            HabitListCell(palette: palette, habit: habit, date: date)
+                            HabitListCell(habit: habit, date: date)
                         }
                     }.onDelete(perform: deleteItems)
                 }
@@ -60,13 +60,13 @@ struct HabitListView: View {
                             })
 
                             Button(action: {
-                                let colorPalettes = [Color.Palette.blue,
-                                                     Color.Palette.green,
-                                                     Color.Palette.red,
-                                                     Color.Palette.yellow
+                                let paletteColors = [Color.PaletteColor.red,
+                                                     Color.PaletteColor.green,
+                                                     Color.PaletteColor.blue,
+                                                     Color.PaletteColor.yellow
                                                      ]
                                 let index = Int.random(in: 0 ..< 4)
-                                palette = colorPalettes[index]
+                                colorPalette.paletteColor = paletteColors[index]
                             }, label: {
                                 Label("Change Colors", systemImage: "paintbrush.fill")
                             })
@@ -76,7 +76,7 @@ struct HabitListView: View {
 #endif
 
                         }
-                        .foregroundColor(palette.primary700)
+                        .foregroundColor(colorPalette.primary700)
                     }
                 }
                 .sheet(isPresented: $addHabitsViewIsPresented, onDismiss: {
@@ -138,11 +138,11 @@ struct HabitListView: View {
 }
 
 struct BackgroundView: View {
-    var palette: Color.Palette
+    @EnvironmentObject private var colorPalette: Color.Palette
 
     var body: some View {
         LinearGradient(
-            gradient: Gradient(colors: [palette.primary400, palette.primary100]),
+            gradient: Gradient(colors: [colorPalette.primary400, colorPalette.primary100]),
             startPoint: .topLeading,
             endPoint: .bottomTrailing)
             .ignoresSafeArea()
