@@ -71,5 +71,6 @@ struct DayCheckBoxView_Previews: PreviewProvider {
 
     static var previews: some View {
         DayCheckBoxView(day: day)
+            .environmentObject(Color.Palette(color: .blue))
     }
 }

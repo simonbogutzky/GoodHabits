@@ -9,14 +9,12 @@ import SwiftUI
 
 @main
 struct GoodHabitsApp: App {
-    let persistenceController = PersistenceController.shared
 
     let colorPalette = Color.Palette(color: .blue)
 
     var body: some Scene {
         WindowGroup {
             HabitListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(colorPalette)
         }
     }

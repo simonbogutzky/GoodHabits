@@ -13,6 +13,8 @@
 		6EDB22C326BBEDF800B48CAB /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */; };
 		D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
 		D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3344CC82703564000BD8F2E /* HabitTests.swift */; };
+		D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */; };
+		D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3657E1E2728500900270A7B /* HabitListCellViewModel.swift */; };
 		D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */; };
 		D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */; };
 		D39BDA0026BAE9E000CAFA0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39BD9FF26BAE9E000CAFA0B /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		D30561172704510600F46114 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
+		D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListViewModel.swift; sourceTree = "<group>"; };
+		D3657E1E2728500900270A7B /* HabitListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCellViewModel.swift; sourceTree = "<group>"; };
 		D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsApp.swift; sourceTree = "<group>"; };
 		D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				6E30A6B926C42B440022E8EA /* HabitListCell.swift */,
+				D3657E1E2728500900270A7B /* HabitListCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -134,7 +139,6 @@
 		D3657E1527282B8200270A7B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D3657E1727282C0100270A7B /* AddHabitView */,
 				D3657E1627282B8D00270A7B /* HabitListView */,
 			);
 			path = Screens;
@@ -143,17 +147,11 @@
 		D3657E1627282B8D00270A7B /* HabitListView */ = {
 			isa = PBXGroup;
 			children = (
+				D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */,
 				D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */,
-			);
-			path = HabitListView;
-			sourceTree = "<group>";
-		};
-		D3657E1727282C0100270A7B /* AddHabitView */ = {
-			isa = PBXGroup;
-			children = (
 				6EDB22C226BBEDF800B48CAB /* AddHabitView.swift */,
 			);
-			path = AddHabitView;
+			path = HabitListView;
 			sourceTree = "<group>";
 		};
 		D3657E1827282C3200270A7B /* Persistence */ = {
@@ -393,8 +391,10 @@
 				D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */,
 				D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */,
 				D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */,
+				D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */,
 				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
+				D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */,
 				6E30A6BA26C42B440022E8EA /* HabitListCell.swift in Sources */,
 				6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */,
 				6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */,

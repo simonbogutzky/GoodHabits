@@ -9,27 +9,16 @@ import SwiftUI
 
 struct HabitListCell: View {
     @EnvironmentObject private var colorPalette: Color.Palette
-    @ObservedObject var habit: Habit
-    var date: Date
+    var viewModel: HabitListCellViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(habit.statement ?? "")
+            Text(viewModel.statement)
                 .bold()
                 .foregroundColor(colorPalette.neutral700)
             ZStack {
                 HStack {
-                    ForEach(Array(habit.days as? Set<Day> ?? [])
-                                .filter({ day in
-
-                        let calendar = Calendar.current
-                        let dayDateComponents = calendar.dateComponents([.weekOfYear], from: day.date!)
-                        let dateDateComponents = calendar.dateComponents([.weekOfYear], from: date)
-                        return dateDateComponents == dayDateComponents
-                    })
-                                .sorted(by: { first, second in
-                        first.date! < second.date!
-                    }), id: \.self) { day in
+                    ForEach(viewModel.days, id: \.self) { day in
                         DayCheckBoxView(day: day)
                     }
                 }
@@ -61,7 +50,8 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitListCell(habit: habit, date: date)
+            HabitListCell(viewModel: HabitListCellViewModel(habit: habit, date: date))
+                .environmentObject(Color.Palette(color: .blue))
         }
     }
 }
