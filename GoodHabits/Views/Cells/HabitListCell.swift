@@ -14,7 +14,8 @@ struct HabitListCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(viewModel.statement)
-                .bold()
+                .font(.title3)
+                .fontWeight(.semibold)
                 .foregroundColor(colorPalette.neutral700)
             ZStack {
                 HStack {
@@ -26,6 +27,7 @@ struct HabitListCell: View {
                     .frame(height: 22.0)
             }
         }
+        .background(colorPalette.neutral100)
     }
 }
 

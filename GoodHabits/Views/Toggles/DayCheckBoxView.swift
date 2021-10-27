@@ -44,7 +44,7 @@ struct CheckboxStyle: ToggleStyle {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 22, height: 22)
                 .foregroundStyle(
-                    configuration.isOn ? .white : colorPalette.primary200, colorPalette.primary500,
+                    configuration.isOn ? colorPalette.neutral100 : colorPalette.primary200, colorPalette.primary500,
                     colorPalette.primary500
                 )
                 .font(.system(size: 20, weight: .regular, design: .default))
