@@ -113,6 +113,7 @@
 		D3657E1227282AA700270A7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3657E1527282B8200270A7B /* Screens */,
 				D3657E1427282B5400270A7B /* Toggles */,
 				D3657E1327282AD000270A7B /* Cells */,
 			);
@@ -211,7 +212,6 @@
 			children = (
 				D3657E1827282C3200270A7B /* Persistence */,
 				D3FECC84270EEB3E00C3C589 /* Resources */,
-				D3657E1527282B8200270A7B /* Screens */,
 				D3657E1227282AA700270A7B /* Views */,
 				D3657E10272829D500270A7B /* Utilities */,
 				D39BDA0926BAE9E000CAFA0B /* Info.plist */,
