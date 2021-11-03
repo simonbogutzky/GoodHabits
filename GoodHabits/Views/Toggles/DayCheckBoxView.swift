@@ -26,7 +26,7 @@ struct DayCheckBoxView: View {
     }
 }
 
-struct CheckboxStyle: ToggleStyle {
+private struct CheckboxStyle: ToggleStyle {
 
     @EnvironmentObject private var colorPalette: Color.Palette
 
@@ -47,7 +47,7 @@ struct CheckboxStyle: ToggleStyle {
                     configuration.isOn ? colorPalette.neutral100 : colorPalette.primary200, colorPalette.primary500,
                     colorPalette.primary500
                 )
-                .font(.system(size: 20, weight: .regular, design: .default))
+                .font(.system(size: 20, weight: .regular))
                 .onTapGesture {
                     configuration.isOn.toggle()
                 }

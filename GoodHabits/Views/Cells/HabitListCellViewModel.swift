@@ -7,31 +7,33 @@
 
 import SwiftUI
 
-final class HabitListCellViewModel {
+extension HabitListCell {
+    final class HabitListCellViewModel {
 
-    private var habit: Habit
-    private var date: Date
+        private var habit: Habit
+        private var date: Date
 
-    var days: [Day] {
-        Array(habit.days as? Set<Day> ?? [])
-                    .filter({ day in
+        var days: [Day] {
+            Array(habit.days as? Set<Day> ?? [])
+                        .filter({ day in
 
-            let calendar = Calendar.current
-            let dayDateComponents = calendar.dateComponents([.weekOfYear], from: day.date!)
-            let dateDateComponents = calendar.dateComponents([.weekOfYear], from: date)
-            return dateDateComponents == dayDateComponents
-        })
-                    .sorted(by: { first, second in
-            first.date! < second.date!
-        })
-    }
+                let calendar = Calendar.current
+                let dayDateComponents = calendar.dateComponents([.weekOfYear], from: day.date!)
+                let dateDateComponents = calendar.dateComponents([.weekOfYear], from: date)
+                return dateDateComponents == dayDateComponents
+            })
+                        .sorted(by: { first, second in
+                first.date! < second.date!
+            })
+        }
 
-    var statement: String {
-        habit.statement ?? ""
-    }
+        var statement: String {
+            habit.statement ?? ""
+        }
 
-    init(habit: Habit, date: Date) {
-        self.habit = habit
-        self.date = date
+        init(habit: Habit, date: Date) {
+            self.habit = habit
+            self.date = date
+        }
     }
 }

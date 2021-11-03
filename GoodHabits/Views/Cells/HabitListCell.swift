@@ -52,7 +52,7 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitListCell(viewModel: HabitListCellViewModel(habit: habit, date: date))
+            HabitListCell(viewModel: HabitListCell.HabitListCellViewModel(habit: habit, date: date))
                 .environmentObject(Color.Palette(color: .blue))
         }
     }

@@ -15,6 +15,36 @@ final class HabitListViewModel: ObservableObject {
 
     var viewContext: NSManagedObjectContext
 
+    var previousWeekNumberString: String {
+        String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(-7 * 60 * 60 * 24)))
+    }
+
+    var weekNumberString: String {
+        String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date))
+    }
+
+    var nextWeekNumberString: String {
+        String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24)))
+    }
+
+    var dayTuples: [(dayNumber: Int, weekDayAbbreviation: String)] {
+        let firstWeekDay = Calendar.current.firstWeekday
+        let currentWeekDay = Calendar.current.component(.weekday, from: date)
+        let diff = firstWeekDay - currentWeekDay
+        let firstWeekDate = date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
+        let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Tue", "Fri", "Sat"]
+        var tuples: [(Int, String)] = []
+        for index in 0..<dayAbbreviations.count {
+            let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
+            tuples.append((Calendar.current.component(.day, from: currentDate),
+                                       dayAbbreviations[Calendar.current.component(.weekday, from: currentDate) - 1]))
+        }
+        return tuples
+    }
+
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddHabitView: View {
     @ObservedObject var viewModel: HabitListViewModel
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     @State var statement: String = ""
 
     var body: some View {
@@ -28,19 +28,20 @@ struct AddHabitView: View {
                     AddHabitViewToolbarButtons(
                         viewModel: viewModel,
                         statement: statement,
-                        presentationMode: presentationMode)
+                        dismiss: dismiss)
                 }
             }
         }
     }
 }
 
-struct AddHabitViewToolbarButtons: View {
+private struct AddHabitViewToolbarButtons: View {
     @ObservedObject var viewModel: HabitListViewModel
     @EnvironmentObject private var colorPalette: Color.Palette
+
     var statement: String
 
-    var presentationMode: Binding<PresentationMode>
+    var dismiss: DismissAction
 
     var body: some View {
         Group {
@@ -52,7 +53,7 @@ struct AddHabitViewToolbarButtons: View {
 
             Button {
                 viewModel.addItemWithStatement(statement)
-                presentationMode.wrappedValue.dismiss()
+                dismiss()
             } label: {
                 Text("Add")
             }
