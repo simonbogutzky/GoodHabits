@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 final class HabitListViewModel: ObservableObject {
-    @Published var addHabitsViewIsPresented = false
+    @Published var addHabitModalViewIsPresented = false
     @Published var date = Date().midnight()
     @Published var habits: [Habit] = []
 

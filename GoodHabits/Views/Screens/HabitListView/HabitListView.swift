@@ -49,12 +49,15 @@ struct HabitListView: View {
                     Spacer()
                     BottomMenu(viewModel: viewModel)
                 }
+
+                if viewModel.addHabitModalViewIsPresented {
+                    FullScreenBlackTransparencyView()
+
+                    AddHabitModalView(viewModel: viewModel)
+                }
             }
         }
         .ignoresSafeArea()
-        .sheet(isPresented: $viewModel.addHabitsViewIsPresented) {
-            AddHabitView(viewModel: viewModel)
-        }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification),
                    perform: { _ in
 
@@ -241,7 +244,9 @@ private struct BottomMenu: View {
                     .cornerRadius(10)
 
                 Button {
-                    viewModel.addHabitsViewIsPresented = true
+                    withAnimation {
+                        viewModel.addHabitModalViewIsPresented = true
+                    }
                 } label: {
                     CircleButtonView()
                 }
@@ -270,6 +275,18 @@ private struct CircleButtonView: View {
                 .foregroundColor(colorPalette.neutral100)
                 .frame(width: 20, height: 20)
         }
+    }
+}
+
+private struct FullScreenBlackTransparencyView: View {
+
+    var body: some View {
+        Color(.black)
+            .ignoresSafeArea()
+            .opacity(0.33)
+            .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
+            .zIndex(1)
+            .accessibilityHidden(true)
     }
 }
 
