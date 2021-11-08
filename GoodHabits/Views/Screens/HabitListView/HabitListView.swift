@@ -131,6 +131,7 @@ private struct WeekButtons: View {
                                          backgroundColor: colorPalette.primary200)
             }
         }
+        .disabled(viewModel.habits.count < 1)
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     }
 }
