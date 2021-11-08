@@ -118,4 +118,11 @@ final class HabitListViewModel: ObservableObject {
             addHabitModalViewIsPresented = false
         }
     }
+
+    func getNextPaletteColor() -> Color.PaletteColor {
+        let colorPaletteIndex = UserDefaults.standard.integer(forKey: DefaultsKey.paletteColorIndex)
+        let nextPaletteColorIndex = (colorPaletteIndex + 1) % Color.paletteColors.count
+        UserDefaults.standard.set(nextPaletteColorIndex, forKey: DefaultsKey.paletteColorIndex)
+        return Color.paletteColors[nextPaletteColorIndex]
+    }
 }

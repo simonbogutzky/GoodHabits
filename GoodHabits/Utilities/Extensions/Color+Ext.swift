@@ -16,6 +16,8 @@ extension Color {
         case yellow = "Yellow"
     }
 
+    static let paletteColors: [Color.PaletteColor] = [.blue, .red, .green, .yellow]
+
     class Palette: ObservableObject {
         @Published var paletteColor: PaletteColor
 

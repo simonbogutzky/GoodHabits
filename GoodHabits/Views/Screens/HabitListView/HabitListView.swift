@@ -255,6 +255,17 @@ private struct BottomMenu: View {
                     CircleButtonView(systemImageName: "chevron.compact.up")
                 }
                 .offset(y: -32)
+
+                HStack {
+                    Spacer()
+
+                    Button {
+                        colorPalette.paletteColor = viewModel.getNextPaletteColor()
+                    } label: {
+                        XDismissButtonView(systemImageName: "paintbrush.fill")
+                    }
+                    .padding()
+                }
             }
         }
     }

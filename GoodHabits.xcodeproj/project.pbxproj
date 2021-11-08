@@ -27,6 +27,7 @@
 		D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8542273922AD001F39EE /* AlertItem.swift */; };
 		D3DF8547273927BA001F39EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3DF8549273927BA001F39EE /* Localizable.strings */; };
 		D3DF854C27393B21001F39EE /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF854B27393B21001F39EE /* CircleButtonView.swift */; };
+		D3DF854E27394955001F39EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF854D27394955001F39EE /* Constants.swift */; };
 		D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Ext.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
@@ -81,6 +82,7 @@
 		D3DF8548273927BA001F39EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3DF854A273927E6001F39EE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3DF854B27393B21001F39EE /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
+		D3DF854D27394955001F39EE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				D3657E11272829F300270A7B /* Extensions */,
 				D3DF8542273922AD001F39EE /* AlertItem.swift */,
+				D3DF854D27394955001F39EE /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */,
+				D3DF854E27394955001F39EE /* Constants.swift in Sources */,
 				D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */,
 				D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */,
 				D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */,

@@ -10,7 +10,12 @@ import SwiftUI
 @main
 struct GoodHabitsApp: App {
 
-    let colorPalette = Color.Palette(color: .blue)
+    let colorPalette: Color.Palette
+
+    init() {
+        let colorPaletteIndex = UserDefaults.standard.integer(forKey: DefaultsKey.paletteColorIndex)
+        colorPalette = Color.Palette(color: Color.paletteColors[colorPaletteIndex])
+    }
 
     var body: some Scene {
         WindowGroup {
