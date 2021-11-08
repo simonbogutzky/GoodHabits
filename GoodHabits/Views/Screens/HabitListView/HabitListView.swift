@@ -26,6 +26,7 @@ struct HabitListView: View {
             ZStack {
                 VStack(alignment: .center) {
                     TitleView(title: "Week")
+                        .padding(EdgeInsets(top: 44, leading: 20, bottom: 0, trailing: 20))
                     WeekButtons(viewModel: viewModel)
                     WeekDayView(viewModel: viewModel)
 
@@ -79,25 +80,6 @@ private struct BackgroundView: View {
             startPoint: .topLeading,
             endPoint: .bottomTrailing)
             .ignoresSafeArea()
-    }
-}
-
-private struct TitleView: View {
-
-    @EnvironmentObject private var colorPalette: Color.Palette
-
-    var title: String
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.title)
-                .fontWeight(.semibold)
-                .foregroundColor(colorPalette.neutral700)
-
-            Spacer()
-        }
-        .padding(EdgeInsets(top: 44, leading: 20, bottom: 0, trailing: 20))
     }
 }
 
@@ -283,7 +265,7 @@ private struct FullScreenBlackTransparencyView: View {
     var body: some View {
         Color(.black)
             .ignoresSafeArea()
-            .opacity(0.33)
+            .opacity(0.5)
             .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
             .zIndex(1)
             .accessibilityHidden(true)

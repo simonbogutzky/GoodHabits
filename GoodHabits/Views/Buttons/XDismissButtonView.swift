@@ -1,5 +1,5 @@
 //
-//  XDismissButton.swift
+//  XDismissButtonView.swift
 //  GoodHabits
 //
 //  Created by Simon Bogutzky on 07.11.21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct XDismissButton: View {
+struct XDismissButtonView: View {
 
     @EnvironmentObject private var colorPalette: Color.Palette
 
@@ -28,9 +28,9 @@ struct XDismissButton: View {
     }
 }
 
-struct XDismissButton_Previews: PreviewProvider {
+struct XDismissButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        XDismissButton()
+        XDismissButtonView()
             .environmentObject(Color.Palette(color: .blue))
     }
 }

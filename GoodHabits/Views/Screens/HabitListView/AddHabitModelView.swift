@@ -12,17 +12,39 @@ struct AddHabitModalView: View {
     @EnvironmentObject private var colorPalette: Color.Palette
     @ObservedObject var viewModel: HabitListViewModel
     @State var statement: String = ""
+    @FocusState private var focusedTextField: HabitTextField?
+
+    enum HabitTextField {
+        case statement
+    }
 
     var body: some View {
         ZStack {
             VStack {
-                Form {
-                    Section(header: Text("New Habit")
-                                .foregroundColor(colorPalette.primary700)
-                    ) {
-                        TextField("Statement", text: $statement)
+
+                TitleView(title: "Add habit")
+                    .padding()
+
+                TextField("Statement", text: $statement)
+                    .lineLimit(1)
+                    .disableAutocorrection(true)
+                    .focused($focusedTextField, equals: .statement)
+                    .onSubmit {
+                        focusedTextField = nil
                     }
-                }.background(.clear)
+                    .submitLabel(.done)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal)
+
+                Button {
+                    viewModel.addItemWithStatement(statement)
+                    withAnimation {
+                        viewModel.addHabitModalViewIsPresented = false
+                    }
+                } label: {
+                    TextButtonView(title: "Save")
+                }
+                .padding(.vertical)
             }
             .padding()
             .frame(width: 320, height: 180)
@@ -37,12 +59,13 @@ struct AddHabitModalView: View {
                         viewModel.addHabitModalViewIsPresented = false
                     }
                 } label: {
-                    XDismissButton()
+                    XDismissButtonView()
                 }
             }
         }
         .transition(.opacity.combined(with: .move(edge: .bottom)))
         .zIndex(2)
+        .offset(y: -100)
     }
 }
 
@@ -54,11 +77,3 @@ struct AddHabitModalView_Previews: PreviewProvider {
             .environmentObject(Color.Palette(color: .blue))
     }
 }
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif
