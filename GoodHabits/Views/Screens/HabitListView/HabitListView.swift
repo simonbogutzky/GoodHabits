@@ -50,12 +50,13 @@ struct HabitListView: View {
                     Spacer()
                     BottomMenu(viewModel: viewModel)
                 }
+            }
+            .disabled(viewModel.addHabitModalViewIsPresented)
 
-                if viewModel.addHabitModalViewIsPresented {
-                    FullScreenBlackTransparencyView()
+            if viewModel.addHabitModalViewIsPresented {
+                FullScreenBlackTransparencyView()
 
-                    AddHabitModalView(viewModel: viewModel)
-                }
+                AddHabitModalView(viewModel: viewModel)
             }
         }
         .ignoresSafeArea()
