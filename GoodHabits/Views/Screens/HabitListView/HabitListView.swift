@@ -262,8 +262,10 @@ private struct BottomMenu: View {
 
 private struct FullScreenBlackTransparencyView: View {
 
+    @EnvironmentObject private var colorPalette: Color.Palette
+
     var body: some View {
-        Color(.black)
+        colorPalette.neutral700
             .ignoresSafeArea()
             .opacity(0.5)
             .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
