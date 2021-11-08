@@ -20,10 +20,13 @@ struct AddHabitModalView: View {
 
     var body: some View {
         ZStack {
-            VStack {
 
-                TitleView(title: "Add habit")
-                    .padding()
+            VStack {
+                Text("Add habit")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .foregroundColor(colorPalette.primary700)
+                    .padding(.horizontal)
 
                 TextField("Statement", text: $statement)
                     .lineLimit(1)
@@ -35,20 +38,10 @@ struct AddHabitModalView: View {
                     .submitLabel(.done)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
-
-                Button {
-                    viewModel.saveHabitWithStatement(statement)
-                } label: {
-                    TextButtonView(title: "Add")
-                }
-                .padding(.vertical)
             }
             .padding()
-            .frame(width: 320, height: 180)
-            .background(LinearGradient(
-                gradient: Gradient(colors: [colorPalette.primary200, colorPalette.primary100]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing))
+            .frame(width: 320, height: 220)
+            .background(colorPalette.neutral100)
             .cornerRadius(16)
             .overlay(alignment: .topTrailing) {
                 Button {
@@ -56,9 +49,23 @@ struct AddHabitModalView: View {
                         viewModel.addHabitModalViewIsPresented = false
                     }
                 } label: {
-                    XDismissButtonView()
+                    XDismissButtonView(systemImageName: "chevron.compact.down")
                 }
             }
+
+            Circle()
+                .frame(width: 96, height: 96)
+                .foregroundColor(colorPalette.neutral100)
+                .offset(y: 100)
+
+            Button {
+                withAnimation {
+                    viewModel.saveHabitWithStatement(statement)
+                }
+            } label: {
+                CircleButtonView(systemImageName: "plus")
+            }
+            .offset(y: 100)
         }
         .transition(.opacity.combined(with: .move(edge: .bottom)))
         .zIndex(2)

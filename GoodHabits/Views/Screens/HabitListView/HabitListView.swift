@@ -30,20 +30,24 @@ struct HabitListView: View {
                     WeekButtons(viewModel: viewModel)
                     WeekDayView(viewModel: viewModel)
 
-                    List {
-                        ForEach(viewModel.habits) { habit in
-                            Section {
-                                HabitListCell(
-                                    viewModel: HabitListCell.HabitListCellViewModel(
-                                        habit: habit,
-                                        date: viewModel.date))
-                                    .listRowBackground(colorPalette.neutral100)
+                    if viewModel.habits.count < 1 {
+                        EmptyHabitsView()
+                    } else {
+                        List {
+                            ForEach(viewModel.habits) { habit in
+                                Section {
+                                    HabitListCell(
+                                        viewModel: HabitListCell.HabitListCellViewModel(
+                                            habit: habit,
+                                            date: viewModel.date))
+                                        .listRowBackground(colorPalette.neutral100)
+                                }
                             }
+                            .onDelete(perform: viewModel.deleteItems)
                         }
-                        .onDelete(perform: viewModel.deleteItems)
+                        .background(colorPalette.neutral100.opacity(0.5))
+                        .cornerRadius(10)
                     }
-                    .background(colorPalette.neutral100.opacity(0.5))
-                    .cornerRadius(10)
                 }
 
                 VStack {
@@ -128,6 +132,23 @@ private struct WeekButtons: View {
             }
         }
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
+    }
+}
+
+private struct EmptyHabitsView: View {
+    @EnvironmentObject private var colorPalette: Color.Palette
+
+    var body: some View {
+        VStack {
+            Text("Start or break a habit.")
+                .multilineTextAlignment(.center)
+                .font(.body)
+                .padding()
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
+        .background(colorPalette.neutral100.opacity(0.5))
+        .cornerRadius(10)
     }
 }
 
@@ -231,32 +252,10 @@ private struct BottomMenu: View {
                         viewModel.addHabitModalViewIsPresented = true
                     }
                 } label: {
-                    CircleButtonView()
+                    CircleButtonView(systemImageName: "chevron.compact.up")
                 }
                 .offset(y: -32)
             }
-        }
-    }
-}
-
-private struct CircleButtonView: View {
-
-    @EnvironmentObject private var colorPalette: Color.Palette
-
-    var body: some View {
-        ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [colorPalette.primary600, colorPalette.primary300]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing)
-                .frame(width: 64, height: 64)
-                .clipShape(Circle())
-
-            Image(systemName: "plus")
-                .resizable()
-                .scaledToFit()
-                .foregroundColor(colorPalette.neutral100)
-                .frame(width: 20, height: 20)
         }
     }
 }

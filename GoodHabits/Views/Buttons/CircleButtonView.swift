@@ -1,13 +1,13 @@
 //
-//  XDismissButtonView.swift
+//  CircleButtonView.swift
 //  GoodHabits
 //
-//  Created by Simon Bogutzky on 07.11.21.
+//  Created by Simon Bogutzky on 08.11.21.
 //
 
 import SwiftUI
 
-struct XDismissButtonView: View {
+struct CircleButtonView: View {
 
     @EnvironmentObject private var colorPalette: Color.Palette
 
@@ -19,20 +19,21 @@ struct XDismissButtonView: View {
                 gradient: Gradient(colors: [colorPalette.primary600, colorPalette.primary300]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing)
-                .frame(width: 32, height: 32)
+                .frame(width: 64, height: 64)
                 .clipShape(Circle())
 
             Image(systemName: systemImageName)
+                .resizable()
+                .scaledToFit()
                 .foregroundColor(colorPalette.neutral100)
-                .imageScale(.small)
-                .frame(width: 44, height: 44)
+                .frame(width: 20, height: 20)
         }
     }
 }
 
-struct XDismissButtonView_Previews: PreviewProvider {
+struct CircleButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        XDismissButtonView(systemImageName: "xmark")
+        CircleButtonView(systemImageName: "plus")
             .environmentObject(Color.Palette(color: .blue))
     }
 }

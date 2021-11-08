@@ -10,7 +10,7 @@
 		6E30A6BA26C42B440022E8EA /* HabitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30A6B926C42B440022E8EA /* HabitListCell.swift */; };
 		6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */; };
 		6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */; };
-		6EDB22C326BBEDF800B48CAB /* AddHabitModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitModelView.swift */; };
+		6EDB22C326BBEDF800B48CAB /* AddHabitModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */; };
 		D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
 		D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3344CC82703564000BD8F2E /* HabitTests.swift */; };
 		D33EE4FB2737F25700D54CA5 /* XDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33EE4FA2737F25600D54CA5 /* XDismissButtonView.swift */; };
@@ -22,11 +22,11 @@
 		D39BDA0326BAE9E000CAFA0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39BDA0226BAE9E000CAFA0B /* Preview Assets.xcassets */; };
 		D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
-		D3DF853A273917DA001F39EE /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8539273917DA001F39EE /* TextButtonView.swift */; };
 		D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF853B27391E2B001F39EE /* TitleView.swift */; };
 		D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8540273920BB001F39EE /* HapticManager.swift */; };
 		D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8542273922AD001F39EE /* AlertItem.swift */; };
 		D3DF8547273927BA001F39EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3DF8549273927BA001F39EE /* Localizable.strings */; };
+		D3DF854C27393B21001F39EE /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF854B27393B21001F39EE /* CircleButtonView.swift */; };
 		D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Ext.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
@@ -59,7 +59,7 @@
 		6E30A6B926C42B440022E8EA /* HabitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCell.swift; sourceTree = "<group>"; };
 		6E59E6E726C51A1700224EC5 /* DayCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCheckBoxView.swift; sourceTree = "<group>"; };
 		6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		6EDB22C226BBEDF800B48CAB /* AddHabitModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitModelView.swift; sourceTree = "<group>"; };
+		6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitModalView.swift; sourceTree = "<group>"; };
 		D30561172704510600F46114 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
 		D33EE4FA2737F25600D54CA5 /* XDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButtonView.swift; sourceTree = "<group>"; };
@@ -75,12 +75,12 @@
 		D39BDA0926BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodHabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BDA1426BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3DF8539273917DA001F39EE /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		D3DF8542273922AD001F39EE /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		D3DF8548273927BA001F39EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3DF854A273927E6001F39EE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D3DF854B27393B21001F39EE /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				D33EE4FA2737F25600D54CA5 /* XDismissButtonView.swift */,
-				D3DF8539273917DA001F39EE /* TextButtonView.swift */,
+				D3DF854B27393B21001F39EE /* CircleButtonView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			children = (
 				D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */,
 				D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */,
-				6EDB22C226BBEDF800B48CAB /* AddHabitModelView.swift */,
+				6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */,
 			);
 			path = HabitListView;
 			sourceTree = "<group>";
@@ -439,6 +439,7 @@
 				D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */,
 				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
+				D3DF854C27393B21001F39EE /* CircleButtonView.swift in Sources */,
 				D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */,
 				D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */,
 				D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */,
@@ -447,9 +448,8 @@
 				6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */,
 				D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */,
 				D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */,
-				6EDB22C326BBEDF800B48CAB /* AddHabitModelView.swift in Sources */,
+				6EDB22C326BBEDF800B48CAB /* AddHabitModalView.swift in Sources */,
 				D33EE4FB2737F25700D54CA5 /* XDismissButtonView.swift in Sources */,
-				D3DF853A273917DA001F39EE /* TextButtonView.swift in Sources */,
 				D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

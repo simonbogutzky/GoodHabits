@@ -18,7 +18,7 @@ struct TitleView: View {
             Text(title)
                 .font(.title)
                 .fontWeight(.semibold)
-                .foregroundColor(colorPalette.neutral700)
+                .foregroundColor(colorPalette.primary700)
 
             Spacer()
         }
