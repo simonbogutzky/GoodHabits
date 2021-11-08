@@ -24,6 +24,7 @@
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D3DF853A273917DA001F39EE /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8539273917DA001F39EE /* TextButtonView.swift */; };
 		D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF853B27391E2B001F39EE /* TitleView.swift */; };
+		D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8540273920BB001F39EE /* HapticManager.swift */; };
 		D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Ext.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
@@ -74,6 +75,7 @@
 		D39BDA1426BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3DF8539273917DA001F39EE /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */ = {
 			isa = PBXGroup;
 			children = (
+				D3DF853F27392085001F39EE /* Managers */,
 				D3657E1827282C3200270A7B /* Persistence */,
 				D3FECC84270EEB3E00C3C589 /* Resources */,
 				D3657E1227282AA700270A7B /* Views */,
@@ -254,6 +257,14 @@
 				D39BDA1426BAE9E000CAFA0B /* Info.plist */,
 			);
 			path = GoodHabitsTests;
+			sourceTree = "<group>";
+		};
+		D3DF853F27392085001F39EE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D3DF8540273920BB001F39EE /* HapticManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		D3FECC84270EEB3E00C3C589 /* Resources */ = {
@@ -421,6 +432,7 @@
 				6EDB22C326BBEDF800B48CAB /* AddHabitModelView.swift in Sources */,
 				D33EE4FB2737F25700D54CA5 /* XDismissButtonView.swift in Sources */,
 				D3DF853A273917DA001F39EE /* TextButtonView.swift in Sources */,
+				D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

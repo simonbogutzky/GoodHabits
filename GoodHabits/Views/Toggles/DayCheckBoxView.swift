@@ -50,6 +50,9 @@ private struct CheckboxStyle: ToggleStyle {
                 .font(.system(size: 20, weight: .regular))
                 .onTapGesture {
                     configuration.isOn.toggle()
+                    if configuration.isOn {
+                        HapticManager.playSuccess()
+                    }
                 }
 
             Spacer()
