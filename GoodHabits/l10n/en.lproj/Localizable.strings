@@ -6,7 +6,6 @@
   
 */
 
-"Week" = "Woche";
 "Sun" = "Sun";
 "Mon" = "Mon";
 "Tue" = "Tue";
@@ -14,8 +13,9 @@
 "Tue" = "Tue";
 "Fri" = "Fri";
 "Sat" = "Sat";
-"Habit" = "Habit";
-"Statement" = "Statement";
-"Invalid habit" = "Invalid habit";
-"A statement is requiered. \nPlease try again." = "A statement is requiered. \nPlease try again.";
-"Start or break a habit." = "Start or break a habit. Keep it up for 66 days and you're done.";
+"For 66 days I will ..." = "For 66 days I will ...";
+"Behavior pattern" = "Behavior pattern";
+"Invalid behavior pattern" = "Invalid behavior pattern";
+"A behavior pattern is required. \nPlease try again." = "A statement is requiered. \nPlease try again.";
+"Learn new or correct old behavior patterns. Document them for 66 days and make them to your habit." = "Learn new or correct old behavior patterns. Document them for 66 days and make them to your habit.";
+"WE" = "WE";

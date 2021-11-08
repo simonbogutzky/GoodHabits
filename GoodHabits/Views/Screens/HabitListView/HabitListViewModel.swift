@@ -16,19 +16,19 @@ final class HabitListViewModel: ObservableObject {
 
     var viewContext: NSManagedObjectContext
 
-    var previousWeekNumberString: String {
-        String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(-7 * 60 * 60 * 24)))
+    var previousWeekNumberString: LocalizedStringKey {
+        LocalizedStringKey(String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(-7 * 60 * 60 * 24))))
     }
 
-    var weekNumberString: String {
-        String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date))
+    var weekNumberString: LocalizedStringKey {
+        LocalizedStringKey(String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date)))
     }
 
-    var nextWeekNumberString: String {
-        String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24)))
+    var nextWeekNumberString: LocalizedStringKey {
+        LocalizedStringKey(String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24))))
     }
 
     var dayTuples: [(dayNumber: Int, weekDayAbbreviation: LocalizedStringKey)] {
@@ -53,6 +53,10 @@ final class HabitListViewModel: ObservableObject {
 
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
+    }
+
+    func today() {
+        date = Date().midnight()
     }
 
     func nextWeek() {

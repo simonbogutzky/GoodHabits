@@ -25,7 +25,7 @@ struct HabitListView: View {
             BackgroundView()
             ZStack {
                 VStack(alignment: .center) {
-                    TitleView(title: LocalizedStringKey("Week"))
+                    TitleView(title: "GoodHabits")
                         .padding(EdgeInsets(top: 44, leading: 20, bottom: 0, trailing: 20))
                     WeekButtons(viewModel: viewModel)
                     WeekDayView(viewModel: viewModel)
@@ -95,6 +95,15 @@ private struct WeekButtons: View {
 
     var body: some View {
         HStack(spacing: 12) {
+
+            Button {
+                viewModel.today()
+            } label: {
+                RectangleImageButtonView(systemImageName: "calendar",
+                                         foregroundColor: colorPalette.primary600,
+                                         backgroundColor: colorPalette.primary200)
+            }
+
             Button {
                 viewModel.previousWeek()
             } label: {
@@ -103,25 +112,13 @@ private struct WeekButtons: View {
                                          backgroundColor: colorPalette.primary200)
             }
 
-            Button {
-                viewModel.previousWeek()
-            } label: {
-                RectangleTextButtonView(text: viewModel.previousWeekNumberString,
-                                        foregroundColor: colorPalette.primary600,
-                                        backgroundColor: colorPalette.primary200)
-            }
-
             RectangleTextButtonView(text: viewModel.weekNumberString,
                                     foregroundColor: colorPalette.primary600,
                                     backgroundColor: colorPalette.primary100)
 
-            Button {
-                viewModel.nextWeek()
-            } label: {
-                RectangleTextButtonView(text: viewModel.nextWeekNumberString,
-                                        foregroundColor: colorPalette.primary600,
-                                        backgroundColor: colorPalette.primary200)
-            }
+            RectangleTextButtonView(text: "WE",
+                                    foregroundColor: colorPalette.primary600,
+                                    backgroundColor: colorPalette.primary100)
 
             Button {
                 viewModel.nextWeek()
@@ -141,7 +138,7 @@ private struct EmptyHabitsView: View {
 
     var body: some View {
         VStack {
-            Text("Start or break a habit.")
+            Text("Learn new or correct old behavior patterns. Document them for 66 days and make them to your habit.")
                 .multilineTextAlignment(.center)
                 .font(.body)
                 .padding()
@@ -177,7 +174,7 @@ private struct RectangleImageButtonView: View {
 
 private struct RectangleTextButtonView: View {
 
-    var text: String
+    var text: LocalizedStringKey
     var foregroundColor: Color = .white
     var backgroundColor: Color = .blue
 

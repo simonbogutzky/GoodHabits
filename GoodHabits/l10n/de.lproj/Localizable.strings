@@ -6,7 +6,6 @@
   
 */
 
-"Week" = "Woche";
 "Sun" = "So.";
 "Mon" = "Mo.";
 "Tue" = "Di.";
@@ -14,9 +13,9 @@
 "Tue" = "Do.";
 "Fri" = "Fr.";
 "Sat" = "Sa.";
-"Add" = "starten";
-"Habit" = "Gewohnheit";
-"Statement" = "Statement";
-"Invalid habit" = "Ungültige Gewohnheit";
-"A statement is requiered. \nPlease try again." = "Ein Statement ist erforderlich. \nBitte versuche es erneut.";
-"Start or break a habit." = "Starte dir eine Gewohnheit anzugewöhnen oder abzugewöhnen. Halte es 66 Tage durch und du hast es geschafft.";
+"For 66 days I will ..." = "66 Tage lang werde ich ...";
+"Behavior pattern" = "Verhaltensmuster";
+"Invalid behavior pattern" = "Ungültiges Verhaltensmuster";
+"A behavior pattern is required. \nPlease try again." = "Ein Verhaltensmuster ist erforderlich. \nBitte versuche es erneut.";
+"Learn new or correct old behavior patterns. Document them for 66 days and make them to your habit." = "Erlerne neue oder korrigiere alte Verhaltensmuster. Dokumentiere sie 66 Tage lang und lasse sie zu deiner Gewohnheit werden.";
+"WE" = "KW";

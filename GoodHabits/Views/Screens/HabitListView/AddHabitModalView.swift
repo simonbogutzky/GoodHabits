@@ -21,13 +21,13 @@ struct AddHabitModalView: View {
     var body: some View {
         ZStack {
             VStack {
-                Text("Habit")
-                    .font(.title)
+                Text("For 66 days I will ...")
+                    .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(colorPalette.primary700)
                     .padding(.horizontal)
 
-                TextField("Statement", text: $statement)
+                TextField("Behavior pattern", text: $statement)
                     .lineLimit(1)
                     .disableAutocorrection(true)
                     .focused($focusedTextField, equals: .statement)

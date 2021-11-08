@@ -22,7 +22,7 @@ struct AlertContext {
 
     // MARK: - Add Habit Errors
     static let invalidHabit = AlertItem(
-        title: Text("Invalid habit"),
-        message: Text("A statement is requiered. \nPlease try again."),
+        title: Text("Invalid behavior pattern"),
+        message: Text("A behavior pattern is required. \nPlease try again."),
         dismissButton: .default(Text("Ok")))
 }
