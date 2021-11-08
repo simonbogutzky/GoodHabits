@@ -33,7 +33,10 @@ final class HabitListViewModel: ObservableObject {
     var dayTuples: [(dayNumber: Int, weekDayAbbreviation: String)] {
         let firstWeekDay = Calendar.current.firstWeekday
         let currentWeekDay = Calendar.current.component(.weekday, from: date)
-        let diff = firstWeekDay - currentWeekDay
+        var diff = firstWeekDay - currentWeekDay
+        if diff > 0 {
+            diff -= 7
+        }
         let firstWeekDate = date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
         let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Tue", "Fri", "Sat"]
         var tuples: [(Int, String)] = []
