@@ -14,8 +14,7 @@
 "Tue" = "Tue";
 "Fri" = "Fri";
 "Sat" = "Sat";
-"Add" = "Start";
-"Add habit" = "Habit";
+"Habit" = "Habit";
 "Statement" = "Statement";
 "Invalid habit" = "Invalid habit";
 "A statement is requiered. \nPlease try again." = "A statement is requiered. \nPlease try again.";

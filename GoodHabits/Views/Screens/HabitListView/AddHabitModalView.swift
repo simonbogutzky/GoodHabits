@@ -20,9 +20,8 @@ struct AddHabitModalView: View {
 
     var body: some View {
         ZStack {
-
             VStack {
-                Text("Add habit")
+                Text("Habit")
                     .font(.title)
                     .fontWeight(.semibold)
                     .foregroundColor(colorPalette.primary700)
@@ -49,7 +48,7 @@ struct AddHabitModalView: View {
                         viewModel.addHabitModalViewIsPresented = false
                     }
                 } label: {
-                    XDismissButtonView(systemImageName: "chevron.compact.down")
+                    SmallCircleButtonView(systemImageName: "chevron.compact.down")
                 }
             }
 

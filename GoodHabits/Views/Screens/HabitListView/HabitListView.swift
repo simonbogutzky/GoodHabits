@@ -262,7 +262,7 @@ private struct BottomMenu: View {
                     Button {
                         colorPalette.paletteColor = viewModel.getNextPaletteColor()
                     } label: {
-                        XDismissButtonView(systemImageName: "paintbrush.fill")
+                        SmallCircleButtonView(systemImageName: "paintbrush.fill")
                     }
                     .padding()
                 }

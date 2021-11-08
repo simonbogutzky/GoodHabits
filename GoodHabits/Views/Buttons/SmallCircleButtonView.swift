@@ -1,5 +1,5 @@
 //
-//  XDismissButtonView.swift
+//  SmallCircleButtonView.swift
 //  GoodHabits
 //
 //  Created by Simon Bogutzky on 07.11.21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct XDismissButtonView: View {
+struct SmallCircleButtonView: View {
 
     @EnvironmentObject private var colorPalette: Color.Palette
 
@@ -32,7 +32,7 @@ struct XDismissButtonView: View {
 
 struct XDismissButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        XDismissButtonView(systemImageName: "xmark")
+        SmallCircleButtonView(systemImageName: "xmark")
             .environmentObject(Color.Palette(color: .blue))
     }
 }
