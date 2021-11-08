@@ -11,7 +11,7 @@ struct TitleView: View {
 
     @EnvironmentObject private var colorPalette: Color.Palette
 
-    var title: String
+    var title: LocalizedStringKey
 
     var body: some View {
         HStack {

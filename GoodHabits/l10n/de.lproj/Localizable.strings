@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  GoodHabits
+
+  Created by Simon Bogutzky on 08.11.21.
+  
+*/
+
+"Week" = "Woche";
+"Sun" = "So.";
+"Mon" = "Mo.";
+"Tue" = "Di.";
+"Wed" = "Mi.";
+"Tue" = "Do.";
+"Fri" = "Fr.";
+"Sat" = "Sa.";
+"Add" = "starten";
+"Add habit" = "Gewohnheit";
+"Statement" = "Statement";
+"Invalid habit" = "Ungültige Gewohnheit";
+"A statement is requiered. \nPlease try again." = "Eine Statement ist erforderlich. \nBitte versuche es erneut.";

@@ -26,6 +26,7 @@
 		D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF853B27391E2B001F39EE /* TitleView.swift */; };
 		D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8540273920BB001F39EE /* HapticManager.swift */; };
 		D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8542273922AD001F39EE /* AlertItem.swift */; };
+		D3DF8547273927BA001F39EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3DF8549273927BA001F39EE /* Localizable.strings */; };
 		D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Ext.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
@@ -78,6 +79,8 @@
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		D3DF8542273922AD001F39EE /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		D3DF8548273927BA001F39EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D3DF854A273927E6001F39EE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 		D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */ = {
 			isa = PBXGroup;
 			children = (
+				D3DF8544273926B4001F39EE /* l10n */,
 				D3DF853F27392085001F39EE /* Managers */,
 				D3657E1827282C3200270A7B /* Persistence */,
 				D3FECC84270EEB3E00C3C589 /* Resources */,
@@ -268,6 +272,14 @@
 				D3DF8540273920BB001F39EE /* HapticManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D3DF8544273926B4001F39EE /* l10n */ = {
+			isa = PBXGroup;
+			children = (
+				D3DF8549273927BA001F39EE /* Localizable.strings */,
+			);
+			path = l10n;
 			sourceTree = "<group>";
 		};
 		D3FECC84270EEB3E00C3C589 /* Resources */ = {
@@ -345,6 +357,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = D39BD9EF26BAE9DC00CAFA0B;
 			productRefGroup = D39BD9F926BAE9DD00CAFA0B /* Products */;
@@ -363,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39BDA0326BAE9E000CAFA0B /* Preview Assets.xcassets in Resources */,
+				D3DF8547273927BA001F39EE /* Localizable.strings in Resources */,
 				D39BDA0026BAE9E000CAFA0B /* Assets.xcassets in Resources */,
 				D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */,
 			);
@@ -459,11 +473,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		D3DF8549273927BA001F39EE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3DF8548273927BA001F39EE /* en */,
+				D3DF854A273927E6001F39EE /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		D39BDA2026BAE9E000CAFA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -525,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

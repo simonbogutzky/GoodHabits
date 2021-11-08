@@ -31,7 +31,7 @@ final class HabitListViewModel: ObservableObject {
                Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24)))
     }
 
-    var dayTuples: [(dayNumber: Int, weekDayAbbreviation: String)] {
+    var dayTuples: [(dayNumber: Int, weekDayAbbreviation: LocalizedStringKey)] {
         let firstWeekDay = Calendar.current.firstWeekday
         let currentWeekDay = Calendar.current.component(.weekday, from: date)
         var diff = firstWeekDay - currentWeekDay
@@ -40,11 +40,13 @@ final class HabitListViewModel: ObservableObject {
         }
         let firstWeekDate = date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
         let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Tue", "Fri", "Sat"]
-        var tuples: [(Int, String)] = []
+        var tuples: [(Int, LocalizedStringKey)] = []
         for index in 0..<dayAbbreviations.count {
             let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
             tuples.append((Calendar.current.component(.day, from: currentDate),
-                                       dayAbbreviations[Calendar.current.component(.weekday, from: currentDate) - 1]))
+                           LocalizedStringKey(
+                            dayAbbreviations[Calendar.current.component(.weekday, from: currentDate) - 1]))
+            )
         }
         return tuples
     }

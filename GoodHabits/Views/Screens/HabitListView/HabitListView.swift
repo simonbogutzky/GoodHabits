@@ -25,7 +25,7 @@ struct HabitListView: View {
             BackgroundView()
             ZStack {
                 VStack(alignment: .center) {
-                    TitleView(title: "Week")
+                    TitleView(title: LocalizedStringKey("Week"))
                         .padding(EdgeInsets(top: 44, leading: 20, bottom: 0, trailing: 20))
                     WeekButtons(viewModel: viewModel)
                     WeekDayView(viewModel: viewModel)
@@ -193,7 +193,7 @@ private struct WeekDayVStack: View {
     @EnvironmentObject private var colorPalette: Color.Palette
 
     var dayNumber: Int
-    var weekDayAbbreviation: String
+    var weekDayAbbreviation: LocalizedStringKey
 
     var body: some View {
         VStack {

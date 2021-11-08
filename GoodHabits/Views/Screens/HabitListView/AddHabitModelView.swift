@@ -39,7 +39,7 @@ struct AddHabitModalView: View {
                 Button {
                     viewModel.saveHabitWithStatement(statement)
                 } label: {
-                    TextButtonView(title: "Save")
+                    TextButtonView(title: "Add")
                 }
                 .padding(.vertical)
             }

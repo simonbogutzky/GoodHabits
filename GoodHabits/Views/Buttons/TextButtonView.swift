@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextButtonView: View {
     @EnvironmentObject private var colorPalette: Color.Palette
-    var title: String
+    var title: LocalizedStringKey
 
     var body: some View {
         Text(title)
@@ -25,7 +25,7 @@ struct TextButtonView: View {
 
 struct TextButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        TextButtonView(title: "Save")
+        TextButtonView(title: "Add")
             .preferredColorScheme(.dark)
             .environmentObject(Color.Palette(color: .blue))
     }
