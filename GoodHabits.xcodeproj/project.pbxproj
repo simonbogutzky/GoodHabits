@@ -25,6 +25,7 @@
 		D3DF853A273917DA001F39EE /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8539273917DA001F39EE /* TextButtonView.swift */; };
 		D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF853B27391E2B001F39EE /* TitleView.swift */; };
 		D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8540273920BB001F39EE /* HapticManager.swift */; };
+		D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8542273922AD001F39EE /* AlertItem.swift */; };
 		D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2194E2701C6780030E9D7 /* View+Ext.swift */; };
 		D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E219502701C9EC0030E9D7 /* DateTests.swift */; };
 		D3FECC83270EEB1B00C3C589 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
@@ -76,6 +77,7 @@
 		D3DF8539273917DA001F39EE /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		D3DF8542273922AD001F39EE /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				D3657E11272829F300270A7B /* Extensions */,
+				D3DF8542273922AD001F39EE /* AlertItem.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
 				D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */,
+				D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */,
 				D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */,
 				6E30A6BA26C42B440022E8EA /* HabitListCell.swift in Sources */,
 				6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */,

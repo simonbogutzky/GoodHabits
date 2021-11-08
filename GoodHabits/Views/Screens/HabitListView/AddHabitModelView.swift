@@ -37,10 +37,7 @@ struct AddHabitModalView: View {
                     .padding(.horizontal)
 
                 Button {
-                    viewModel.addItemWithStatement(statement)
-                    withAnimation {
-                        viewModel.addHabitModalViewIsPresented = false
-                    }
+                    viewModel.saveHabitWithStatement(statement)
                 } label: {
                     TextButtonView(title: "Save")
                 }
@@ -66,6 +63,7 @@ struct AddHabitModalView: View {
         .transition(.opacity.combined(with: .move(edge: .bottom)))
         .zIndex(2)
         .offset(y: -100)
+        .alert(item: $viewModel.alertItem, content: { $0.alert })
     }
 }
 

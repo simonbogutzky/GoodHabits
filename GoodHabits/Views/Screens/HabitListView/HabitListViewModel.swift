@@ -12,6 +12,7 @@ final class HabitListViewModel: ObservableObject {
     @Published var addHabitModalViewIsPresented = false
     @Published var date = Date().midnight()
     @Published var habits: [Habit] = []
+    @Published var alertItem: AlertItem?
 
     var viewContext: NSManagedObjectContext
 
@@ -101,6 +102,18 @@ final class HabitListViewModel: ObservableObject {
             // although it may be useful during development.
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+
+    func saveHabitWithStatement(_ statement: String) {
+        guard !statement.isEmpty else {
+            alertItem = AlertContext.invalidHabit
+            return
+        }
+
+        addItemWithStatement(statement)
+        withAnimation {
+            addHabitModalViewIsPresented = false
         }
     }
 }
