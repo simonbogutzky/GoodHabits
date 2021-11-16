@@ -39,7 +39,7 @@ final class HabitListViewModel: ObservableObject {
             diff -= 7
         }
         let firstWeekDate = date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
-        let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Tue", "Fri", "Sat"]
+        let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         var tuples: [(Int, LocalizedStringKey)] = []
         for index in 0..<dayAbbreviations.count {
             let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
