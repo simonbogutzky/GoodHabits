@@ -45,6 +45,7 @@ struct HabitListView: View {
                             }
                             .onDelete(perform: viewModel.deleteItems)
                         }
+                        .padding(.bottom, 96)
                         .background(colorPalette.neutral100.opacity(0.5))
                         .cornerRadius(10)
                     }
