@@ -9,16 +9,17 @@ import SwiftUI
 
 extension HabitListCell {
     final class HabitListCellViewModel {
-        
+
         private var habit: Habit
         private var date: Date
-        
+
         var days: [Day] {
             Array(habit.days as? Set<Day> ?? [])
                 .filter({ day in
-                    
                     let calendar = Calendar.current
-                    let dayDateComponents = calendar.dateComponents([.weekOfYear, .year], from: getFirstDayOfThisWeek(currentDate: day.date!))
+                    let dayDateComponents = calendar.dateComponents([.weekOfYear, .year],
+                                                                    from: getFirstDayOfThisWeek(currentDate:
+                                                                                                    day.date!))
                     let dateDateComponents = calendar.dateComponents([.weekOfYear, .year], from: date)
                     return dateDateComponents == dayDateComponents
                 })
@@ -26,20 +27,20 @@ extension HabitListCell {
                     first.date! < second.date!
                 })
         }
-        
+
         var statement: String {
             habit.statement ?? ""
         }
-        
+
         init(habit: Habit, date: Date) {
             self.habit = habit
             self.date = date
         }
-        
+
         func getFirstDayOfThisWeek(currentDate: Date) -> Date {
             let firstWeekDay = Calendar.current.firstWeekday
-            
-            switch(firstWeekDay) {
+
+            switch firstWeekDay {
             case 2:
                 return currentDate.previous(.monday, considerToday: true)
             case 3:

@@ -113,7 +113,7 @@ private struct WeekButtons: View {
                                          backgroundColor: colorPalette.primary200)
             }
 
-            RectangleTextButtonView(text: viewModel.weekNumberString,
+            RectangleTextButtonView(text: viewModel.weekNumber,
                                     foregroundColor: colorPalette.primary600,
                                     backgroundColor: colorPalette.primary100)
 
@@ -175,12 +175,12 @@ private struct RectangleImageButtonView: View {
 
 private struct RectangleTextButtonView: View {
 
-    var text: LocalizedStringKey
+    var text: String
     var foregroundColor: Color = .white
     var backgroundColor: Color = .blue
 
     var body: some View {
-        Text(text)
+        Text(LocalizedStringKey(text))
             .font(.system(size: 22, weight: .bold))
             .frame(width: 54, height: 54)
             .foregroundColor(foregroundColor)
@@ -195,10 +195,16 @@ private struct WeekDayView: View {
     @ObservedObject var viewModel: HabitListViewModel
 
     var body: some View {
-        HStack(alignment: .center, spacing: 20.0) {
-            ForEach(viewModel.dayTuples, id: \.dayNumber) { dayTuple in
-                WeekDayVStack(dayNumber: dayTuple.dayNumber, weekDayAbbreviation: dayTuple.weekDayAbbreviation)
+        VStack {
+            HStack(alignment: .center, spacing: 20.0) {
+                ForEach(viewModel.weekDays, id: \.number) { weekDay in
+                    WeekDayVStack(weekDay: weekDay)
+                }
+
             }
+            Text("\(viewModel.monthAndYear)")
+                .font(.system(size: 14, weight: .light))
+                .foregroundColor(colorPalette.neutral700)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical)
@@ -212,17 +218,21 @@ private struct WeekDayVStack: View {
 
     @EnvironmentObject private var colorPalette: Color.Palette
 
-    var dayNumber: Int
-    var weekDayAbbreviation: LocalizedStringKey
+    var weekDay: WeekDay
 
     var body: some View {
         VStack {
-            Text("\(dayNumber, specifier: "%02d")")
+            Text("\(weekDay.number, specifier: "%02d")")
                 .font(.system(size: 20, weight: .semibold, design: .monospaced))
-                .foregroundColor(colorPalette.neutral700)
-            Text(weekDayAbbreviation)
+                .foregroundColor(!weekDay.isToday ? colorPalette.neutral700 : colorPalette.secondary500)
+            Text(weekDay.abbreviationKey)
                 .font(.system(size: 12, weight: .light))
-                .foregroundColor(colorPalette.neutral700)
+                .foregroundColor(!weekDay.isToday ? colorPalette.neutral700 : colorPalette.secondary500)
+                .padding(.bottom, -4)
+            Circle()
+                .fill()
+                .foregroundColor(!weekDay.isToday ? .clear : colorPalette.secondary500)
+                .frame(width: 4, height: 4)
         }
     }
 }

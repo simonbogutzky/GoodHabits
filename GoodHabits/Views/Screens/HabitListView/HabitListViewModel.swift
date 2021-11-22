@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 final class HabitListViewModel: ObservableObject {
+
     @Published var addHabitModalViewIsPresented = false
     @Published var date = Date().midnight()
     @Published var habits: [Habit] = []
@@ -16,22 +17,26 @@ final class HabitListViewModel: ObservableObject {
 
     var viewContext: NSManagedObjectContext
 
-    var previousWeekNumberString: LocalizedStringKey {
-        LocalizedStringKey(String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(-7 * 60 * 60 * 24))))
+    var previousWeekNumber: String {
+        String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(-7 * 60 * 60 * 24)))
     }
 
-    var weekNumberString: LocalizedStringKey {
-        LocalizedStringKey(String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date)))
+    var weekNumber: String {
+        String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date))
     }
 
-    var nextWeekNumberString: LocalizedStringKey {
-        LocalizedStringKey(String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24))))
+    var nextWeekNumber: String {
+        String(format: "%02d",
+               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24)))
     }
 
-    var dayTuples: [(dayNumber: Int, weekDayAbbreviation: LocalizedStringKey)] {
+    var monthAndYear: String {
+        return date.addingTimeInterval(2 * 60 * 60 * 24).formatted(.dateTime.month(.wide).year())
+    }
+
+    var weekDays: [WeekDay] {
         let firstWeekDay = Calendar.current.firstWeekday
         let currentWeekDay = Calendar.current.component(.weekday, from: date)
         var diff = firstWeekDay - currentWeekDay
@@ -40,15 +45,17 @@ final class HabitListViewModel: ObservableObject {
         }
         let firstWeekDate = date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
         let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-        var tuples: [(Int, LocalizedStringKey)] = []
+        var weekDays: [WeekDay] = []
         for index in 0..<dayAbbreviations.count {
             let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
-            tuples.append((Calendar.current.component(.day, from: currentDate),
-                           LocalizedStringKey(
-                            dayAbbreviations[Calendar.current.component(.weekday, from: currentDate) - 1]))
-            )
+            let number = Calendar.current.component(.day, from: currentDate)
+            let weekDayIndex = Calendar.current.component(.weekday, from: currentDate) - 1
+            let abbreviationKey = LocalizedStringKey(dayAbbreviations[weekDayIndex])
+
+            let isToday = currentDate == Date().midnight()
+            weekDays.append(WeekDay(number: number, abbreviationKey: abbreviationKey, isToday: isToday))
         }
-        return tuples
+        return weekDays
     }
 
     init(viewContext: NSManagedObjectContext) {

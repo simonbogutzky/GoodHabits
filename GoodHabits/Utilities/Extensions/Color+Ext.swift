@@ -77,6 +77,14 @@ extension Color {
             Color(fromPalette: self.paletteColor.rawValue, semanticName: "primary-700")
         }
 
+        var secondary300: Color {
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "secondary-300")
+        }
+
+        var secondary500: Color {
+            Color(fromPalette: self.paletteColor.rawValue, semanticName: "secondary-500")
+        }
+
         init(color: PaletteColor) {
             self.paletteColor = color
         }
