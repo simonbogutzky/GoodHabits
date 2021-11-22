@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeekDay {
-    var number: Int
-    var abbreviationKey: LocalizedStringKey
+    var digits: String
+    var abbreviation: String
     var isToday: Bool
 }

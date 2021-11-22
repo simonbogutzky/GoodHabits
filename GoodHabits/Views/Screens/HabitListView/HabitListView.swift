@@ -197,7 +197,7 @@ private struct WeekDayView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 20.0) {
-                ForEach(viewModel.weekDays, id: \.number) { weekDay in
+                ForEach(viewModel.getWeekDays(), id: \.digits) { weekDay in
                     WeekDayVStack(weekDay: weekDay)
                 }
 
@@ -222,10 +222,10 @@ private struct WeekDayVStack: View {
 
     var body: some View {
         VStack {
-            Text("\(weekDay.number, specifier: "%02d")")
+            Text(weekDay.digits)
                 .font(.system(size: 20, weight: .semibold, design: .monospaced))
                 .foregroundColor(!weekDay.isToday ? colorPalette.neutral700 : colorPalette.secondary500)
-            Text(weekDay.abbreviationKey)
+            Text(weekDay.abbreviation)
                 .font(.system(size: 12, weight: .light))
                 .foregroundColor(!weekDay.isToday ? colorPalette.neutral700 : colorPalette.secondary500)
                 .padding(.bottom, -4)

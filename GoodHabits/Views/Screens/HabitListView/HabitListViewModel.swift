@@ -23,39 +23,11 @@ final class HabitListViewModel: ObservableObject {
     }
 
     var weekNumber: String {
-        String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date))
-    }
-
-    var nextWeekNumber: String {
-        String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(7 * 60 * 60 * 24)))
+        date.formatted(.dateTime.week())
     }
 
     var monthAndYear: String {
-        return date.addingTimeInterval(2 * 60 * 60 * 24).formatted(.dateTime.month(.wide).year())
-    }
-
-    var weekDays: [WeekDay] {
-        let firstWeekDay = Calendar.current.firstWeekday
-        let currentWeekDay = Calendar.current.component(.weekday, from: date)
-        var diff = firstWeekDay - currentWeekDay
-        if diff > 0 {
-            diff -= 7
-        }
-        let firstWeekDate = date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
-        let dayAbbreviations = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-        var weekDays: [WeekDay] = []
-        for index in 0..<dayAbbreviations.count {
-            let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
-            let number = Calendar.current.component(.day, from: currentDate)
-            let weekDayIndex = Calendar.current.component(.weekday, from: currentDate) - 1
-            let abbreviationKey = LocalizedStringKey(dayAbbreviations[weekDayIndex])
-
-            let isToday = currentDate == Date().midnight()
-            weekDays.append(WeekDay(number: number, abbreviationKey: abbreviationKey, isToday: isToday))
-        }
-        return weekDays
+        date.addingTimeInterval(2 * 60 * 60 * 24).formatted(.dateTime.month(.wide).year())
     }
 
     init(viewContext: NSManagedObjectContext) {
@@ -72,6 +44,19 @@ final class HabitListViewModel: ObservableObject {
 
     func previousWeek() {
         date = date.addingTimeInterval(-7 * 60 * 60 * 24)
+    }
+
+    func getWeekDays() -> [WeekDay] {
+        let firstWeekDate = getFirstDateOfTheCurrentWeek()
+        var weekDays: [WeekDay] = []
+        for index in 0..<7 {
+            let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
+            let digits = currentDate.formatted(.dateTime.day(.twoDigits))
+            let abbreviation = currentDate.formatted(.dateTime.weekday(.abbreviated))
+            let isToday = currentDate == Date().midnight()
+            weekDays.append(WeekDay(digits: digits, abbreviation: abbreviation, isToday: isToday))
+        }
+        return weekDays
     }
 
     func fetchHabits() {
@@ -128,6 +113,16 @@ final class HabitListViewModel: ObservableObject {
         withAnimation {
             addHabitModalViewIsPresented = false
         }
+    }
+
+    private func getFirstDateOfTheCurrentWeek() -> Date {
+        let firstWeekDay = Calendar.current.firstWeekday
+        let currentWeekDay = Calendar.current.component(.weekday, from: date)
+        var diff = firstWeekDay - currentWeekDay
+        if diff > 0 {
+            diff -= 7
+        }
+        return date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
     }
 
     func getNextPaletteColor() -> Color.PaletteColor {
