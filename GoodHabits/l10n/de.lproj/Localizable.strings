@@ -6,13 +6,6 @@
   
 */
 
-"Sun" = "So.";
-"Mon" = "Mo.";
-"Tue" = "Di.";
-"Wed" = "Mi.";
-"Thu" = "Do.";
-"Fri" = "Fr.";
-"Sat" = "Sa.";
 "For 66 days I will ..." = "66 Tage lang werde ich ...";
 "Behavior pattern" = "Verhaltensmuster";
 "Invalid behavior pattern" = "Ungültiges Verhaltensmuster";
