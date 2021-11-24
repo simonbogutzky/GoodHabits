@@ -10,19 +10,23 @@ import WidgetKit
 
 struct GoodHabitsWidgetData {
     let missingStatements: Int
-    var remainingTime = "12:00:00"
-    var digits = "24"
-    var abbreviation = "Wed"
+    var tomorrowMidnight = Date().addingTimeInterval(24 * 60 * 60).midnight()
+    var digits = Date().formatted(.dateTime.day(.twoDigits))
+    var abbreviation = Date().formatted(.dateTime.weekday(.abbreviated))
+    
+    var missingStatementsString: String {
+        missingStatements > 9 ? "9+" : "\(missingStatements)"
+    }
 }
 
 extension GoodHabitsWidgetData {
-    static let previewData = GoodHabitsWidgetData(missingStatements: 3)
+    static let previewData = GoodHabitsWidgetData(missingStatements: 8)
 }
 
 struct GoodHabitsWidgetView: View {
     let colorPalette = Color.Palette(color: Color.paletteColors[0])
     let data: GoodHabitsWidgetData
-
+    
     var body: some View {
         ZStack {
             BackgroundView()
@@ -31,52 +35,41 @@ struct GoodHabitsWidgetView: View {
                     WeekDayVStack(weekDay:
                                     WeekDay(digits: data.digits, abbreviation: data.abbreviation, isToday: true)
                     )
-                    .padding([.leading, .top], 4)
-
+                        .padding([.leading, .top], 8)
+                    
                     MissingStatementsView(data: data)
+                        .padding(.bottom, -24)
                 }
-                .background(colorPalette.neutral100)
-                .cornerRadius(10)
-
+                .background(ContainerRelativeShape().fill(colorPalette.neutral100))
+                
                 Spacer()
                 RemainingTimeView(data: data)
             }
-            .padding()
+            .padding(8)
         }
         .environmentObject(colorPalette)
-    }
-}
-
-struct GoodHabitsWidgetView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            GoodHabitsWidgetView(data: .previewData)
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-            GoodHabitsWidgetView(data: .previewData)
-                .preferredColorScheme(.dark)
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-        }
     }
 }
 
 private struct MissingStatementsView: View {
     @EnvironmentObject private var colorPalette: Color.Palette
     let data: GoodHabitsWidgetData
-
+    
     var body: some View {
         HStack {
             Spacer()
             VStack {
-            ZStack {
-                Image(systemName: "circle")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(colorPalette.secondary300)
-                Text("\(data.missingStatements)")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(colorPalette.secondary500)
-            }
+                ZStack {
+                    Image(systemName: "circle")
+                        .resizable()
+                        .frame(width: 56, height: 56)
+                        .foregroundColor(colorPalette.secondary300)
+                    
+                    Text("\(data.missingStatementsString)")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(colorPalette.secondary500)
+                }
                 Circle()
                     .fill()
                     .foregroundColor(colorPalette.secondary500)
@@ -85,29 +78,56 @@ private struct MissingStatementsView: View {
             }
             Spacer()
         }
-        .offset(y: -15)
+        .offset(y: -32)
     }
 }
 
 private struct RemainingTimeView: View {
     @EnvironmentObject private var colorPalette: Color.Palette
     let data: GoodHabitsWidgetData
-
+    
     var body: some View {
         HStack {
-
+            
             Image(systemName: "moon.stars.fill")
                 .resizable()
                 .frame(width: 12, height: 12)
                 .padding(.leading, 8)
-
-            Text(data.remainingTime)
+            
+            Text(data.tomorrowMidnight, style: .relative)
                 .font(.system(size: 12, weight: .light))
                 .padding(0)
-
+            
             Spacer()
         }
         .foregroundColor(colorPalette.primary600)
         .padding([.leading, .bottom], 4)
+    }
+}
+
+struct GoodHabitsWidgetView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            GoodHabitsWidgetView(data: .previewData)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            
+            GoodHabitsWidgetView(data: .previewData)
+                .preferredColorScheme(.dark)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            
+            GoodHabitsWidgetView(data: .previewData)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .redacted(reason: .placeholder)
+            
+            GoodHabitsWidgetView(data: .previewData)
+                .preferredColorScheme(.dark)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .redacted(reason: .placeholder)
+            
+            GoodHabitsWidgetView(data: .previewData)
+                .preferredColorScheme(.dark)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }

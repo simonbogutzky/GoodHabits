@@ -41,7 +41,7 @@ struct AddHabitModalView: View {
             .padding()
             .frame(width: 320, height: 220)
             .background(colorPalette.neutral100)
-            .cornerRadius(16)
+            .cornerRadius(10)
             .overlay(alignment: .topTrailing) {
                 Button {
                     withAnimation {
