@@ -12,6 +12,21 @@
 		6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */; };
 		6EDB22C326BBEDF800B48CAB /* AddHabitModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */; };
 		D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
+		D30F6294274E34D60049BF33 /* GoodHabitsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */; };
+		D30F6295274E379C0049BF33 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC85270EEFF700C3C589 /* Color+Ext.swift */; };
+		D30F6296274E37AC0049BF33 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
+		D30F6298274E382D0049BF33 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F6297274E382D0049BF33 /* BackgroundView.swift */; };
+		D30F6299274E39790049BF33 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F6297274E382D0049BF33 /* BackgroundView.swift */; };
+		D30F629B274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */; };
+		D30F629C274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */; };
+		D30F629D274E3BA40049BF33 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D3AD12747EA5C00258C7F /* WeekDay.swift */; };
+		D3342FF7274D148400D3D866 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3342FF6274D148400D3D866 /* WidgetKit.framework */; };
+		D3342FF9274D148400D3D866 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3342FF8274D148400D3D866 /* SwiftUI.framework */; };
+		D3342FFC274D148400D3D866 /* GoodHabitsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */; };
+		D3342FFF274D148500D3D866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3342FFE274D148500D3D866 /* Assets.xcassets */; };
+		D3343001274D148500D3D866 /* GoodHabitsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D3342FFD274D148400D3D866 /* GoodHabitsWidget.intentdefinition */; };
+		D3343002274D148500D3D866 /* GoodHabitsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D3342FFD274D148400D3D866 /* GoodHabitsWidget.intentdefinition */; };
+		D3343005274D148500D3D866 /* GoodHabitsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D3342FF4274D148400D3D866 /* GoodHabitsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3344CC82703564000BD8F2E /* HabitTests.swift */; };
 		D33EE4FB2737F25700D54CA5 /* SmallCircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33EE4FA2737F25600D54CA5 /* SmallCircleButtonView.swift */; };
 		D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */; };
@@ -36,6 +51,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D3343003274D148500D3D866 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D39BD9F026BAE9DC00CAFA0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3342FF3274D148400D3D866;
+			remoteInfo = GoodHabitsWidgetExtension;
+		};
 		D39BDA0F26BAE9E000CAFA0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D39BD9F026BAE9DC00CAFA0B /* Project object */;
@@ -46,6 +68,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		D3343006274D148500D3D866 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D3343005274D148500D3D866 /* GoodHabitsWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3AE00E52709C0AD00CE743A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,6 +96,16 @@
 		6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitModalView.swift; sourceTree = "<group>"; };
 		D30561172704510600F46114 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetView.swift; sourceTree = "<group>"; };
+		D30F6297274E382D0049BF33 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayVStack.swift; sourceTree = "<group>"; };
+		D3342FF4274D148400D3D866 /* GoodHabitsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoodHabitsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3342FF6274D148400D3D866 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D3342FF8274D148400D3D866 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidget.swift; sourceTree = "<group>"; };
+		D3342FFD274D148400D3D866 /* GoodHabitsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GoodHabitsWidget.intentdefinition; sourceTree = "<group>"; };
+		D3342FFE274D148500D3D866 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D3343000274D148500D3D866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
 		D33EE4FA2737F25600D54CA5 /* SmallCircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleButtonView.swift; sourceTree = "<group>"; };
 		D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +135,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D3342FF1274D148400D3D866 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3342FF9274D148400D3D866 /* SwiftUI.framework in Frameworks */,
+				D3342FF7274D148400D3D866 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D39BD9F526BAE9DD00CAFA0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,6 +161,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3342FF5274D148400D3D866 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3342FF6274D148400D3D866 /* WidgetKit.framework */,
+				D3342FF8274D148400D3D866 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3342FFA274D148400D3D866 /* GoodHabitsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */,
+				D3342FFD274D148400D3D866 /* GoodHabitsWidget.intentdefinition */,
+				D3342FFE274D148500D3D866 /* Assets.xcassets */,
+				D3343000274D148500D3D866 /* Info.plist */,
+				D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */,
+			);
+			path = GoodHabitsWidget;
+			sourceTree = "<group>";
+		};
 		D33EE4FC2737F26500D54CA5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +219,8 @@
 				D3657E1427282B5400270A7B /* Toggles */,
 				D3657E1327282AD000270A7B /* Cells */,
 				D3DF853B27391E2B001F39EE /* TitleView.swift */,
+				D30F6297274E382D0049BF33 /* BackgroundView.swift */,
+				D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +299,8 @@
 			children = (
 				D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */,
 				D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */,
+				D3342FFA274D148400D3D866 /* GoodHabitsWidget */,
+				D3342FF5274D148400D3D866 /* Frameworks */,
 				D39BD9F926BAE9DD00CAFA0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -233,6 +310,7 @@
 			children = (
 				D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */,
 				D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */,
+				D3342FF4274D148400D3D866 /* GoodHabitsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,6 +386,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D3342FF3274D148400D3D866 /* GoodHabitsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3343009274D148500D3D866 /* Build configuration list for PBXNativeTarget "GoodHabitsWidgetExtension" */;
+			buildPhases = (
+				D3342FF0274D148400D3D866 /* Sources */,
+				D3342FF1274D148400D3D866 /* Frameworks */,
+				D3342FF2274D148400D3D866 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoodHabitsWidgetExtension;
+			productName = GoodHabitsWidgetExtension;
+			productReference = D3342FF4274D148400D3D866 /* GoodHabitsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D39BD9F726BAE9DD00CAFA0B /* GoodHabits */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D39BDA2226BAE9E000CAFA0B /* Build configuration list for PBXNativeTarget "GoodHabits" */;
@@ -317,10 +412,12 @@
 				D39BD9F626BAE9DD00CAFA0B /* Resources */,
 				D3AE00E52709C0AD00CE743A /* CopyFiles */,
 				D3AE00E62709C0B800CE743A /* ShellScript */,
+				D3343006274D148500D3D866 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D3343004274D148500D3D866 /* PBXTargetDependency */,
 			);
 			name = GoodHabits;
 			productName = GoodHabits;
@@ -352,9 +449,12 @@
 		D39BD9F026BAE9DC00CAFA0B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					D3342FF3274D148400D3D866 = {
+						CreatedOnToolsVersion = 13.1;
+					};
 					D39BD9F726BAE9DD00CAFA0B = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -380,11 +480,21 @@
 			targets = (
 				D39BD9F726BAE9DD00CAFA0B /* GoodHabits */,
 				D39BDA0D26BAE9E000CAFA0B /* GoodHabitsTests */,
+				D3342FF3274D148400D3D866 /* GoodHabitsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D3342FF2274D148400D3D866 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30F6296274E37AC0049BF33 /* Color Palettes.xcassets in Resources */,
+				D3342FFF274D148500D3D866 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D39BD9F626BAE9DD00CAFA0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,11 +553,27 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D3342FF0274D148400D3D866 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30F629D274E3BA40049BF33 /* WeekDay.swift in Sources */,
+				D30F6299274E39790049BF33 /* BackgroundView.swift in Sources */,
+				D3343001274D148500D3D866 /* GoodHabitsWidget.intentdefinition in Sources */,
+				D30F629C274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */,
+				D30F6295274E379C0049BF33 /* Color+Ext.swift in Sources */,
+				D3342FFC274D148400D3D866 /* GoodHabitsWidget.swift in Sources */,
+				D30F6294274E34D60049BF33 /* GoodHabitsWidgetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D39BD9F426BAE9DD00CAFA0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */,
+				D3343002274D148500D3D866 /* GoodHabitsWidget.intentdefinition in Sources */,
+				D30F6298274E382D0049BF33 /* BackgroundView.swift in Sources */,
 				D3DF854E27394955001F39EE /* Constants.swift in Sources */,
 				D39D3AD22747EA5C00258C7F /* WeekDay.swift in Sources */,
 				D3FECC86270EEFF700C3C589 /* Color+Ext.swift in Sources */,
@@ -455,6 +581,7 @@
 				D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */,
 				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
+				D30F629B274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */,
 				D3DF854C27393B21001F39EE /* CircleButtonView.swift in Sources */,
 				D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */,
 				D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */,
@@ -482,6 +609,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D3343004274D148500D3D866 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3342FF3274D148400D3D866 /* GoodHabitsWidgetExtension */;
+			targetProxy = D3343003274D148500D3D866 /* PBXContainerItemProxy */;
+		};
 		D39BDA1026BAE9E000CAFA0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D39BD9F726BAE9DD00CAFA0B /* GoodHabits */;
@@ -502,6 +634,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D3343007274D148500D3D866 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K2X8834C2C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoodHabitsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GoodHabitsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonbogutzky.GoodHabits.GoodHabitsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D3343008274D148500D3D866 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K2X8834C2C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoodHabitsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GoodHabitsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonbogutzky.GoodHabits.GoodHabitsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D39BDA2026BAE9E000CAFA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -623,6 +813,7 @@
 		D39BDA2326BAE9E000CAFA0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -647,6 +838,7 @@
 		D39BDA2426BAE9E000CAFA0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -715,6 +907,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D3343009274D148500D3D866 /* Build configuration list for PBXNativeTarget "GoodHabitsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3343007274D148500D3D866 /* Debug */,
+				D3343008274D148500D3D866 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D39BD9F326BAE9DC00CAFA0B /* Build configuration list for PBXProject "GoodHabits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

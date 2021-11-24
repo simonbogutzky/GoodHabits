@@ -76,19 +76,6 @@ struct HabitListView: View {
     }
 }
 
-private struct BackgroundView: View {
-
-    @EnvironmentObject private var colorPalette: Color.Palette
-
-    var body: some View {
-        LinearGradient(
-            gradient: Gradient(colors: [colorPalette.primary400, colorPalette.primary100]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing)
-            .ignoresSafeArea()
-    }
-}
-
 private struct WeekButtons: View {
 
     @EnvironmentObject private var colorPalette: Color.Palette
@@ -142,6 +129,7 @@ private struct EmptyHabitsView: View {
             Text("Learn new or correct old behavior patterns. Document them for 66 days and make them to your habit.")
                 .multilineTextAlignment(.center)
                 .font(.body)
+                .foregroundColor(colorPalette.primary600)
                 .padding()
             Spacer()
         }
@@ -211,29 +199,6 @@ private struct WeekDayView: View {
         .background(colorPalette.neutral100)
         .cornerRadius(10)
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
-    }
-}
-
-private struct WeekDayVStack: View {
-
-    @EnvironmentObject private var colorPalette: Color.Palette
-
-    var weekDay: WeekDay
-
-    var body: some View {
-        VStack {
-            Text(weekDay.digits)
-                .font(.system(size: 20, weight: .semibold, design: .monospaced))
-                .foregroundColor(!weekDay.isToday ? colorPalette.neutral700 : colorPalette.secondary500)
-            Text(weekDay.abbreviation)
-                .font(.system(size: 12, weight: .light))
-                .foregroundColor(!weekDay.isToday ? colorPalette.neutral700 : colorPalette.secondary500)
-                .padding(.bottom, -4)
-            Circle()
-                .fill()
-                .foregroundColor(!weekDay.isToday ? .clear : colorPalette.secondary500)
-                .frame(width: 4, height: 4)
-        }
     }
 }
 

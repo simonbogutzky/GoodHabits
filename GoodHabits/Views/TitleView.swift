@@ -28,5 +28,6 @@ struct TitleView: View {
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
         TitleView(title: "Title")
+            .environmentObject(Color.Palette(color: .blue))
     }
 }
