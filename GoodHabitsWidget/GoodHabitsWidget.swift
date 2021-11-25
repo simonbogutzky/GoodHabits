@@ -9,42 +9,35 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
-    }
+struct Provider: TimelineProvider {
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+        let entry = SimpleEntry(date: Date(), missingStatements: 8)
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+        let entries: [SimpleEntry] = [SimpleEntry(date: Date(), missingStatements: 8)]
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
+    }
+
+    func placeholder(in context: Context) -> SimpleEntry {
+        SimpleEntry(date: Date(), missingStatements: 0)
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    let missingStatements: Int
 }
 
-struct GoodHabitsWidgetEntryView: View {
+struct GoodHabitsWidgetEntyView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        GoodHabitsWidgetView(data: GoodHabitsWidgetData(missingStatements: entry.missingStatements))
     }
 }
 
@@ -53,17 +46,19 @@ struct GoodHabitsWidget: Widget {
     let kind: String = "GoodHabitsWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            GoodHabitsWidgetEntryView(entry: entry)
+
+        StaticConfiguration(kind: kind, provider: Provider()) { _ in
+            GoodHabitsWidgetView(data: GoodHabitsWidgetData(missingStatements: 8))
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("GoodHabits Widget")
+        .description("GoodHabits widget shows how many behaviors have not been performed today.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
 struct GoodHabitsWidget_Previews: PreviewProvider {
     static var previews: some View {
-        GoodHabitsWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        GoodHabitsWidgetView(data: GoodHabitsWidgetData(missingStatements: 8))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
