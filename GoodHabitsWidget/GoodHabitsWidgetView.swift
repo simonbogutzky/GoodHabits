@@ -24,7 +24,7 @@ extension GoodHabitsWidgetData {
 }
 
 struct GoodHabitsWidgetView: View {
-    let colorPalette = Color.Palette(color: Color.paletteColors[0])
+    let colorPalette: Color.Palette
     let data: GoodHabitsWidgetData
 
     var body: some View {
@@ -108,23 +108,23 @@ private struct RemainingTimeView: View {
 struct GoodHabitsWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            GoodHabitsWidgetView(data: .previewData)
+            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-            GoodHabitsWidgetView(data: .previewData)
+            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-            GoodHabitsWidgetView(data: .previewData)
+            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .redacted(reason: .placeholder)
 
-            GoodHabitsWidgetView(data: .previewData)
+            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .redacted(reason: .placeholder)
 
-            GoodHabitsWidgetView(data: .previewData)
+            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraExtraExtraLarge)
