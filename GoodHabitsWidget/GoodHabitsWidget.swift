@@ -66,9 +66,8 @@ struct GoodHabitsWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        GoodHabitsWidgetView(
-            colorPalette: Color.Palette(color: Color.paletteColors[entry.colorIndex]),
-            data: GoodHabitsWidgetData(missingStatements: entry.missingStatements))
+        GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+            .environmentObject(Color.Palette(color: Color.paletteColors[entry.colorIndex]))
     }
 }
 
@@ -89,9 +88,8 @@ struct GoodHabitsWidget: Widget {
 
 struct GoodHabitsWidget_Previews: PreviewProvider {
     static var previews: some View {
-        GoodHabitsWidgetView(
-            colorPalette: Color.Palette(color: Color.paletteColors[0]),
-            data: GoodHabitsWidgetData(missingStatements: 8))
+        GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+            .environmentObject(Color.Palette(color: Color.paletteColors[0]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

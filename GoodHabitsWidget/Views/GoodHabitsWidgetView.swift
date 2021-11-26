@@ -8,24 +8,10 @@
 import SwiftUI
 import WidgetKit
 
-struct GoodHabitsWidgetData {
-    let missingStatements: Int
-    var tomorrowMidnight = Date().addingTimeInterval(24 * 60 * 60).midnight()
-    var digits = Date().formatted(.dateTime.day(.twoDigits))
-    var abbreviation = Date().formatted(.dateTime.weekday(.abbreviated))
-
-    var missingStatementsString: String {
-        missingStatements > 9 ? "9+" : "\(missingStatements)"
-    }
-}
-
-extension GoodHabitsWidgetData {
-    static let previewData = GoodHabitsWidgetData(missingStatements: 8)
-}
-
 struct GoodHabitsWidgetView: View {
-    let colorPalette: Color.Palette
-    let data: GoodHabitsWidgetData
+
+    @EnvironmentObject private var colorPalette: Color.Palette
+    @ObservedObject var viewModel: GoodHabitsWidgetViewModel
 
     var body: some View {
         ZStack {
@@ -33,27 +19,30 @@ struct GoodHabitsWidgetView: View {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
                     WeekDayVStack(weekDay:
-                                    WeekDay(digits: data.digits, abbreviation: data.abbreviation, isToday: true)
+                                    WeekDay(
+                                        digits: viewModel.digits,
+                                        abbreviation: viewModel.abbreviation,
+                                        isToday: true)
                     )
                         .padding([.leading, .top], 8)
 
-                    MissingStatementsView(data: data)
+                    MissingStatementsView(viewModel: viewModel)
                         .padding(.bottom, -32)
                 }
                 .background(ContainerRelativeShape().fill(colorPalette.neutral100))
 
                 Spacer()
-                RemainingTimeView(data: data)
+                RemainingTimeView(viewModel: viewModel)
             }
             .padding(8)
         }
-        .environmentObject(colorPalette)
     }
 }
 
 private struct MissingStatementsView: View {
+
     @EnvironmentObject private var colorPalette: Color.Palette
-    let data: GoodHabitsWidgetData
+    @ObservedObject var viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel
 
     var body: some View {
         HStack {
@@ -65,7 +54,7 @@ private struct MissingStatementsView: View {
                         .frame(width: 56, height: 56)
                         .foregroundColor(colorPalette.secondary300)
 
-                    Text("\(data.missingStatementsString)")
+                    Text("\(viewModel.missingStatementsString)")
                         .font(.title)
                         .bold()
                         .foregroundColor(colorPalette.secondary500)
@@ -83,8 +72,9 @@ private struct MissingStatementsView: View {
 }
 
 private struct RemainingTimeView: View {
+
     @EnvironmentObject private var colorPalette: Color.Palette
-    let data: GoodHabitsWidgetData
+    @ObservedObject var viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel
 
     var body: some View {
         HStack {
@@ -94,7 +84,7 @@ private struct RemainingTimeView: View {
                 .frame(width: 12, height: 12)
                 .padding(.leading, 8)
 
-            Text(data.tomorrowMidnight, style: .relative)
+            Text(viewModel.tomorrowMidnight, style: .relative)
                 .font(.system(size: 12, weight: .light))
                 .padding(0)
 
@@ -108,23 +98,28 @@ private struct RemainingTimeView: View {
 struct GoodHabitsWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
+            GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+                .environmentObject(Color.Palette(color: Color.paletteColors[0]))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
+            GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+                .environmentObject(Color.Palette(color: Color.paletteColors[0]))
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
+            GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+                .environmentObject(Color.Palette(color: Color.paletteColors[0]))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .redacted(reason: .placeholder)
 
-            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
+            GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+                .environmentObject(Color.Palette(color: Color.paletteColors[0]))
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .redacted(reason: .placeholder)
 
-            GoodHabitsWidgetView(colorPalette: Color.Palette(color: Color.paletteColors[0]), data: .previewData)
+            GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+                .environmentObject(Color.Palette(color: Color.paletteColors[0]))
                 .preferredColorScheme(.dark)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraExtraExtraLarge)

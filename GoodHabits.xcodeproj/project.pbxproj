@@ -39,6 +39,7 @@
 		D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D39D3AD22747EA5C00258C7F /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D3AD12747EA5C00258C7F /* WeekDay.swift */; };
+		D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */; };
 		D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF853B27391E2B001F39EE /* TitleView.swift */; };
 		D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8540273920BB001F39EE /* HapticManager.swift */; };
 		D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8542273922AD001F39EE /* AlertItem.swift */; };
@@ -122,6 +123,7 @@
 		D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodHabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BDA1426BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39D3AD12747EA5C00258C7F /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetViewModel.swift; sourceTree = "<group>"; };
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		D3DF8542273922AD001F39EE /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -174,11 +176,11 @@
 		D3342FFA274D148400D3D866 /* GoodHabitsWidget */ = {
 			isa = PBXGroup;
 			children = (
+				D3B9D5582750C80500620D7B /* Views */,
 				D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */,
 				D39B3122274FE5A300030269 /* ColorSelection.intentdefinition */,
 				D3342FFE274D148500D3D866 /* Assets.xcassets */,
 				D3343000274D148500D3D866 /* Info.plist */,
-				D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */,
 			);
 			path = GoodHabitsWidget;
 			sourceTree = "<group>";
@@ -357,6 +359,15 @@
 				D39D3AD12747EA5C00258C7F /* WeekDay.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D3B9D5582750C80500620D7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */,
+				D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D3DF853F27392085001F39EE /* Managers */ = {
@@ -559,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30F629D274E3BA40049BF33 /* WeekDay.swift in Sources */,
+				D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */,
 				D39B3123274FE5A300030269 /* ColorSelection.intentdefinition in Sources */,
 				D30F6299274E39790049BF33 /* BackgroundView.swift in Sources */,
 				D30F629E274E4ADD0049BF33 /* Date+Ext.swift in Sources */,
