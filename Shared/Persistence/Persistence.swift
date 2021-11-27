@@ -45,9 +45,24 @@ class PersistenceController {
 
     let container: NSPersistentContainer
 
+    class NSGroupPersistentContainer: NSPersistentContainer {
+
+        override open class func defaultDirectoryURL() -> URL {
+            var storeURL = FileManager.default.containerURL(
+                forSecurityApplicationGroupIdentifier: "group.com.bogutzky.goodHabits"
+            )
+            storeURL = storeURL?.appendingPathComponent("GoodHabits.sqlite")
+            return storeURL!
+        }
+
+    }
+
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "GoodHabits",
-                                          managedObjectModel: Self.managedObjectModel)
+        container = NSGroupPersistentContainer(
+            name: "GoodHabits",
+            managedObjectModel: Self.managedObjectModel
+        )
+
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

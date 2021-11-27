@@ -19,7 +19,7 @@ struct Provider: IntentTimelineProvider {
         for configuration: ColorSelectionIntent,
         in context: Context,
         completion: @escaping (SimpleEntry) -> Void) {
-            let entry = SimpleEntry(date: Date(), missingStatements: 8, colorIndex: colorIndex(for: configuration))
+            let entry = SimpleEntry(date: Date(), colorIndex: colorIndex(for: configuration))
             completion(entry)
         }
 
@@ -28,15 +28,16 @@ struct Provider: IntentTimelineProvider {
         in context: Context,
         completion: @escaping (Timeline<SimpleEntry>) -> Void) {
             let entries: [SimpleEntry] = [
-                SimpleEntry(date: Date(), missingStatements: 8, colorIndex: colorIndex(for: configuration))
+                SimpleEntry(date: Date(), colorIndex: colorIndex(for: configuration))
             ]
 
-            let timeline = Timeline(entries: entries, policy: .atEnd)
+            let timeline = Timeline(entries: entries, policy: .never)
+
             completion(timeline)
         }
 
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), missingStatements: 0, colorIndex: 0)
+        return SimpleEntry(date: Date(), colorIndex: 0)
     }
 
     func colorIndex(for configuration: ColorSelectionIntent) -> Int {
@@ -57,8 +58,7 @@ struct Provider: IntentTimelineProvider {
 }
 
 struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let missingStatements: Int
+    var date: Date
     let colorIndex: Int
 }
 
@@ -66,7 +66,9 @@ struct GoodHabitsWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel.previewViewModel)
+        GoodHabitsWidgetView(viewModel: GoodHabitsWidgetView.GoodHabitsWidgetViewModel(
+            viewContext: PersistenceController.shared.container.viewContext
+        ))
             .environmentObject(Color.Palette(color: Color.paletteColors[entry.colorIndex]))
     }
 }

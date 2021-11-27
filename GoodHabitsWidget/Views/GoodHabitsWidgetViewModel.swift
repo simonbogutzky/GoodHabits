@@ -13,21 +13,39 @@ import CoreData
 extension GoodHabitsWidgetView {
     final class GoodHabitsWidgetViewModel: ObservableObject {
 
-        let missingStatements: Int
+        var missingStatements = 0
         var tomorrowMidnight = Date().addingTimeInterval(24 * 60 * 60).midnight()
         var digits = Date().formatted(.dateTime.day(.twoDigits))
         var abbreviation = Date().formatted(.dateTime.weekday(.abbreviated))
 
-        var missingStatementsString: String {
-            missingStatements > 9 ? "9+" : "\(missingStatements)"
+        var viewContext: NSManagedObjectContext
+
+        @Published var missingStatementsString = "0"
+
+        init(viewContext: NSManagedObjectContext) {
+            self.viewContext = viewContext
+            fetchMissingStatementsOfToday()
         }
 
-        init(missingStatements: Int) {
-            self.missingStatements = missingStatements
+        private func fetchMissingStatementsOfToday() {
+
+            let fetchRequest: NSFetchRequest<Habit> = Habit.fetchRequest()
+            // fetchRequest.predicate = NSPredicate(format: "firstName == %@", firstName)
+            fetchRequest.sortDescriptors = [
+                NSSortDescriptor(keyPath: \Habit.created, ascending: true)]
+            do {
+                self.missingStatements = try viewContext.fetch(fetchRequest).count
+                self.missingStatementsString = missingStatements > 9 ? "9+" : "\(missingStatements)"
+                print("✅ view model - fetch count = \(self.missingStatements)")
+            } catch {
+                print("❌ fetch error")
+            }
         }
     }
 }
 
 extension GoodHabitsWidgetView.GoodHabitsWidgetViewModel {
-    static let previewViewModel = GoodHabitsWidgetView.GoodHabitsWidgetViewModel(missingStatements: 8)
+    static let previewViewModel = GoodHabitsWidgetView.GoodHabitsWidgetViewModel(
+        viewContext: PersistenceController.preview.container.viewContext
+    )
 }

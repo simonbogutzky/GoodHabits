@@ -40,6 +40,9 @@
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D39D3AD22747EA5C00258C7F /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D3AD12747EA5C00258C7F /* WeekDay.swift */; };
 		D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */; };
+		D3B9D5592750D14700620D7B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
+		D3B9D55A2750D14C00620D7B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
+		D3B9D55B2750D1D400620D7B /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
 		D3DF853C27391E2B001F39EE /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF853B27391E2B001F39EE /* TitleView.swift */; };
 		D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8540273920BB001F39EE /* HapticManager.swift */; };
 		D3DF8543273922AD001F39EE /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF8542273922AD001F39EE /* AlertItem.swift */; };
@@ -108,6 +111,8 @@
 		D3342FFE274D148500D3D866 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3343000274D148500D3D866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3344CC82703564000BD8F2E /* HabitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTests.swift; sourceTree = "<group>"; };
+		D33E77D427510C65004FE877 /* GoodHabitsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodHabitsWidgetExtension.entitlements; sourceTree = "<group>"; };
+		D33E77D527510C77004FE877 /* GoodHabits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodHabits.entitlements; sourceTree = "<group>"; };
 		D33EE4FA2737F25600D54CA5 /* SmallCircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleButtonView.swift; sourceTree = "<group>"; };
 		D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListViewModel.swift; sourceTree = "<group>"; };
 		D3657E1E2728500900270A7B /* HabitListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCellViewModel.swift; sourceTree = "<group>"; };
@@ -297,9 +302,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D399F97B2750F8A8006952E0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E1827282C3200270A7B /* Persistence */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D39BD9EF26BAE9DC00CAFA0B = {
 			isa = PBXGroup;
 			children = (
+				D33E77D427510C65004FE877 /* GoodHabitsWidgetExtension.entitlements */,
+				D399F97B2750F8A8006952E0 /* Shared */,
 				D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */,
 				D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */,
 				D3342FFA274D148400D3D866 /* GoodHabitsWidget */,
@@ -321,10 +336,10 @@
 		D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */ = {
 			isa = PBXGroup;
 			children = (
+				D33E77D527510C77004FE877 /* GoodHabits.entitlements */,
 				D39D3AD02747EA4E00258C7F /* Model */,
 				D3DF8544273926B4001F39EE /* l10n */,
 				D3DF853F27392085001F39EE /* Managers */,
-				D3657E1827282C3200270A7B /* Persistence */,
 				D3FECC84270EEB3E00C3C589 /* Resources */,
 				D3657E1227282AA700270A7B /* Views */,
 				D3657E10272829D500270A7B /* Utilities */,
@@ -569,9 +584,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B9D55B2750D1D400620D7B /* Habit+CoreDataClass.swift in Sources */,
+				D3B9D55A2750D14C00620D7B /* Persistence.swift in Sources */,
 				D30F629D274E3BA40049BF33 /* WeekDay.swift in Sources */,
 				D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */,
 				D39B3123274FE5A300030269 /* ColorSelection.intentdefinition in Sources */,
+				D3B9D5592750D14700620D7B /* GoodHabits.xcdatamodeld in Sources */,
 				D30F6299274E39790049BF33 /* BackgroundView.swift in Sources */,
 				D30F629E274E4ADD0049BF33 /* Date+Ext.swift in Sources */,
 				D30F629C274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */,
@@ -654,6 +672,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = GoodHabitsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = K2X8834C2C;
@@ -683,6 +702,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = GoodHabitsWidgetExtensionRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = K2X8834C2C;
@@ -830,6 +850,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoodHabits/GoodHabits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GoodHabits/Preview Content\"";
@@ -855,6 +876,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoodHabits/GoodHabitsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GoodHabits/Preview Content\"";
