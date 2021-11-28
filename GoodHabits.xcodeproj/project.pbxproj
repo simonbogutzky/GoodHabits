@@ -30,8 +30,6 @@
 		D33EE4FB2737F25700D54CA5 /* SmallCircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33EE4FA2737F25600D54CA5 /* SmallCircleButtonView.swift */; };
 		D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */; };
 		D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3657E1E2728500900270A7B /* HabitListCellViewModel.swift */; };
-		D39B3123274FE5A300030269 /* ColorSelection.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D39B3122274FE5A300030269 /* ColorSelection.intentdefinition */; };
-		D39B3124274FE6C500030269 /* ColorSelection.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D39B3122274FE5A300030269 /* ColorSelection.intentdefinition */; };
 		D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */; };
 		D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */; };
 		D39BDA0026BAE9E000CAFA0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39BD9FF26BAE9E000CAFA0B /* Assets.xcassets */; };
@@ -39,6 +37,9 @@
 		D39BDA0526BAE9E000CAFA0B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
 		D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D39D3AD22747EA5C00258C7F /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D3AD12747EA5C00258C7F /* WeekDay.swift */; };
+		D39FBD122754117000B1E91E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3DF8549273927BA001F39EE /* Localizable.strings */; };
+		D3A02D662753809300F8E8E5 /* ColorSelection.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */; };
+		D3A02D672753809300F8E8E5 /* ColorSelection.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */; };
 		D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */; };
 		D3B9D5592750D14700620D7B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D3B9D55A2750D14C00620D7B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
@@ -116,7 +117,6 @@
 		D33EE4FA2737F25600D54CA5 /* SmallCircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircleButtonView.swift; sourceTree = "<group>"; };
 		D3657E1C27283BAF00270A7B /* HabitListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListViewModel.swift; sourceTree = "<group>"; };
 		D3657E1E2728500900270A7B /* HabitListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCellViewModel.swift; sourceTree = "<group>"; };
-		D39B3122274FE5A300030269 /* ColorSelection.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ColorSelection.intentdefinition; sourceTree = "<group>"; };
 		D39BD9F826BAE9DD00CAFA0B /* GoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsApp.swift; sourceTree = "<group>"; };
 		D39BD9FD26BAE9DD00CAFA0B /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
@@ -128,6 +128,9 @@
 		D39BDA0E26BAE9E000CAFA0B /* GoodHabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodHabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39BDA1426BAE9E000CAFA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39D3AD12747EA5C00258C7F /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		D3A02D682753809300F8E8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/ColorSelection.intentdefinition; sourceTree = "<group>"; };
+		D3A02D6B275380A200F8E8E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ColorSelection.strings; sourceTree = "<group>"; };
+		D3A02D6D275380A300F8E8E5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ColorSelection.strings; sourceTree = "<group>"; };
 		D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetViewModel.swift; sourceTree = "<group>"; };
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -183,7 +186,7 @@
 			children = (
 				D3B9D5582750C80500620D7B /* Views */,
 				D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */,
-				D39B3122274FE5A300030269 /* ColorSelection.intentdefinition */,
+				D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */,
 				D3342FFE274D148500D3D866 /* Assets.xcassets */,
 				D3343000274D148500D3D866 /* Info.plist */,
 			);
@@ -518,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30F6296274E37AC0049BF33 /* Color Palettes.xcassets in Resources */,
+				D39FBD122754117000B1E91E /* Localizable.strings in Resources */,
 				D3342FFF274D148500D3D866 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,7 +592,7 @@
 				D3B9D55A2750D14C00620D7B /* Persistence.swift in Sources */,
 				D30F629D274E3BA40049BF33 /* WeekDay.swift in Sources */,
 				D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */,
-				D39B3123274FE5A300030269 /* ColorSelection.intentdefinition in Sources */,
+				D3A02D672753809300F8E8E5 /* ColorSelection.intentdefinition in Sources */,
 				D3B9D5592750D14700620D7B /* GoodHabits.xcdatamodeld in Sources */,
 				D30F6299274E39790049BF33 /* BackgroundView.swift in Sources */,
 				D30F629E274E4ADD0049BF33 /* Date+Ext.swift in Sources */,
@@ -621,7 +625,7 @@
 				6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */,
 				6E59E6E826C51A1700224EC5 /* DayCheckBoxView.swift in Sources */,
 				D39BD9FC26BAE9DD00CAFA0B /* GoodHabitsApp.swift in Sources */,
-				D39B3124274FE6C500030269 /* ColorSelection.intentdefinition in Sources */,
+				D3A02D662753809300F8E8E5 /* ColorSelection.intentdefinition in Sources */,
 				D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */,
 				6EDB22C326BBEDF800B48CAB /* AddHabitModalView.swift in Sources */,
 				D33EE4FB2737F25700D54CA5 /* SmallCircleButtonView.swift in Sources */,
@@ -654,6 +658,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3A02D682753809300F8E8E5 /* Base */,
+				D3A02D6B275380A200F8E8E5 /* en */,
+				D3A02D6D275380A300F8E8E5 /* de */,
+			);
+			name = ColorSelection.intentdefinition;
+			sourceTree = "<group>";
+		};
 		D3DF8549273927BA001F39EE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -702,7 +716,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = GoodHabitsWidgetExtensionRelease.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GoodHabitsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = K2X8834C2C;
@@ -876,7 +890,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GoodHabits/GoodHabitsRelease.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GoodHabits/GoodHabits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GoodHabits/Preview Content\"";

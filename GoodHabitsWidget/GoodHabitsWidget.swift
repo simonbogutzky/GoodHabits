@@ -82,7 +82,7 @@ struct GoodHabitsWidget: Widget {
         IntentConfiguration(kind: kind, intent: ColorSelectionIntent.self, provider: Provider()) { entry in
             GoodHabitsWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("GoodHabits Widget")
+        .configurationDisplayName("Widget")
         .description("GoodHabits widget shows how many behaviors have not been performed today.")
         .supportedFamilies([.systemSmall])
     }
