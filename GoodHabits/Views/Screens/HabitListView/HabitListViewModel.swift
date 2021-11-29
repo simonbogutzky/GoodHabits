@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreData
-import WidgetKit
 
 final class HabitListViewModel: ObservableObject {
 
@@ -78,8 +77,6 @@ final class HabitListViewModel: ObservableObject {
             saveViewContext()
 
             fetchHabits()
-
-            WidgetCenter.shared.reloadTimelines(ofKind: "GoodHabitsWidget")
         }
     }
 

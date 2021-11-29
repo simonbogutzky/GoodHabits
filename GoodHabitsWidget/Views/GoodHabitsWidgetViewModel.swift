@@ -29,14 +29,23 @@ extension GoodHabitsWidgetView {
 
         private func fetchMissingStatementsOfToday() {
 
-            let fetchRequest: NSFetchRequest<Habit> = Habit.fetchRequest()
-            // fetchRequest.predicate = NSPredicate(format: "firstName == %@", firstName)
-            fetchRequest.sortDescriptors = [
-                NSSortDescriptor(keyPath: \Habit.created, ascending: true)]
+            let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+            let lowerBound = Date().addingTimeInterval(-1 * 60 * 60 * 24).midnight()
+            let upperBound = Date().midnight()
+            let datePredicate = NSPredicate(format: "%K <= %@ AND %K >= %@ AND %K == %@ AND %K == %@",
+                                            #keyPath(Day.date),
+                                            upperBound as NSDate,
+                                            #keyPath(Day.date),
+                                            lowerBound as NSDate,
+                                            #keyPath(Day.isDone),
+                                            NSNumber(value: false),
+                                            #keyPath(Day.isVisible),
+                                            NSNumber(value: true)
+                                            )
+            fetchRequest.predicate = datePredicate
             do {
                 self.missingStatements = try viewContext.fetch(fetchRequest).count
                 self.missingStatementsString = missingStatements > 9 ? "9+" : "\(missingStatements)"
-                print("✅ view model - fetch count = \(self.missingStatements)")
             } catch {
                 print("❌ fetch error")
             }

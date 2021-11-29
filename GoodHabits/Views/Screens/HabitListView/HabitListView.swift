@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 struct HabitListView: View {
 
@@ -72,6 +73,10 @@ struct HabitListView: View {
         })
         .onAppear {
             viewModel.fetchHabits()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            viewModel.saveViewContext()
+            WidgetCenter.shared.reloadTimelines(ofKind: "GoodHabitsWidget")
         }
     }
 }

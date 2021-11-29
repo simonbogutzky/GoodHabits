@@ -31,7 +31,8 @@ struct Provider: IntentTimelineProvider {
                 SimpleEntry(date: Date(), colorIndex: colorIndex(for: configuration))
             ]
 
-            let timeline = Timeline(entries: entries, policy: .never)
+            let updateDate = Date().midnight()
+            let timeline = Timeline(entries: entries, policy: .after(updateDate))
 
             completion(timeline)
         }
@@ -82,8 +83,8 @@ struct GoodHabitsWidget: Widget {
         IntentConfiguration(kind: kind, intent: ColorSelectionIntent.self, provider: Provider()) { entry in
             GoodHabitsWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Widget")
-        .description("GoodHabits widget shows how many behaviors have not been performed today.")
+        .configurationDisplayName("Missing Behaviors Widget")
+        .description("GoodHabits widget shows how many behaviors have not been performed today and yesterday.")
         .supportedFamilies([.systemSmall])
     }
 }

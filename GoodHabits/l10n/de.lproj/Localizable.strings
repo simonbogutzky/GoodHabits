@@ -12,4 +12,5 @@
 "A behavior pattern is required. \nPlease try again." = "Ein Verhaltensmuster ist erforderlich. \nBitte versuche es erneut.";
 "Learn new or correct old behavior patterns. Document them for 66 days and make them to your habit." = "Erlerne neue oder korrigiere alte Verhaltensmuster. Dokumentiere sie 66 Tage lang und lasse sie zu deiner Gewohnheit werden.";
 "WE" = "KW";
-"GoodHabits widget shows how many behaviors have not been performed today." = "Das GoodHabits-Widget zeigt an, wie viele Verhaltensweisen heute noch nicht ausgeführt wurden.";
+"GoodHabits widget shows how many behaviors have not been performed today and yesterday." = "Das GoodHabits-Widget zeigt an, wie viele Verhaltensweisen heute und gestern noch nicht ausgeführt wurden.";
+"Missing Behaviors Widget" = "Widget für fehlende Verhaltensweisen";
