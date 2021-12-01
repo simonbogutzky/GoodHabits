@@ -184,11 +184,11 @@
 		D3342FFA274D148400D3D866 /* GoodHabitsWidget */ = {
 			isa = PBXGroup;
 			children = (
-				D3B9D5582750C80500620D7B /* Views */,
+				D3343000274D148500D3D866 /* Info.plist */,
 				D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */,
 				D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */,
-				D3342FFE274D148500D3D866 /* Assets.xcassets */,
-				D3343000274D148500D3D866 /* Info.plist */,
+				D3A3C022275786A500C5A736 /* Resources */,
+				D3B9D5582750C80500620D7B /* Views */,
 			);
 			path = GoodHabitsWidget;
 			sourceTree = "<group>";
@@ -340,15 +340,15 @@
 			isa = PBXGroup;
 			children = (
 				D33E77D527510C77004FE877 /* GoodHabits.entitlements */,
-				D39D3AD02747EA4E00258C7F /* Model */,
-				D3DF8544273926B4001F39EE /* l10n */,
-				D3DF853F27392085001F39EE /* Managers */,
-				D3FECC84270EEB3E00C3C589 /* Resources */,
-				D3657E1227282AA700270A7B /* Views */,
-				D3657E10272829D500270A7B /* Utilities */,
 				D39BDA0926BAE9E000CAFA0B /* Info.plist */,
 				D39BD9FB26BAE9DD00CAFA0B /* GoodHabitsApp.swift */,
+				D3DF8544273926B4001F39EE /* l10n */,
+				D3DF853F27392085001F39EE /* Managers */,
+				D39D3AD02747EA4E00258C7F /* Model */,
 				D39BDA0126BAE9E000CAFA0B /* Preview Content */,
+				D3FECC84270EEB3E00C3C589 /* Resources */,
+				D3657E10272829D500270A7B /* Utilities */,
+				D3657E1227282AA700270A7B /* Views */,
 			);
 			path = GoodHabits;
 			sourceTree = "<group>";
@@ -364,8 +364,9 @@
 		D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D3657E1927282C5800270A7B /* Persistence */,
-				D3657E1A27282C6700270A7B /* Utilities */,
+				D3A3C01D275785E200C5A736 /* GoodHabits */,
+				D3A3C01E2757860700C5A736 /* GoodHabitsWidget */,
+				D3A3C01C2757857800C5A736 /* Shared */,
 				D39BDA1426BAE9E000CAFA0B /* Info.plist */,
 			);
 			path = GoodHabitsTests;
@@ -379,11 +380,66 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D3A3C01C2757857800C5A736 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E1927282C5800270A7B /* Persistence */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D3A3C01D275785E200C5A736 /* GoodHabits */ = {
+			isa = PBXGroup;
+			children = (
+				D3657E1A27282C6700270A7B /* Utilities */,
+			);
+			path = GoodHabits;
+			sourceTree = "<group>";
+		};
+		D3A3C01E2757860700C5A736 /* GoodHabitsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3C01F2757862F00C5A736 /* Views */,
+			);
+			path = GoodHabitsWidget;
+			sourceTree = "<group>";
+		};
+		D3A3C01F2757862F00C5A736 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D3A3C0202757864C00C5A736 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3C0212757865700C5A736 /* GoodHabitsWidgetView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D3A3C0212757865700C5A736 /* GoodHabitsWidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */,
+				D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */,
+			);
+			path = GoodHabitsWidgetView;
+			sourceTree = "<group>";
+		};
+		D3A3C022275786A500C5A736 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3342FFE274D148500D3D866 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D3B9D5582750C80500620D7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */,
-				D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */,
+				D3A3C0202757864C00C5A736 /* Screens */,
 			);
 			path = Views;
 			sourceTree = "<group>";
