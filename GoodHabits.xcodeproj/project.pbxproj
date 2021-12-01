@@ -319,8 +319,8 @@
 				D33E77D427510C65004FE877 /* GoodHabitsWidgetExtension.entitlements */,
 				D399F97B2750F8A8006952E0 /* Shared */,
 				D39BD9FA26BAE9DD00CAFA0B /* GoodHabits */,
-				D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */,
 				D3342FFA274D148400D3D866 /* GoodHabitsWidget */,
+				D39BDA1126BAE9E000CAFA0B /* GoodHabitsTests */,
 				D3342FF5274D148400D3D866 /* Frameworks */,
 				D39BD9F926BAE9DD00CAFA0B /* Products */,
 			);
