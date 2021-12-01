@@ -27,7 +27,7 @@ extension GoodHabitsWidgetView {
             fetchMissingStatementsOfToday()
         }
 
-        private func fetchMissingStatementsOfToday() {
+        func fetchMissingStatementsOfToday() {
 
             let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
             let lowerBound = Date().addingTimeInterval(-1 * 60 * 60 * 24).midnight()

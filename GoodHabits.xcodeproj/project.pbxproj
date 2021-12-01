@@ -40,6 +40,9 @@
 		D39FBD122754117000B1E91E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3DF8549273927BA001F39EE /* Localizable.strings */; };
 		D3A02D662753809300F8E8E5 /* ColorSelection.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */; };
 		D3A02D672753809300F8E8E5 /* ColorSelection.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */; };
+		D3A3C0262757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3C0252757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift */; };
+		D3A3C02727578B6600C5A736 /* GoodHabitsWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */; };
+		D3A3C02827578B6900C5A736 /* GoodHabitsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */; };
 		D3B9D5572750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */; };
 		D3B9D5592750D14700620D7B /* GoodHabits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0626BAE9E000CAFA0B /* GoodHabits.xcdatamodeld */; };
 		D3B9D55A2750D14C00620D7B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BDA0426BAE9E000CAFA0B /* Persistence.swift */; };
@@ -131,6 +134,7 @@
 		D3A02D682753809300F8E8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/ColorSelection.intentdefinition; sourceTree = "<group>"; };
 		D3A02D6B275380A200F8E8E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ColorSelection.strings; sourceTree = "<group>"; };
 		D3A02D6D275380A300F8E8E5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ColorSelection.strings; sourceTree = "<group>"; };
+		D3A3C0252757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetViewModelTests.swift; sourceTree = "<group>"; };
 		D3B9D5562750C7EE00620D7B /* GoodHabitsWidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetViewModel.swift; sourceTree = "<group>"; };
 		D3DF853B27391E2B001F39EE /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3DF8540273920BB001F39EE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -140,7 +144,7 @@
 		D3DF854B27393B21001F39EE /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		D3DF854D27394955001F39EE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3E2194E2701C6780030E9D7 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
-		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
+		D3E219502701C9EC0030E9D7 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = GoodHabitsTests/GoodHabits/Utilities/Extensions/DateTests.swift; sourceTree = SOURCE_ROOT; };
 		D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color Palettes.xcassets"; sourceTree = "<group>"; };
 		D3FECC85270EEFF700C3C589 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,7 +192,6 @@
 				D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */,
 				D3A02D692753809300F8E8E5 /* ColorSelection.intentdefinition */,
 				D3A3C022275786A500C5A736 /* Resources */,
-				D3B9D5582750C80500620D7B /* Views */,
 			);
 			path = GoodHabitsWidget;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 		D3657E1527282B8200270A7B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D3A3C0212757865700C5A736 /* GoodHabitsWidgetView */,
 				D3657E1627282B8D00270A7B /* HabitListView */,
 			);
 			path = Screens;
@@ -365,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				D3A3C01D275785E200C5A736 /* GoodHabits */,
-				D3A3C01E2757860700C5A736 /* GoodHabitsWidget */,
 				D3A3C01C2757857800C5A736 /* Shared */,
 				D39BDA1426BAE9E000CAFA0B /* Info.plist */,
 			);
@@ -391,32 +394,18 @@
 		D3A3C01D275785E200C5A736 /* GoodHabits */ = {
 			isa = PBXGroup;
 			children = (
+				D3A3C01F2757862F00C5A736 /* Views */,
 				D3657E1A27282C6700270A7B /* Utilities */,
 			);
 			path = GoodHabits;
 			sourceTree = "<group>";
 		};
-		D3A3C01E2757860700C5A736 /* GoodHabitsWidget */ = {
-			isa = PBXGroup;
-			children = (
-				D3A3C01F2757862F00C5A736 /* Views */,
-			);
-			path = GoodHabitsWidget;
-			sourceTree = "<group>";
-		};
 		D3A3C01F2757862F00C5A736 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3A3C023275787D600C5A736 /* Screens */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D3A3C0202757864C00C5A736 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				D3A3C0212757865700C5A736 /* GoodHabitsWidgetView */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		D3A3C0212757865700C5A736 /* GoodHabitsWidgetView */ = {
@@ -436,12 +425,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D3B9D5582750C80500620D7B /* Views */ = {
+		D3A3C023275787D600C5A736 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D3A3C0202757864C00C5A736 /* Screens */,
+				D3A3C024275787E000C5A736 /* GoodHabitsWidgetView */,
 			);
-			path = Views;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D3A3C024275787E000C5A736 /* GoodHabitsWidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3C0252757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift */,
+			);
+			path = GoodHabitsWidgetView;
 			sourceTree = "<group>";
 		};
 		D3DF853F27392085001F39EE /* Managers */ = {
@@ -672,6 +669,7 @@
 				D3657E1D27283BAF00270A7B /* HabitListViewModel.swift in Sources */,
 				D3E2194F2701C6780030E9D7 /* View+Ext.swift in Sources */,
 				D39BD9FE26BAE9DD00CAFA0B /* HabitListView.swift in Sources */,
+				D3A3C02827578B6900C5A736 /* GoodHabitsWidgetView.swift in Sources */,
 				D30F629B274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */,
 				D3DF854C27393B21001F39EE /* CircleButtonView.swift in Sources */,
 				D3657E1F2728500900270A7B /* HabitListCellViewModel.swift in Sources */,
@@ -685,6 +683,7 @@
 				D39BDA0826BAE9E000CAFA0B /* GoodHabits.xcdatamodeld in Sources */,
 				6EDB22C326BBEDF800B48CAB /* AddHabitModalView.swift in Sources */,
 				D33EE4FB2737F25700D54CA5 /* SmallCircleButtonView.swift in Sources */,
+				D3A3C02727578B6600C5A736 /* GoodHabitsWidgetViewModel.swift in Sources */,
 				D3DF8541273920BB001F39EE /* HapticManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */,
+				D3A3C0262757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift in Sources */,
 				D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
