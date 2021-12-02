@@ -12,6 +12,7 @@
 		6E59E6EA26C51C5F00224EC5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */; };
 		6EDB22C326BBEDF800B48CAB /* AddHabitModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */; };
 		D30561192704510600F46114 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30561172704510600F46114 /* Habit+CoreDataClass.swift */; };
+		D30EA8D827591034002419D1 /* HabitListCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EA8D727591034002419D1 /* HabitListCellViewModelTests.swift */; };
 		D30F6294274E34D60049BF33 /* GoodHabitsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */; };
 		D30F6295274E379C0049BF33 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FECC85270EEFF700C3C589 /* Color+Ext.swift */; };
 		D30F6296274E37AC0049BF33 /* Color Palettes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FECC82270EEB1B00C3C589 /* Color Palettes.xcassets */; };
@@ -105,6 +106,7 @@
 		6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		6EDB22C226BBEDF800B48CAB /* AddHabitModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitModalView.swift; sourceTree = "<group>"; };
 		D30561172704510600F46114 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D30EA8D727591034002419D1 /* HabitListCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListCellViewModelTests.swift; sourceTree = "<group>"; };
 		D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetView.swift; sourceTree = "<group>"; };
 		D30F6297274E382D0049BF33 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayVStack.swift; sourceTree = "<group>"; };
@@ -176,6 +178,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D30EA8D527591010002419D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D30EA8D727591034002419D1 /* HabitListCellViewModelTests.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		D3342FF5274D148400D3D866 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +438,7 @@
 		D3A3C023275787D600C5A736 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D30EA8D527591010002419D1 /* Cells */,
 				D3A3C024275787E000C5A736 /* GoodHabitsWidgetView */,
 			);
 			path = Screens;
@@ -693,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */,
+				D30EA8D827591034002419D1 /* HabitListCellViewModelTests.swift in Sources */,
 				D3A3C0262757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift in Sources */,
 				D3344CC92703564000BD8F2E /* HabitTests.swift in Sources */,
 			);
@@ -744,7 +756,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = GoodHabitsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = K2X8834C2C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoodHabitsWidget/Info.plist;
@@ -774,7 +786,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = GoodHabitsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = K2X8834C2C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoodHabitsWidget/Info.plist;
