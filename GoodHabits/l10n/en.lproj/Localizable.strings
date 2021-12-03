@@ -14,3 +14,5 @@
 "WE" = "WE";
 "GoodHabits widget shows how many behaviors have not been performed today and yesterday" = "GoodHabits widget shows how many behaviors have not been performed today and yesterday";
 "Missing Behaviors Widget" = "Missing Behaviors Widget";
+"%@ day left" = "%@ day left";
+"%@ days left" = "%@ days left";

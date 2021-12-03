@@ -59,5 +59,17 @@ extension HabitListCell {
                 return currentDate
             }
         }
+
+        func getDaysRemaining() -> Int {
+            return Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible && !$0.isDone }.count
+        }
+
+        func getDayRemainingString() -> String {
+            let daysRemaining = getDaysRemaining()
+            if daysRemaining == 1 {
+                return String(format: NSLocalizedString("%@ day left", comment: ""), "\(daysRemaining)")
+            }
+            return String(format: NSLocalizedString("%@ days left", comment: ""), "\(daysRemaining)")
+        }
     }
 }

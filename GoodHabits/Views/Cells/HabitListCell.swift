@@ -17,6 +17,7 @@ struct HabitListCell: View {
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(colorPalette.neutral700)
+
             ZStack {
                 HStack {
                     ForEach(viewModel.days, id: \.self) { day in
@@ -24,31 +25,39 @@ struct HabitListCell: View {
                     }
                 }
                 Spacer()
-                    .frame(height: 22.0)
-            }
+                    .frame(height: 24.0)
+            }.padding(0)
+            HStack {
+                Spacer()
+                Text(viewModel.getDayRemainingString())
+                    .font(.caption)
+                    .foregroundColor(colorPalette.neutral700)
+            }.padding(.horizontal)
         }
         .background(colorPalette.neutral100)
     }
 }
 
 struct HabitRowView_Previews: PreviewProvider {
+    static let components = DateComponents(
+        calendar: Calendar.current,
+        timeZone: TimeZone(abbreviation: "GMT"),
+        year: 2021,
+        month: 9,
+        day: 26,
+        hour: 16,
+        minute: 15
+    )
+
     static var habit: Habit {
         let viewContext = PersistenceController.preview.container.viewContext
-        let calendar = Calendar.current
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 30,
-            hour: 16,
-            minute: 15
-        )
-        let item = Habit(context: viewContext, statement: "Do something", created: components.date!)
-        return item
+        let habit = Habit(context: viewContext, statement: "Do something", created: components.date!)
+        let days = Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible }.sorted { $0.date! < $1.date! }
+        days[0].isDone = true
+        return habit
     }
 
-    @State static var date = Date().midnight()
+    @State static var date = components.date!.midnight()
 
     static var previews: some View {
         Group {
