@@ -12,12 +12,10 @@ import CoreData
 class GoodHabitsWidgetViewModelTests: XCTestCase {
 
     var persistenceController: PersistenceController!
-    var calendar: Calendar!
     var sut: GoodHabitsWidgetView.GoodHabitsWidgetViewModel!
 
     override func setUpWithError() throws {
         persistenceController = PersistenceController(inMemory: true)
-        calendar = Calendar.current
         sut = GoodHabitsWidgetView.GoodHabitsWidgetViewModel(viewContext: persistenceController.container.viewContext)
     }
 
@@ -41,5 +39,4 @@ class GoodHabitsWidgetViewModelTests: XCTestCase {
         // Assert
         XCTAssertEqual(sut.missingStatements, 4)
     }
-
 }
