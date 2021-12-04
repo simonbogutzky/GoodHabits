@@ -8,13 +8,23 @@
 import SwiftUI
 
 extension HabitListCell {
-    final class HabitListCellViewModel {
+    final class HabitListCellViewModel: ObservableObject {
 
         private var habit: Habit
         private var date: Date
 
-        var days: [Day] {
-            Array(habit.days as? Set<Day> ?? [])
+        @Published var days: [Day] = []
+        @Published var dayRemainingString = ""
+
+        var statement: String {
+            habit.statement ?? ""
+        }
+
+        init (habit: Habit, date: Date) {
+            self.habit = habit
+            self.date = date
+
+            self.days = Array(habit.days as? Set<Day> ?? [])
                 .filter({ day in
                     let calendar = Calendar.current
                     let dayDateComponents = calendar.dateComponents([.weekOfYear, .year],
@@ -26,15 +36,7 @@ extension HabitListCell {
                 .sorted(by: { first, second in
                     first.date! < second.date!
                 })
-        }
-
-        var statement: String {
-            habit.statement ?? ""
-        }
-
-        init(habit: Habit, date: Date) {
-            self.habit = habit
-            self.date = date
+            dayDidUpdated()
         }
 
         func getFirstDayOfThisWeek(currentDate: Date) -> Date {
@@ -64,12 +66,14 @@ extension HabitListCell {
             return Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible && !$0.isDone }.count
         }
 
-        func getDayRemainingString() -> String {
+        func dayDidUpdated() {
             let daysRemaining = getDaysRemaining()
             if daysRemaining == 1 {
-                return String(format: NSLocalizedString("%@ day left", comment: ""), "\(daysRemaining)")
+                dayRemainingString = String(
+                    format: NSLocalizedString("%@ day left", comment: ""), "\(String(format: "%02d", daysRemaining))")
             }
-            return String(format: NSLocalizedString("%@ days left", comment: ""), "\(daysRemaining)")
+            dayRemainingString = String(
+                format: NSLocalizedString("%@ days left", comment: ""), "\(String(format: "%02d", daysRemaining))")
         }
     }
 }

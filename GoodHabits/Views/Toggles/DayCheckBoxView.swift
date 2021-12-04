@@ -10,14 +10,14 @@ import SwiftUI
 struct DayCheckBoxView: View {
 
     @ObservedObject var day: Day
-
-    init(day: Day) {
-        self.day = day
-    }
+    @ObservedObject var viewModel: HabitListCell.HabitListCellViewModel
 
     var body: some View {
         if day.isVisible {
             Toggle("", isOn: $day.isDone)
+                .onChange(of: day.isDone) { _ in
+                    viewModel.dayDidUpdated()
+                }
                 .toggleStyle(CheckboxStyle(isToday: day.date! == Date().midnight()))
         } else {
             Toggle("", isOn: $day.isDone)
@@ -71,18 +71,33 @@ private struct CheckboxStyle: ToggleStyle {
 }
 
 struct DayCheckBoxView_Previews: PreviewProvider {
+    static let components = DateComponents(
+        calendar: Calendar.current,
+        timeZone: TimeZone(abbreviation: "GMT"),
+        year: 2021,
+        month: 9,
+        day: 26,
+        hour: 16,
+        minute: 15
+    )
 
-    static var day: Day {
+    static var habit: Habit {
         let viewContext = PersistenceController.preview.container.viewContext
-        let day = Day(context: viewContext)
-        day.date = Date().midnight()
-        day.isDone = false
-        day.isVisible = true
-        return day
+        let habit = Habit(context: viewContext, statement: "Do something", created: components.date!)
+        return habit
     }
 
+    static var day: Day {
+        let days = Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible }.sorted { $0.date! < $1.date! }
+        return days[0]
+    }
+
+    @State static var date = components.date!.midnight()
+
     static var previews: some View {
-        DayCheckBoxView(day: day)
+        DayCheckBoxView(
+            day: day,
+            viewModel: HabitListCell.HabitListCellViewModel(habit: habit, date: date))
             .environmentObject(Color.Palette(color: .blue))
     }
 }

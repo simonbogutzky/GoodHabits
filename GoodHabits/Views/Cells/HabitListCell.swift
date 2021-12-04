@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HabitListCell: View {
     @EnvironmentObject private var colorPalette: Color.Palette
-    var viewModel: HabitListCellViewModel
+    @ObservedObject var viewModel: HabitListCellViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -21,7 +21,7 @@ struct HabitListCell: View {
             ZStack {
                 HStack {
                     ForEach(viewModel.days, id: \.self) { day in
-                        DayCheckBoxView(day: day)
+                        DayCheckBoxView(day: day, viewModel: viewModel)
                     }
                 }
                 Spacer()
@@ -29,8 +29,9 @@ struct HabitListCell: View {
             }.padding(0)
             HStack {
                 Spacer()
-                Text(viewModel.getDayRemainingString())
+                Text(viewModel.dayRemainingString)
                     .font(.caption)
+                    .monospacedDigit()
                     .foregroundColor(colorPalette.neutral700)
             }.padding(.horizontal)
         }
