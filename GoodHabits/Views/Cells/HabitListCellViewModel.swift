@@ -26,12 +26,9 @@ extension HabitListCell {
 
             self.days = Array(habit.days as? Set<Day> ?? [])
                 .filter({ day in
-                    let calendar = Calendar.current
-                    let dayDateComponents = calendar.dateComponents([.weekOfYear, .year],
-                                                                    from: getFirstDayOfThisWeek(currentDate:
-                                                                                                    day.date!))
-                    let dateDateComponents = calendar.dateComponents([.weekOfYear, .year], from: date)
-                    return dateDateComponents == dayDateComponents
+                    let lowerBound = getFirstDayOfThisWeek(currentDate: date).midnight()
+                    let upperBound = lowerBound.addingTimeInterval(7 * 60 * 60 * 24)
+                    return day.date! >= lowerBound && day.date! < upperBound
                 })
                 .sorted(by: { first, second in
                     first.date! < second.date!
@@ -68,12 +65,16 @@ extension HabitListCell {
 
         func dayDidUpdated() {
             let daysRemaining = getDaysRemaining()
+            if daysRemaining < 1 {
+                dayRemainingString = NSLocalizedString("Done!", comment: "")
+            } else
             if daysRemaining == 1 {
                 dayRemainingString = String(
                     format: NSLocalizedString("%@ day left", comment: ""), "\(String(format: "%02d", daysRemaining))")
+            } else {
+                dayRemainingString = String(
+                    format: NSLocalizedString("%@ days left", comment: ""), "\(String(format: "%02d", daysRemaining))")
             }
-            dayRemainingString = String(
-                format: NSLocalizedString("%@ days left", comment: ""), "\(String(format: "%02d", daysRemaining))")
         }
     }
 }
