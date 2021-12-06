@@ -39,8 +39,8 @@ extension GoodHabitsWidgetView {
                                             lowerBound as NSDate,
                                             #keyPath(Day.isDone),
                                             NSNumber(value: false),
-                                            #keyPath(Day.isVisible),
-                                            NSNumber(value: true)
+                                            #keyPath(Day.isExcluded),
+                                            NSNumber(value: false)
                                             )
             fetchRequest.predicate = datePredicate
             do {

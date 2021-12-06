@@ -26,16 +26,16 @@ class HabitListCellViewModelTests: XCTestCase {
             statement: "Do something",
             created: yesterday
         )
-        let sut = HabitListCell.HabitListCellViewModel(habit: habit, date: Date())
 
         // Act
-        let daysRemaining = sut.getDaysRemaining()
+        let sut = HabitListCell.HabitListCellViewModel(habit: habit, date: Date())
 
         // Assert
-        XCTAssertEqual(daysRemaining, 66)
+        XCTAssertEqual(sut.dayRemainingString, String(
+            format: NSLocalizedString("%@ days left", comment: ""), "66"))
     }
 
-    func testGetDaysRemainingIs64() throws {
+    func testDaysRemainingStringIs64() throws {
 
         // Arrange
         let habit = Habit(
@@ -47,12 +47,11 @@ class HabitListCellViewModelTests: XCTestCase {
         days[0].isDone = true
         days[1].isDone = true
 
+        // Act
         let sut = HabitListCell.HabitListCellViewModel(habit: habit, date: Date())
 
-        // Act
-        let daysRemaining = sut.getDaysRemaining()
-
         // Assert
-        XCTAssertEqual(daysRemaining, 64)
+        XCTAssertEqual(sut.dayRemainingString, String(
+            format: NSLocalizedString("%@ days left", comment: ""), "64"))
     }
 }

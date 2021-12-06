@@ -17,16 +17,11 @@ struct DayCheckBoxView: View {
     var hasToggle: HasToggle
 
     var body: some View {
-        if day.isVisible {
-            Toggle("", isOn: $day.isDone)
-                .onChange(of: day.isDone) { isDone in
-                    hasToggle.onChange(of: isDone)
-                }
-                .toggleStyle(CheckboxStyle(isToday: day.date! == Date().midnight()))
-        } else {
-            Toggle("", isOn: $day.isDone)
-                .toggleStyle(CheckboxStyle()).hidden()
-        }
+        Toggle("", isOn: $day.isDone)
+            .onChange(of: day.isDone) { isDone in
+                hasToggle.onChange(of: isDone)
+            }
+            .toggleStyle(CheckboxStyle(isToday: day.date == Date().midnight()))
     }
 }
 
@@ -92,7 +87,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
     }
 
     static var day: Day {
-        let days = Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible }.sorted { $0.date! < $1.date! }
+        let days = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
         return days[0]
     }
 

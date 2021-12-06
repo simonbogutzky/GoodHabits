@@ -11,10 +11,8 @@ extension HabitListCell {
     final class HabitListCellViewModel: HasToggle, ObservableObject {
 
         private var habit: Habit
-        private var date: Date
 
-        var days: [Day] = []
-
+        var days: [Day?] = [Day?](repeating: nil, count: 7)
         var statement: String {
             habit.statement ?? ""
         }
@@ -23,17 +21,8 @@ extension HabitListCell {
 
         init (habit: Habit, date: Date) {
             self.habit = habit
-            self.date = date
-            self.days = Array(habit.days as? Set<Day> ?? [])
-                .filter({ day in
-                    let lowerBound = getFirstDayOfThisWeek(currentDate: date).midnight()
-                    let upperBound = lowerBound.addingTimeInterval(7 * 60 * 60 * 24)
-                    return day.date! >= lowerBound && day.date! < upperBound
-                })
-                .sorted(by: { first, second in
-                    first.date! < second.date!
-                })
-            updateDayRemainingString()
+            self.createDays(for: date)
+            self.updateDayRemainingString()
         }
 
         func getFirstDayOfThisWeek(currentDate: Date) -> Date {
@@ -63,8 +52,24 @@ extension HabitListCell {
             updateDayRemainingString()
         }
 
-        func getDaysRemaining() -> Int {
-            return Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible && !$0.isDone }.count
+        private func createDays(for date: Date) {
+            var days = [Day?](repeating: nil, count: 7)
+
+            let firstDayOfThisWeekMidnight = getFirstDayOfThisWeek(currentDate: date).midnight()
+            let habitDays = Array(habit.days as? Set<Day> ?? [])
+
+            for index in 0..<7 {
+                let current = firstDayOfThisWeekMidnight.addingTimeInterval(TimeInterval(index * 86400))
+                for habitDay in habitDays where habitDay.date == current {
+                    days[index] = habitDay
+                }
+            }
+
+            self.days = days
+        }
+
+        private func getDaysRemaining() -> Int {
+            return Array(habit.days as? Set<Day> ?? []).filter { !$0.isExcluded && !$0.isDone }.count
         }
 
         private func updateDayRemainingString() {
