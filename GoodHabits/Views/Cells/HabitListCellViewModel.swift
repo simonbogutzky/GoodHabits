@@ -8,22 +8,22 @@
 import SwiftUI
 
 extension HabitListCell {
-    final class HabitListCellViewModel: ObservableObject {
+    final class HabitListCellViewModel: HasToggle, ObservableObject {
 
         private var habit: Habit
         private var date: Date
 
-        @Published var days: [Day] = []
-        @Published var dayRemainingString = ""
+        var days: [Day] = []
 
         var statement: String {
             habit.statement ?? ""
         }
 
+        @Published var dayRemainingString = ""
+
         init (habit: Habit, date: Date) {
             self.habit = habit
             self.date = date
-
             self.days = Array(habit.days as? Set<Day> ?? [])
                 .filter({ day in
                     let lowerBound = getFirstDayOfThisWeek(currentDate: date).midnight()
@@ -33,7 +33,7 @@ extension HabitListCell {
                 .sorted(by: { first, second in
                     first.date! < second.date!
                 })
-            dayDidUpdated()
+            updateDayRemainingString()
         }
 
         func getFirstDayOfThisWeek(currentDate: Date) -> Date {
@@ -59,11 +59,15 @@ extension HabitListCell {
             }
         }
 
+        func onChange(of: Bool) {
+            updateDayRemainingString()
+        }
+
         func getDaysRemaining() -> Int {
             return Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible && !$0.isDone }.count
         }
 
-        func dayDidUpdated() {
+        private func updateDayRemainingString() {
             let daysRemaining = getDaysRemaining()
             if daysRemaining < 1 {
                 dayRemainingString = NSLocalizedString("Done!", comment: "")

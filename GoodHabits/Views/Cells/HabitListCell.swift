@@ -21,7 +21,7 @@ struct HabitListCell: View {
             ZStack {
                 HStack {
                     ForEach(viewModel.days, id: \.self) { day in
-                        DayCheckBoxView(day: day, viewModel: viewModel)
+                        DayCheckBoxView(day: day, hasToggle: viewModel)
                     }
                 }
                 Spacer()

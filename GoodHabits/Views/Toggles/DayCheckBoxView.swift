@@ -7,16 +7,20 @@
 
 import SwiftUI
 
+protocol HasToggle {
+    func onChange(of: Bool)
+}
+
 struct DayCheckBoxView: View {
 
     @ObservedObject var day: Day
-    @ObservedObject var viewModel: HabitListCell.HabitListCellViewModel
+    var hasToggle: HasToggle
 
     var body: some View {
         if day.isVisible {
             Toggle("", isOn: $day.isDone)
-                .onChange(of: day.isDone) { _ in
-                    viewModel.dayDidUpdated()
+                .onChange(of: day.isDone) { isDone in
+                    hasToggle.onChange(of: isDone)
                 }
                 .toggleStyle(CheckboxStyle(isToday: day.date! == Date().midnight()))
         } else {
@@ -97,7 +101,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
     static var previews: some View {
         DayCheckBoxView(
             day: day,
-            viewModel: HabitListCell.HabitListCellViewModel(habit: habit, date: date))
+            hasToggle: HabitListCell.HabitListCellViewModel(habit: habit, date: date))
             .environmentObject(Color.Palette(color: .blue))
     }
 }
