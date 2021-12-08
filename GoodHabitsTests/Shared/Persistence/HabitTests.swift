@@ -11,149 +11,83 @@ import CoreData
 
 class HabitTests: XCTestCase {
 
-    var persistenceController: PersistenceController!
-    var calendar: Calendar!
+    private var persistenceController: PersistenceController!
+    private var viewContext: NSManagedObjectContext!
+    private var calendar: Calendar!
+    private var startDate: Date!
 
     override func setUpWithError() throws {
         persistenceController = PersistenceController(inMemory: true)
+        viewContext = persistenceController.container.viewContext
         calendar = Calendar.current
+        startDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 28, hour: 16, minute: 15).date!
     }
 
     func testAddHabit() throws {
 
         // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let request: NSFetchRequest<Habit> = Habit.fetchRequest()
-        let initialCount = try viewContext.count(for: request)
-            XCTAssertEqual(initialCount, 0)
+        let habitFetchRequest: NSFetchRequest<Habit> = Habit.fetchRequest()
+        let initialCount = try viewContext.count(for: habitFetchRequest)
+        XCTAssertEqual(initialCount, 0)
 
         // Act
         _ = Habit(context: viewContext)
 
         // Assert
-        let finalCount = try viewContext.count(for: request)
+        let finalCount = try viewContext.count(for: habitFetchRequest)
         XCTAssertEqual(finalCount, 1)
     }
 
-    func testAddHabitHabitNameIsDoSomething() throws {
-
-        // Arrange
-        let viewContext = persistenceController.container.viewContext
+    func testAddHabitHabitStatementIsDoSomething() throws {
 
         // Act
         let sut = Habit(context: viewContext, statement: "Do something")
 
         // Assert
-        let habitStatement = sut.statement
-        XCTAssertEqual("Do something", habitStatement)
+        XCTAssertEqual("Do something", sut.statement)
     }
 
-    func testAddHabitHabitTimestampIs20210927T161500() throws {
-
-        // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
+    func testAddHabitHabitCreatedIs20210927T161500() throws {
 
         // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
 
         // Assert
-        let habitCreated = sut.created
-        XCTAssertEqual(components.date, habitCreated)
+        XCTAssertEqual(startDate, sut.created)
     }
 
     func testAddHabitVisibleDaysCountIs66() throws {
 
-        // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
-
         // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
 
         // Assert
-        XCTAssertEqual(66, sut.days?.count)
+        XCTAssertEqual(66, sut.days!.count)
     }
 
     func testAddHabitFirstVisibleDayIs20210928T000000() throws {
 
         // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
+        let expectedFirstDayDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 28).date!
 
         // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
 
         // Assert
-        let expectedComponents = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28
-        )
-        let firstDayDate = Array(sut.days as? Set<Day> ?? [])
-            .sorted(by: { first, second in
-                first.date! < second.date!
-            })
-            .first?.date
-        XCTAssertEqual(expectedComponents.date, firstDayDate)
+        let firstDayDate = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.first?.date
+        XCTAssertEqual(expectedFirstDayDate, firstDayDate)
     }
 
     func testAddHabitLastVisibleDayIs20211202T000000() throws {
 
         // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
+        let expectedLastDayDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 12, day: 02).date!
 
         // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
 
         // Assert
-        let expectedComponents = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 12,
-            day: 02
-        )
-        let lastDayDate = Array(sut.days as? Set<Day> ?? [])
-            .sorted(by: { first, second in
-                first.date! < second.date!
-            })
-            .last?.date
-        XCTAssertEqual(expectedComponents.date, lastDayDate)
+        let lastDayDate = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last?.date
+        XCTAssertEqual(expectedLastDayDate, lastDayDate)
     }
 }
