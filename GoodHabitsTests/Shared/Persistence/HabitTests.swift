@@ -88,10 +88,7 @@ class HabitTests: XCTestCase {
         let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
 
         // Assert
-        let dayCount = Array(sut.days as? Set<Day> ?? []).filter({day in day.isVisible}).sorted(by: { first, second in
-            first.date! < second.date!
-        }).count
-        XCTAssertEqual(66, dayCount)
+        XCTAssertEqual(66, sut.days?.count)
     }
 
     func testAddHabitFirstVisibleDayIs20210928T000000() throws {
@@ -120,9 +117,6 @@ class HabitTests: XCTestCase {
             day: 28
         )
         let firstDayDate = Array(sut.days as? Set<Day> ?? [])
-            .filter({day in
-                day.isVisible
-            })
             .sorted(by: { first, second in
                 first.date! < second.date!
             })
@@ -156,99 +150,10 @@ class HabitTests: XCTestCase {
             day: 02
         )
         let lastDayDate = Array(sut.days as? Set<Day> ?? [])
-            .filter({day in
-                day.isVisible
-            })
             .sorted(by: { first, second in
                 first.date! < second.date!
             })
             .last?.date
         XCTAssertEqual(expectedComponents.date, lastDayDate)
-    }
-
-    func testAddHabitFirstDayIs20210920T000000() throws {
-
-        // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
-
-        // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
-
-        // Assert
-        let expectedComponents = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 09,
-            day: 20
-        )
-        let firstDayDate = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in
-            first.date! < second.date!
-        }).first?.date
-        XCTAssertEqual(expectedComponents.date, firstDayDate)
-    }
-
-    func testAddHabitLastDayIs20211212T000000() throws {
-
-        // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
-
-        // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
-
-        // Assert
-        let expectedComponents = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 12,
-            day: 12
-        )
-        let lastDayDate = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in
-            first.date! < second.date!
-        }).last?.date
-        XCTAssertEqual(expectedComponents.date, lastDayDate)
-    }
-
-    func testAddHabitAllDayCountIs84() throws {
-
-        // Arrange
-        let viewContext = persistenceController.container.viewContext
-        let components = DateComponents(
-            calendar: calendar,
-            timeZone: TimeZone(abbreviation: "GMT"),
-            year: 2021,
-            month: 9,
-            day: 28,
-            hour: 16,
-            minute: 15
-        )
-
-        // Act
-        let sut = Habit(context: viewContext, statement: "Do something", created: components.date!)
-
-        // Assert
-        let dayCount = Array(sut.days as? Set<Day> ?? []).sorted(by: { first, second in
-            first.date! < second.date!
-        }).count
-        XCTAssertEqual(84, dayCount)
     }
 }

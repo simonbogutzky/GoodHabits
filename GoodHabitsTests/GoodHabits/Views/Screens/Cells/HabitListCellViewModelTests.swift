@@ -43,7 +43,7 @@ class HabitListCellViewModelTests: XCTestCase {
             statement: "Do something",
             created: yesterday
         )
-        let days = Array(habit.days as? Set<Day> ?? []).filter { $0.isVisible }.sorted { $0.date! < $1.date! }
+        let days = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
         days[0].isDone = true
         days[1].isDone = true
 
