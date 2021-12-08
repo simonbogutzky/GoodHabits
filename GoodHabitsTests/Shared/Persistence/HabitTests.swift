@@ -122,18 +122,17 @@ class HabitTests: XCTestCase {
         XCTAssertFalse(isDone)
     }
 
-    func testExcludeDaysExcludedCountIs2() {
+    func testExcludeDaysExcludedCountIs5() {
 
         // Arrange
-        let excludeDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 30).date!
+        let excludeDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 10, day: 3).date!
         let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
 
         // Act
-        sut.excludeDays(until: excludeDate)
+        let excludedCount = sut.excludeDays(until: excludeDate)
 
         // Assert
-        let excludedCount = Array(sut.days as? Set<Day> ?? []).filter { $0.isExcluded }.count
-        XCTAssertEqual(2, excludedCount)
+        XCTAssertEqual(5, excludedCount)
     }
 
     func testAppendDaysLastDayIs20211204T000000() {
