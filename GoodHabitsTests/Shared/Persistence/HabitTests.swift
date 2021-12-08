@@ -90,4 +90,64 @@ class HabitTests: XCTestCase {
         let lastDayDate = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last?.date
         XCTAssertEqual(expectedLastDayDate, lastDayDate)
     }
+
+    func testCheckIfDoneExcludeTwoLastDaysAreTrue() {
+
+        // Arrange
+        let checkDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 30).date!
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
+        let days = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
+        days[0].isDone = true
+        days[1].isDone = true
+
+        // Act
+        let isDone = sut.checkIfDone(exclude: 2, until: checkDate)
+
+        // Assert
+        XCTAssertTrue(isDone)
+    }
+
+    func testCheckIfDoneExcludeTwoLastDaysAreFalse() {
+
+        // Arrange
+        let checkDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 30).date!
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
+        let days = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
+        days[0].isDone = true
+
+        // Act
+        let isDone = sut.checkIfDone(exclude: 2, until: checkDate)
+
+        // Assert
+        XCTAssertFalse(isDone)
+    }
+
+    func testExcludeDaysExcludedCountIs2() {
+
+        // Arrange
+        let excludeDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 30).date!
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
+
+        // Act
+        sut.excludeDays(until: excludeDate)
+
+        // Assert
+        let excludedCount = Array(sut.days as? Set<Day> ?? []).filter { $0.isExcluded }.count
+        XCTAssertEqual(2, excludedCount)
+    }
+
+    func testAppendDaysLastDayIs20211204T000000() {
+
+        // Arrange
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
+        let initialLastDayDate = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last?.date
+        let expectedLastDayDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 12, day: 04).date!
+
+        // Act
+        sut.appendDays(days: 2, from: initialLastDayDate!.addingTimeInterval(TimeInterval(86400)))
+
+        // Assert
+        let lastDayDate = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last?.date
+        XCTAssertEqual(expectedLastDayDate, lastDayDate)
+    }
 }
