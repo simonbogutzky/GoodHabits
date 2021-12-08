@@ -65,7 +65,7 @@ class HabitTests: XCTestCase {
         XCTAssertEqual(66, sut.days!.count)
     }
 
-    func testAddHabitFirstVisibleDayIs20210928T000000() throws {
+    func testAddHabitFirstDayIs20210928T000000() throws {
 
         // Arrange
         let expectedFirstDayDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 28).date!
@@ -78,7 +78,7 @@ class HabitTests: XCTestCase {
         XCTAssertEqual(expectedFirstDayDate, firstDayDate)
     }
 
-    func testAddHabitLastVisibleDayIs20211202T000000() throws {
+    func testAddHabitLastDayIs20211202T000000() throws {
 
         // Arrange
         let expectedLastDayDate = DateComponents(calendar: calendar, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 12, day: 02).date!
