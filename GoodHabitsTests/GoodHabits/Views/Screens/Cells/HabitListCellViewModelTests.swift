@@ -11,38 +11,29 @@ import CoreData
 
 class HabitListCellViewModelTests: XCTestCase {
 
-    var persistenceController: PersistenceController!
-    let yesterday = Date().addingTimeInterval(-2 * 60 * 60 * 24)
+    private let startDate = Date().addingTimeInterval(TimeInterval(-4 * 86400))
+    private var persistenceController: PersistenceController!
+    private var viewContext: NSManagedObjectContext!
+    private var habit: Habit!
 
     override func setUpWithError() throws {
         persistenceController = PersistenceController(inMemory: true)
+        viewContext = persistenceController.container.viewContext
+        habit = Habit(context: viewContext, statement: "Do something", created: startDate)
     }
 
-    func testGetDaysRemainingIs66() throws {
-
-        // Arrange
-        let habit = Habit(
-            context: persistenceController.container.viewContext,
-            statement: "Do something",
-            created: yesterday
-        )
+    func testDayRemainingStringIs66() throws {
 
         // Act
         let sut = HabitListCell.HabitListCellViewModel(habit: habit, date: Date())
 
         // Assert
-        XCTAssertEqual(sut.dayRemainingString, String(
-            format: NSLocalizedString("%@ days left", comment: ""), "66"))
+        XCTAssertEqual(sut.dayRemainingString, String(format: NSLocalizedString("%@ days left", comment: ""), "66"))
     }
 
     func testDaysRemainingStringIs64() throws {
 
         // Arrange
-        let habit = Habit(
-            context: persistenceController.container.viewContext,
-            statement: "Do something",
-            created: yesterday
-        )
         let days = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
         days[0].isDone = true
         days[1].isDone = true
@@ -51,7 +42,6 @@ class HabitListCellViewModelTests: XCTestCase {
         let sut = HabitListCell.HabitListCellViewModel(habit: habit, date: Date())
 
         // Assert
-        XCTAssertEqual(sut.dayRemainingString, String(
-            format: NSLocalizedString("%@ days left", comment: ""), "64"))
+        XCTAssertEqual(sut.dayRemainingString, String(format: NSLocalizedString("%@ days left", comment: ""), "64"))
     }
 }
