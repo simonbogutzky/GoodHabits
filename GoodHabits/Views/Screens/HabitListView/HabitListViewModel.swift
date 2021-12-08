@@ -64,10 +64,23 @@ final class HabitListViewModel: ObservableObject {
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(keyPath: \Habit.created, ascending: true)]
         do {
-            self.habits = try viewContext.fetch(fetchRequest)
+            let habits = try viewContext.fetch(fetchRequest)
+
+            for habit in habits {
+                checkHabit(habit)
+            }
+
+            self.habits = habits
         } catch {
             self.habits = []
         }
+    }
+
+    private func checkHabit(_ habit: Habit) {
+        guard !habit.checkIfDone(exclude: 2) else { return }
+
+        let excluded = habit.excludeDays()
+        habit.appendDays(days: excluded, from: Date().midnight().addingTimeInterval(TimeInterval(86400)))
     }
 
     func addItemWithStatement(_ statement: String) {

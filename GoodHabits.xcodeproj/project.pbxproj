@@ -22,6 +22,7 @@
 		D30F629C274E3B1D0049BF33 /* WeekDayVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */; };
 		D30F629D274E3BA40049BF33 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D3AD12747EA5C00258C7F /* WeekDay.swift */; };
 		D30F629E274E4ADD0049BF33 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59E6E926C51C5F00224EC5 /* Date+Ext.swift */; };
+		D3256743276105270075B887 /* HabitListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3256742276105270075B887 /* HabitListViewModelTests.swift */; };
 		D3342FF7274D148400D3D866 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3342FF6274D148400D3D866 /* WidgetKit.framework */; };
 		D3342FF9274D148400D3D866 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3342FF8274D148400D3D866 /* SwiftUI.framework */; };
 		D3342FFC274D148400D3D866 /* GoodHabitsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3342FFB274D148400D3D866 /* GoodHabitsWidget.swift */; };
@@ -110,6 +111,7 @@
 		D30F6292274E317A0049BF33 /* GoodHabitsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodHabitsWidgetView.swift; sourceTree = "<group>"; };
 		D30F6297274E382D0049BF33 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		D30F629A274E3B1D0049BF33 /* WeekDayVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayVStack.swift; sourceTree = "<group>"; };
+		D3256742276105270075B887 /* HabitListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListViewModelTests.swift; sourceTree = "<group>"; };
 		D3342FF4274D148400D3D866 /* GoodHabitsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoodHabitsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3342FF6274D148400D3D866 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D3342FF8274D148400D3D866 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -184,6 +186,14 @@
 				D30EA8D727591034002419D1 /* HabitListCellViewModelTests.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D3256741276104C60075B887 /* HabitListView */ = {
+			isa = PBXGroup;
+			children = (
+				D3256742276105270075B887 /* HabitListViewModelTests.swift */,
+			);
+			path = HabitListView;
 			sourceTree = "<group>";
 		};
 		D3342FF5274D148400D3D866 /* Frameworks */ = {
@@ -438,6 +448,7 @@
 		D3A3C023275787D600C5A736 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D3256741276104C60075B887 /* HabitListView */,
 				D30EA8D527591010002419D1 /* Cells */,
 				D3A3C024275787E000C5A736 /* GoodHabitsWidgetView */,
 			);
@@ -703,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3256743276105270075B887 /* HabitListViewModelTests.swift in Sources */,
 				D3E219512701C9EC0030E9D7 /* DateTests.swift in Sources */,
 				D30EA8D827591034002419D1 /* HabitListCellViewModelTests.swift in Sources */,
 				D3A3C0262757881400C5A736 /* GoodHabitsWidgetViewModelTests.swift in Sources */,
