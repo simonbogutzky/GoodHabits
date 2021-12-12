@@ -135,6 +135,20 @@ class HabitTests: XCTestCase {
         XCTAssertEqual(5, excludedCount)
     }
 
+    func testAppendDaysOverallCountIs68() {
+
+        // Arrange
+        let sut = Habit(context: viewContext, statement: "Do something", created: startDate)
+        let initialLastDayDate = Array(sut.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last?.date
+
+        // Act
+        sut.appendDays(days: 2, from: initialLastDayDate!.addingTimeInterval(TimeInterval(86400)))
+
+        // Assert
+        let overallCount = Array(sut.days as? Set<Day> ?? []).count
+        XCTAssertEqual(68, overallCount)
+    }
+
     func testAppendDaysLastDayIs20211204T000000() {
 
         // Arrange

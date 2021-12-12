@@ -25,29 +25,6 @@ extension HabitListCell {
             self.updateDayRemainingString()
         }
 
-        func getFirstDayOfThisWeek(currentDate: Date) -> Date {
-            let firstWeekDay = Calendar.current.firstWeekday
-
-            switch firstWeekDay {
-            case 2:
-                return currentDate.previous(.monday, considerToday: true)
-            case 3:
-                return currentDate.previous(.tuesday, considerToday: true)
-            case 4:
-                return currentDate.previous(.wednesday, considerToday: true)
-            case 5:
-                return currentDate.previous(.thursday, considerToday: true)
-            case 6:
-                return currentDate.previous(.friday, considerToday: true)
-            case 0:
-                return currentDate.previous(.saturday, considerToday: true)
-            case 1:
-                return currentDate.previous(.sunday, considerToday: true)
-            default:
-                return currentDate
-            }
-        }
-
         func onChange(of: Bool) {
             updateDayRemainingString()
         }
@@ -55,7 +32,7 @@ extension HabitListCell {
         private func createDays(for date: Date) {
             var days = [Day?](repeating: nil, count: 7)
 
-            let firstDayOfThisWeekMidnight = getFirstDayOfThisWeek(currentDate: date).midnight()
+            let firstDayOfThisWeekMidnight = getFirstDayOfThisWeek(date: date).midnight()
             let habitDays = Array(habit.days as? Set<Day> ?? [])
 
             for index in 0..<7 {
@@ -66,6 +43,29 @@ extension HabitListCell {
             }
 
             self.days = days
+        }
+
+        private func getFirstDayOfThisWeek(date: Date) -> Date {
+            let firstWeekDay = Calendar.current.firstWeekday
+
+            switch firstWeekDay {
+            case 2:
+                return date.previous(.monday, considerToday: true)
+            case 3:
+                return date.previous(.tuesday, considerToday: true)
+            case 4:
+                return date.previous(.wednesday, considerToday: true)
+            case 5:
+                return date.previous(.thursday, considerToday: true)
+            case 6:
+                return date.previous(.friday, considerToday: true)
+            case 0:
+                return date.previous(.saturday, considerToday: true)
+            case 1:
+                return date.previous(.sunday, considerToday: true)
+            default:
+                return date
+            }
         }
 
         private func getDaysRemaining() -> Int {

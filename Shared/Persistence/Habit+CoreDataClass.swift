@@ -30,12 +30,14 @@ public class Habit: NSManagedObject {
     func checkIfDone(exclude lastDays: Int, until date: Date = Date().midnight()) -> Bool {
         let habitDays = Array(self.days as? Set<Day> ?? []).filter { !$0.isExcluded }.sorted { $0.date! < $1.date! }
 
-        let endIndex = habitDays.firstIndex { $0.date == date }! - (lastDays - 1)
-        guard endIndex > 0 else {
-            return true
-        }
+        var endIndex = habitDays.firstIndex { $0.date == date }
+        guard endIndex != nil else { return true }
 
-        for index in 0...endIndex {
+        endIndex = endIndex! - (lastDays - 1)
+        guard endIndex! > 0 else { return true }
+
+        print("Is Done check:")
+        for index in 0...endIndex! {
             print("\(habitDays[index].date!) : \(habitDays[index].isDone)")
             guard habitDays[index].isDone else {
                 return false
@@ -52,7 +54,9 @@ public class Habit: NSManagedObject {
             return 0
         }
 
+        print("Excluded days:")
         for index in 0...endIndex {
+            print("\(habitDays[index].date!) : \(habitDays[index].isExcluded)")
             habitDays[index].isExcluded = true
         }
 

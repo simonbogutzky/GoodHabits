@@ -23,7 +23,13 @@ struct HabitListCell: View {
                 HStack {
                     ForEach(viewModel.days, id: \.self) { day in
                         if day != nil {
-                            DayCheckBoxView(day: day!, hasToggle: viewModel)
+                            if  day!.isExcluded && day!.isDone {
+                               Excluded()
+                            } else if day!.isExcluded {
+                                Replay()
+                            } else {
+                                DayCheckBoxView(day: day!, hasToggle: viewModel)
+                            }
                         } else {
                             Placeholder()
                         }
@@ -41,6 +47,60 @@ struct HabitListCell: View {
             .padding(.horizontal)
         }
         .background(colorPalette.neutral100)
+    }
+}
+
+private struct Excluded: View {
+    @EnvironmentObject private var colorPalette: Color.Palette
+
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Image(systemName: "checkmark.circle.fill")
+                    .symbolRenderingMode(.palette)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 22, height: 22)
+                    .foregroundStyle(
+                        colorPalette.neutral100,
+                        colorPalette.neutral300
+                    )
+                    .padding(.bottom, -4)
+                Circle()
+                    .fill()
+                    .foregroundColor(.clear)
+                    .frame(width: 4, height: 4)
+            }
+            Spacer()
+        }
+    }
+}
+
+private struct Replay: View {
+    @EnvironmentObject private var colorPalette: Color.Palette
+
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Image(systemName: "arrow.counterclockwise.circle.fill")
+                    .symbolRenderingMode(.palette)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 22, height: 22)
+                    .foregroundStyle(
+                        colorPalette.neutral100,
+                        colorPalette.neutral300
+                    )
+                    .padding(.bottom, -4)
+                Circle()
+                    .fill()
+                    .foregroundColor(.clear)
+                    .frame(width: 4, height: 4)
+            }
+            Spacer()
+        }
     }
 }
 
@@ -66,15 +126,7 @@ private struct Placeholder: View {
 }
 
 struct HabitRowView_Previews: PreviewProvider {
-    static let components = DateComponents(
-        calendar: Calendar.current,
-        timeZone: TimeZone(abbreviation: "GMT"),
-        year: 2021,
-        month: 9,
-        day: 27,
-        hour: 16,
-        minute: 15
-    )
+    static let components = DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 27, hour: 16, minute: 15)
 
     static var habit: Habit {
         let viewContext = PersistenceController.preview.container.viewContext

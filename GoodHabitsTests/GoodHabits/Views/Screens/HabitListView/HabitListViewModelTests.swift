@@ -46,6 +46,7 @@ class HabitListViewModelTests: XCTestCase {
         // Assert
         let habitDays = Array(sut.habits[0].days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
         let isExcluded = habitDays.map { $0.isExcluded }
+        print(isExcluded.count)
         let isDone = habitDays.map { $0.isDone }
 
         // Assert

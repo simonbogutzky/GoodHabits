@@ -50,7 +50,6 @@ private struct CheckboxStyle: ToggleStyle {
                         isToday ? colorPalette.secondary500 :colorPalette.primary500,
                         isToday ? colorPalette.secondary500 :colorPalette.primary500
                     )
-                    .font(.system(size: 20, weight: .regular))
                     .onTapGesture {
                         configuration.isOn.toggle()
                         if configuration.isOn {
@@ -70,15 +69,7 @@ private struct CheckboxStyle: ToggleStyle {
 }
 
 struct DayCheckBoxView_Previews: PreviewProvider {
-    static let components = DateComponents(
-        calendar: Calendar.current,
-        timeZone: TimeZone(abbreviation: "GMT"),
-        year: 2021,
-        month: 9,
-        day: 26,
-        hour: 16,
-        minute: 15
-    )
+    static let components = DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "GMT"), year: 2021, month: 9, day: 26, hour: 16, minute: 15)
 
     static var habit: Habit {
         let viewContext = PersistenceController.preview.container.viewContext
@@ -87,8 +78,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
     }
 
     static var day: Day {
-        let days = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
-        return days[0]
+        return Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }[0]
     }
 
     @State static var date = components.date!.midnight()

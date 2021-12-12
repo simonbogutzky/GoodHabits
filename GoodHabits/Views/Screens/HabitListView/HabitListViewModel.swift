@@ -18,8 +18,7 @@ final class HabitListViewModel: ObservableObject {
     var viewContext: NSManagedObjectContext
 
     var previousWeekNumber: String {
-        String(format: "%02d",
-               Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(-7 * 60 * 60 * 24)))
+        String(format: "%02d", Calendar.current.component(.weekOfYear, from: date.addingTimeInterval(TimeInterval(-7 * 86400))))
     }
 
     var weekNumber: String {
@@ -27,7 +26,7 @@ final class HabitListViewModel: ObservableObject {
     }
 
     var monthAndYear: String {
-        date.addingTimeInterval(2 * 60 * 60 * 24).formatted(.dateTime.month(.wide).year())
+        date.addingTimeInterval(TimeInterval(2 * 86400)).formatted(.dateTime.month(.wide).year())
     }
 
     init(viewContext: NSManagedObjectContext) {
@@ -39,18 +38,18 @@ final class HabitListViewModel: ObservableObject {
     }
 
     func nextWeek() {
-        date = date.addingTimeInterval(7 * 60 * 60 * 24)
+        date = date.addingTimeInterval(TimeInterval(7 * 86400))
     }
 
     func previousWeek() {
-        date = date.addingTimeInterval(-7 * 60 * 60 * 24)
+        date = date.addingTimeInterval(TimeInterval(-7 * 86400))
     }
 
     func getWeekDays() -> [WeekDay] {
         let firstWeekDate = getFirstDateOfTheCurrentWeek()
         var weekDays: [WeekDay] = []
         for index in 0..<7 {
-            let currentDate = firstWeekDate.addingTimeInterval(Double(index) * 60 * 60 * 24)
+            let currentDate = firstWeekDate.addingTimeInterval(TimeInterval(index * 86400))
             let digits = currentDate.formatted(.dateTime.day(.twoDigits))
             let abbreviation = currentDate.formatted(.dateTime.weekday(.abbreviated))
             let isToday = currentDate == Date().midnight()
@@ -77,10 +76,14 @@ final class HabitListViewModel: ObservableObject {
     }
 
     private func checkHabit(_ habit: Habit) {
+        print("Today: \(Date().midnight())")
+
         guard !habit.checkIfDone(exclude: 2) else { return }
 
         let excluded = habit.excludeDays()
-        habit.appendDays(days: excluded, from: Date().midnight().addingTimeInterval(TimeInterval(86400)))
+        let lastDay = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last
+        guard let lastDay = lastDay else { return }
+        habit.appendDays(days: excluded, from: lastDay.date!.addingTimeInterval(TimeInterval(86400)))
     }
 
     func addItemWithStatement(_ statement: String) {
@@ -135,7 +138,7 @@ final class HabitListViewModel: ObservableObject {
         if diff > 0 {
             diff -= 7
         }
-        return date.addingTimeInterval(TimeInterval(diff * 60 * 60 * 24))
+        return date.addingTimeInterval(TimeInterval(diff * 86400))
     }
 
     func getNextPaletteColor() -> Color.PaletteColor {
