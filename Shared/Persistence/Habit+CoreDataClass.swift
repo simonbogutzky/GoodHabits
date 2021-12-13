@@ -49,10 +49,11 @@ public class Habit: NSManagedObject {
 
     func excludeDays(until date: Date = Date().midnight()) -> Int {
         let habitDays = Array(self.days as? Set<Day> ?? []).filter { !$0.isExcluded }.sorted { $0.date! < $1.date! }
-        let endIndex = habitDays.firstIndex { $0.date == date }! - 1
-        guard endIndex > 0 else {
-            return 0
-        }
+
+        guard let firstIndex = habitDays.firstIndex(where: { $0.date == date}) else { return 0 }
+
+        let endIndex = firstIndex - 1
+        guard endIndex > 0 else { return 0 }
 
         print("Excluded days:")
         for index in 0...endIndex {

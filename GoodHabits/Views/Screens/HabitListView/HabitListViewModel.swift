@@ -78,9 +78,9 @@ final class HabitListViewModel: ObservableObject {
     private func checkHabit(_ habit: Habit) {
         print("Today: \(Date().midnight())")
 
-        guard !habit.checkIfDone(exclude: 2) else { return }
+        guard !habit.checkIfDone(exclude: 3) else { return }
 
-        let excluded = habit.excludeDays()
+        let excluded = habit.excludeDays(until: Date().midnight().addingTimeInterval(TimeInterval(-86400)))
         let lastDay = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }.last
         guard let lastDay = lastDay else { return }
         habit.appendDays(days: excluded, from: lastDay.date!.addingTimeInterval(TimeInterval(86400)))
