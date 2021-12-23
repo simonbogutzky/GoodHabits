@@ -17,10 +17,13 @@ extension HabitListCell {
             habit.statement ?? ""
         }
 
+        var currentDate: Date
+
         @Published var dayRemainingString = ""
 
-        init (habit: Habit, date: Date) {
+        init (habit: Habit, date: Date, currentDate: Date) {
             self.habit = habit
+            self.currentDate = currentDate
             self.createDays(for: date)
             self.updateDayRemainingString()
         }

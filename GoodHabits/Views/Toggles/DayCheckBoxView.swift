@@ -15,13 +15,14 @@ struct DayCheckBoxView: View {
 
     @ObservedObject var day: Day
     var hasToggle: HasToggle
+    var currentDate: Date
 
     var body: some View {
         Toggle("", isOn: $day.isDone)
             .onChange(of: day.isDone) { isDone in
                 hasToggle.onChange(of: isDone)
             }
-            .toggleStyle(CheckboxStyle(isToday: day.date == Date().midnight()))
+            .toggleStyle(CheckboxStyle(isToday: day.date == currentDate))
     }
 }
 
@@ -86,7 +87,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
     static var previews: some View {
         DayCheckBoxView(
             day: day,
-            hasToggle: HabitListCell.HabitListCellViewModel(habit: habit, date: date))
+            hasToggle: HabitListCell.HabitListCellViewModel(habit: habit, date: date, currentDate: date), currentDate: date)
             .environmentObject(Color.Palette(color: .blue))
     }
 }

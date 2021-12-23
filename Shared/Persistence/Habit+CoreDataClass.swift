@@ -33,8 +33,8 @@ public class Habit: NSManagedObject {
         var endIndex = habitDays.firstIndex { $0.date == date }
         guard endIndex != nil else { return true }
 
-        endIndex = endIndex! - (lastDays - 1)
-        guard endIndex! > 0 else { return true }
+        endIndex = endIndex! - lastDays
+        guard endIndex! >= 0 else { return true }
 
         print("Is Done check:")
         for index in 0...endIndex! {
@@ -53,7 +53,7 @@ public class Habit: NSManagedObject {
         guard let firstIndex = habitDays.firstIndex(where: { $0.date == date}) else { return 0 }
 
         let endIndex = firstIndex - 1
-        guard endIndex > 0 else { return 0 }
+        guard endIndex >= 0 else { return 0 }
 
         print("Excluded days:")
         for index in 0...endIndex {

@@ -28,7 +28,7 @@ struct HabitListCell: View {
                             } else if day!.isExcluded {
                                 Replay()
                             } else {
-                                DayCheckBoxView(day: day!, hasToggle: viewModel)
+                                DayCheckBoxView(day: day!, hasToggle: viewModel, currentDate: viewModel.currentDate)
                             }
                         } else {
                             Placeholder()
@@ -140,7 +140,7 @@ struct HabitRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            HabitListCell(viewModel: HabitListCell.HabitListCellViewModel(habit: habit, date: date))
+            HabitListCell(viewModel: HabitListCell.HabitListCellViewModel(habit: habit, date: date, currentDate: date))
                 .environmentObject(Color.Palette(color: .blue))
         }
     }
