@@ -82,7 +82,7 @@ struct DayCheckBoxView_Previews: PreviewProvider {
         return Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }[0]
     }
 
-    @State static var date = components.date!.midnight()
+    @State static var date = components.date!.gmtMidnight()
 
     static var previews: some View {
         DayCheckBoxView(

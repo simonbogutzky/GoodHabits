@@ -90,13 +90,13 @@ private struct WeekButtons: View {
     var body: some View {
         HStack(spacing: 12) {
 
-            Button {
-                viewModel.nextDay()
-            } label: {
-                RectangleImageButtonView(systemImageName: "calendar.badge.plus",
-                                         foregroundColor: colorPalette.primary600,
-                                         backgroundColor: colorPalette.primary200)
-            }
+//            Button {
+//                viewModel.nextDay()
+//            } label: {
+//                RectangleImageButtonView(systemImageName: "calendar.badge.plus",
+//                                         foregroundColor: colorPalette.primary600,
+//                                         backgroundColor: colorPalette.primary200)
+//            }
 
             Button {
                 viewModel.today()

@@ -13,7 +13,7 @@ extension Date {
         return Date()
     }
 
-    func midnight() -> Date {
+    func gmtMidnight() -> Date {
         let calendar = Calendar.current
         var dateComponents = calendar.dateComponents([.year, .month, .day], from: self)
         dateComponents.timeZone = TimeZone(abbreviation: "GMT")
@@ -26,6 +26,10 @@ extension Date {
             day: dateComponents.day
         )
         return midnightComponents.date!
+    }
+
+    func midnight() -> Date {
+        Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: self)!
     }
 
     func next(_ weekday: Weekday, considerToday: Bool = false) -> Date {

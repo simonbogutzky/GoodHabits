@@ -35,7 +35,7 @@ extension HabitListCell {
         private func createDays(for date: Date) {
             var days = [Day?](repeating: nil, count: 7)
 
-            let firstDayOfThisWeekMidnight = getFirstDayOfThisWeek(date: date).midnight()
+            let firstDayOfThisWeekMidnight = getFirstDayOfThisWeek(date: date).gmtMidnight()
             let habitDays = Array(habit.days as? Set<Day> ?? [])
 
             for index in 0..<7 {

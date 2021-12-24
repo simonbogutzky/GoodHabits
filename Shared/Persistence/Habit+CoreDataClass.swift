@@ -16,7 +16,7 @@ public class Habit: NSManagedObject {
         self.statement = statement
         self.created = created
 
-        appendDays(days: 66, from: created.midnight())
+        appendDays(days: 66, from: created.gmtMidnight())
     }
 
     func appendDays(days: Int, from date: Date) {
@@ -27,7 +27,7 @@ public class Habit: NSManagedObject {
         }
     }
 
-    func checkIfDone(exclude lastDays: Int, until date: Date = Date().midnight()) -> Bool {
+    func checkIfDone(exclude lastDays: Int, until date: Date = Date().gmtMidnight()) -> Bool {
         let habitDays = Array(self.days as? Set<Day> ?? []).filter { !$0.isExcluded }.sorted { $0.date! < $1.date! }
 
         var endIndex = habitDays.firstIndex { $0.date == date }
@@ -47,7 +47,7 @@ public class Habit: NSManagedObject {
         return true
     }
 
-    func excludeDays(until date: Date = Date().midnight()) -> Int {
+    func excludeDays(until date: Date = Date().gmtMidnight()) -> Int {
         let habitDays = Array(self.days as? Set<Day> ?? []).filter { !$0.isExcluded }.sorted { $0.date! < $1.date! }
 
         guard let firstIndex = habitDays.firstIndex(where: { $0.date == date}) else { return 0 }

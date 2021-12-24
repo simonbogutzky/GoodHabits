@@ -11,13 +11,13 @@ import CoreData
 final class HabitListViewModel: ObservableObject {
 
     @Published var addHabitModalViewIsPresented = false
-    @Published var currentDate = Date().midnight() {
+    @Published var currentDate = Date().gmtMidnight() {
         didSet {
             print("DidSet current date: \(currentDate)")
         }
     }
 
-    @Published var referenceDate = Date().midnight() {
+    @Published var referenceDate = Date().gmtMidnight() {
         didSet {
             print("DidSet reference date: \(currentDate)")
         }
@@ -157,7 +157,7 @@ final class HabitListViewModel: ObservableObject {
         if diff > 0 {
             diff -= 7
         }
-        return date.addingTimeInterval(TimeInterval(diff * 86400)).midnight()
+        return date.addingTimeInterval(TimeInterval(diff * 86400)).gmtMidnight()
     }
 
     func getNextPaletteColor() -> Color.PaletteColor {

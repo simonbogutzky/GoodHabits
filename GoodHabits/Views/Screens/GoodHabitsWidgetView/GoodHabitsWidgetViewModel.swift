@@ -14,7 +14,8 @@ extension GoodHabitsWidgetView {
     final class GoodHabitsWidgetViewModel: ObservableObject {
 
         var missingStatements = 0
-        var tomorrowMidnight = Date().addingTimeInterval(24 * 60 * 60).midnight()
+        var tomorrowMidnight = Date().addingTimeInterval(TimeInterval(86400)).midnight()
+
         var digits = Date().formatted(.dateTime.day(.twoDigits))
         var abbreviation = Date().formatted(.dateTime.weekday(.abbreviated))
 
@@ -30,8 +31,8 @@ extension GoodHabitsWidgetView {
         func fetchMissingStatementsOfToday() {
 
             let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
-            let lowerBound = Date().addingTimeInterval(-1 * 60 * 60 * 24).midnight()
-            let upperBound = Date().midnight()
+            let lowerBound = Date().addingTimeInterval(-1 * 60 * 60 * 24).gmtMidnight()
+            let upperBound = Date().gmtMidnight()
             let datePredicate = NSPredicate(format: "%K <= %@ AND %K >= %@ AND %K == %@ AND %K == %@",
                                             #keyPath(Day.date),
                                             upperBound as NSDate,

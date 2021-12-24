@@ -30,7 +30,7 @@ class DateTests: XCTestCase {
             day: 1,
             hour: 11,
             minute: 15)
-        let midnight = currentComponents.date!.midnight()
+        let midnight = currentComponents.date!.gmtMidnight()
 
         // Assert
         XCTAssertEqual(expectation, midnight)
