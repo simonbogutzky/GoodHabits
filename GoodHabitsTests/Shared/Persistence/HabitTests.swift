@@ -116,7 +116,7 @@ class HabitTests: XCTestCase {
         days[0].isDone = true
 
         // Act
-        let isDone = sut.checkIfDone(exclude: 2, until: checkDate)
+        let isDone = sut.checkIfDone(exclude: 1, until: checkDate)
 
         // Assert
         XCTAssertFalse(isDone)

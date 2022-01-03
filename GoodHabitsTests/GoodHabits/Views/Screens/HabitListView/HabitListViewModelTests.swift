@@ -24,11 +24,12 @@ class HabitListViewModelTests: XCTestCase {
     func testFetchHabitsScenario1() throws {
 
         // Arrange
-        var expectedIsExcluded = Array(repeating: false, count: 68)
+        var expectedIsExcluded = Array(repeating: false, count: 69)
         expectedIsExcluded[0] = true
         expectedIsExcluded[1] = true
+        expectedIsExcluded[2] = true
 
-        let expectedIsDone = Array(repeating: false, count: 68)
+        let expectedIsDone = Array(repeating: false, count: 69)
 
         let sut = HabitListViewModel(viewContext: viewContext)
         let habit = Habit(context: viewContext, statement: "Do something", created: startDate)
@@ -58,12 +59,14 @@ class HabitListViewModelTests: XCTestCase {
         var expectedIsDone = Array(repeating: false, count: 66)
         expectedIsDone[0] = true
         expectedIsDone[1] = true
+        expectedIsDone[2] = true
 
         let sut = HabitListViewModel(viewContext: viewContext)
         let habit = Habit(context: viewContext, statement: "Do something", created: startDate)
         let days = Array(habit.days as? Set<Day> ?? []).sorted { $0.date! < $1.date! }
         days[0].isDone = true
         days[1].isDone = true
+        days[2].isDone = true
 
         // Act
         sut.fetchHabits()
@@ -82,11 +85,12 @@ class HabitListViewModelTests: XCTestCase {
     func testFetchHabitsScenario3() throws {
 
         // Arrange
-        var expectedIsExcluded = Array(repeating: false, count: 68)
+        var expectedIsExcluded = Array(repeating: false, count: 69)
         expectedIsExcluded[0] = true
         expectedIsExcluded[1] = true
+        expectedIsExcluded[2] = true
 
-        var expectedIsDone = Array(repeating: false, count: 68)
+        var expectedIsDone = Array(repeating: false, count: 69)
         expectedIsDone[0] = true
 
         let sut = HabitListViewModel(viewContext: viewContext)
